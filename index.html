@@ -1,13 +1,1485 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morris Export Services | Engineered for Global Transit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .prose {
+      max-width: none;
+    }
+
+    /* Custom Hex Mask */
+    .hex-mask {
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    }
+
+    /* Branding Colors */
+    .text-morris-blue {
+      color: #0078D4;
+    }
+
+    .bg-morris-blue {
+      background-color: #0078D4;
+    }
+
+    .bg-morris-red {
+      background-color: #E81123;
+    }
+
+    .hover-bg-morris-red:hover {
+      background-color: #C30F1E;
+    }
+
+    /* Service Tiles */
+    .service-tile {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+
+    .service-tile img {
+      transition: transform 0.5s ease;
+    }
+
+    .service-tile:hover img {
+      transform: scale(1.1);
+    }
+
+    .service-tile .overlay {
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    }
+
+    /* Mega Menu */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: 100vw;
+      max-width: 1280px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .group:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .mega-menu-column {
+      border-right: 1px solid #f3f4f6;
+    }
+
+    .mega-menu-column:last-child {
+      border-right: none;
+    }
+  </style>
+</head>
+
+<body class="antialiased text-zinc-900 bg-white">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center h-20 items-center">
+        <div class="hidden md:flex items-center space-x-12" id="nav-links">
+          <!-- Links injected via JS -->
+        </div>
+
+        <div class="md:hidden flex items-center absolute right-4">
+          <button id="mobile-menu-button" class="text-zinc-600 hover:text-zinc-900">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-zinc-200 overflow-hidden">
+      <div class="px-4 pt-2 pb-6 space-y-1" id="mobile-nav-links">
+        <!-- Links injected via JS -->
+      </div>
+    </div>
+  </nav>
+
+  <main id="content">
+    <!-- Content will be injected here -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-zinc-900 text-zinc-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="col-span-1 md:col-span-2">
+          <span class="text-2xl font-black tracking-tighter text-white mb-6 block">MORRIS<span
+              class="text-blue-500">EXPORT</span></span>
+          <p class="max-w-md mb-8">
+            Providing world-class export packing, crating, and logistics solutions since 1958.
+            Your partner in global industrial transportation.
+          </p>
+          <div class="flex space-x-4">
+            <div class="flex items-center space-x-2">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+              <span>(713) 672-1635</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-6">Quick Links</h4>
+          <ul class="space-y-4">
+            <li><a href="#/about-us" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#/services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="#/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+            <li><a href="#/contact-us" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-6">Legal</h4>
+          <ul class="space-y-4">
+            <li><a href="#/terms-and-conditions" class="hover:text-white transition-colors">Terms & Conditions</a></li>
+            <li><a href="#/html-sitemap" class="hover:text-white transition-colors">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-zinc-800 text-sm flex flex-col md:flex-row justify-between items-center">
+        <p>© <span id="current-year"></span> Morris Export Services. All rights reserved.</p>
+        <p className="mt-4 md:mt-0">Houston, Texas</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Data
+    const SERVICES = [
+      {
+        id: 'custom-crating',
+        title: 'Custom Crating',
+        slug: 'custom-crating',
+        icon: 'box',
+        imgSeed: 'box1',
+        category: 'Packing & Crating',
+        description: 'Specialized crating solutions for any size or weight.',
+        content: 'Our custom crating services ensure your cargo is protected during transit with engineered solutions tailored to your specific needs. From heavy machinery to delicate electronics, we use heat-treated lumber and ISPM-15 certified materials for international shipping.',
+        features: ['Heat-treated ISPM-15 certified lumber', 'Custom-engineered cradles and bolsters', 'Mil-spec and export-grade materials'],
+        longDescription: [
+          'Morris Export Services has been engineering custom crates for industrial clients since 1942. Every crate we build is designed from the ground up based on cargo dimensions, weight, center of gravity, transport mode, and final destination — whether the shipment travels by flatbed truck, breakbulk vessel, or air freight.',
+          'We specialize in ISPM-15 compliant heat-treated lumber, ensuring your shipments clear international customs without delays. Our engineering team calculates load distribution for every project, designing blocking, bracing, and internal dunnage systems that prevent shifting even under the harshest sea and road conditions.',
+          'From single pieces of precision equipment to multi-unit industrial machinery, our custom crating solutions are built to perform. We maintain a fully equipped fabrication shop adjacent to our 250,000 sq ft Houston warehouse, enabling rapid turnaround without sacrificing quality.'
+        ],
+        stats: [
+          { value: '80+', label: 'Years of Crating Experience' },
+          { value: 'ISPM-15', label: 'Certified Materials' },
+          { value: '100%', label: 'Custom-Engineered Per Project' }
+        ],
+        process: [
+          { step: '01', title: 'Cargo Assessment', desc: 'Our team measures, weighs, and photographs your cargo, identifying fragile points, lifting eyes, and center-of-gravity data.' },
+          { step: '02', title: 'Crate Design', desc: 'Engineers design a crate specific to your cargo using heat-treated, ISPM-15 compliant lumber and appropriate blocking systems.' },
+          { step: '03', title: 'Fabrication', desc: 'Our shop crew builds the crate in our facility or on-site at your location, with interior dunnage and vapor barriers as required.' },
+          { step: '04', title: 'Loading & Marking', desc: 'Cargo is secured inside the crate, labeled with shipping marks, weight, and handling instructions per export regulations.' }
+        ],
+        faqs: [
+          { q: 'What is ISPM-15 and why does it matter?', a: 'ISPM-15 is an international phytosanitary standard requiring all wood packaging used in international trade to be heat-treated or fumigated to prevent the spread of invasive species. Non-compliant wood can result in cargo rejection at foreign ports.' },
+          { q: 'Can you crate cargo that is already at my facility?', a: 'Yes — our on-site packing teams are fully equipped to travel to your location with all necessary lumber, hardware, and tools to build a custom crate around your equipment in place.' },
+          { q: 'How quickly can you build a crate?', a: 'Turnaround depends on crate complexity, but we routinely complete standard industrial crates within 24–72 hours of receiving cargo dimensions and approval.' },
+          { q: 'Do you handle oversized or odd-shaped cargo?', a: 'Absolutely. We regularly crate turbines, generators, compressors, pressure vessels, and other OOG (out-of-gauge) cargo that requires custom bolster and cradle systems.' }
+        ],
+        industries: ['Oil & Gas', 'Power Generation', 'Aerospace', 'Heavy Manufacturing', 'Mining & Resources'],
+        keyBenefits: ['ISPM-15 Compliant', 'On-Site Available', 'Custom Engineered', 'Fast Turnaround', 'All Cargo Sizes', 'Documentation Included']
+      },
+      {
+        id: 'crane',
+        title: 'Crane & Rigging',
+        slug: 'crane',
+        icon: 'construction',
+        imgSeed: 'crane1',
+        category: 'Logistics & Transport',
+        description: 'Heavy lifting and precision positioning services up to 140,000 lbs.',
+        content: 'Professional crane services for heavy equipment handling and precise positioning. We offer material handling and crane services with lifting capacities up to 140,000 pounds, ensuring safe and efficient movement of your largest assets.',
+        features: ['Up to 140,000 lbs lifting capacity', 'OSHA certified operators', 'On-site machinery moving and positioning'],
+        longDescription: [
+          'Moving heavy industrial equipment requires more than horsepower — it demands precision, safety, and a certified team that understands rigging physics. Morris Export Services operates a fleet of forklifts and crane assets ranging from 5,000 to 140,000 lb capacity, giving us the capability to handle virtually any industrial lift.',
+          'Our OSHA-certified operators have decades of combined experience across oil refineries, manufacturing plants, power generation facilities, and port environments. We perform thorough pre-lift planning, including ground bearing capacity analysis, load path assessment, and rigging point verification before any lift begins.',
+          'We work seamlessly alongside our crating and warehousing teams, allowing us to lift, crate, and stage cargo for port delivery in a single coordinated operation — eliminating the cost and risk of juggling multiple vendors.'
+        ],
+        stats: [
+          { value: '140K', label: 'Lbs Max Lift Capacity' },
+          { value: 'OSHA', label: 'Certified Operators' },
+          { value: '5K–36K', label: 'Lbs Forklift Fleet Range' }
+        ],
+        process: [
+          { step: '01', title: 'Site Survey', desc: 'We assess ground conditions, clearances, and load paths to develop a detailed rigging and lift plan before mobilizing equipment.' },
+          { step: '02', title: 'Rigging & Equipment Setup', desc: 'Certified riggers attach appropriate slings, shackles, and spreader bars. Equipment is staged and final safety checks completed.' },
+          { step: '03', title: 'Precision Lift', desc: 'Our OSHA-certified operators execute the lift with close coordination between the crane operator and ground crew.' },
+          { step: '04', title: 'Placement & Securing', desc: 'Cargo is lowered to its exact target position — whether into a crate, onto a trailer, or into a storage rack — and secured.' }
+        ],
+        faqs: [
+          { q: 'What is your maximum lift capacity?', a: 'Our crane and lifting assets support up to 140,000 pounds. For heavier loads, we can coordinate with partner heavy-lift companies to arrange tandem or specialty lifts.' },
+          { q: 'Do you provide forklift rental with operators?', a: 'Yes. We offer forklifts from 5,000 to 36,000 lb capacity for rent, available with or without OSHA-certified operators depending on your needs.' },
+          { q: 'Can you perform lifts at my facility?', a: 'Yes, our team mobilizes to customer sites across the Houston metropolitan area and beyond. We evaluate site conditions in advance to ensure safe operations.' },
+          { q: 'Do you handle machinery disassembly before lifting?', a: 'Our crane and rigging team works in close coordination with our equipment relocation specialists, who can disassemble, crate, and prep equipment prior to lifts.' }
+        ],
+        industries: ['Oil & Gas', 'Chemical Processing', 'Power Generation', 'Marine & Ports', 'Heavy Manufacturing'],
+        keyBenefits: ['OSHA Certified', '140K Lbs Capacity', 'On-Site Mobilization', 'Pre-Lift Planning', 'Forklift Rental', 'Coordinated Operations']
+      },
+      {
+        id: 'containerization',
+        title: 'Containerization',
+        slug: 'containerization',
+        icon: 'container',
+        imgSeed: 'port1',
+        category: 'Logistics & Transport',
+        description: 'Expert container stuffing, blocking & bracing, and stripping services.',
+        content: 'We provide expert container loading (stuffing) and unloading (stripping) services. Our team specializes in blocking and bracing to maximize space utilization and ensure your cargo remains stable and secure throughout its journey.',
+        features: ['Expert blocking and bracing', 'Weight distribution optimization', 'High-security seal application'],
+        longDescription: [
+          'Container loading is far more than putting boxes in a box. Improper blocking and bracing is one of the leading causes of cargo damage in international shipping, resulting in millions of dollars in losses annually. Morris Export Services brings three generations of containerization expertise to every load we touch.',
+          'We calculate precise weight distribution plans before loading begins, ensuring axle weight compliance and preventing container racking during ocean transit. Our teams use custom-fabricated wood blocking, airbags, strapping, and dunnage to immobilize cargo and absorb shock throughout the journey.',
+          'We handle both full container loads (FCL) and less-than-container loads (LCL), and our proximity to the Port of Houston allows seamless coordination with shipping lines for container drops, picks, and on-dock loading when required.'
+        ],
+        stats: [
+          { value: 'FCL & LCL', label: 'Container Load Types' },
+          { value: '100%', label: 'Weight Distribution Verified' },
+          { value: 'Port Direct', label: 'Houston Port Access' }
+        ],
+        process: [
+          { step: '01', title: 'Pre-Load Survey', desc: 'We review cargo dimensions, weights, and the container type to develop a blocking & bracing plan that meets carrier and insurance requirements.' },
+          { step: '02', title: 'Container Inspection', desc: 'The container is inspected for structural integrity, cleanliness, and watertight seals before any cargo is introduced.' },
+          { step: '03', title: 'Loading & Securing', desc: 'Cargo is loaded per the approved plan. Custom blocking, bracing, strapping, and airbags are installed to eliminate movement.' },
+          { step: '04', title: 'Seal & Documentation', desc: 'A high-security seal is applied and container loading certificates, weight declarations, and VGM documents are prepared.' }
+        ],
+        faqs: [
+          { q: 'What is VGM and do you handle it?', a: 'VGM (Verified Gross Mass) is mandatory under SOLAS regulations — all export containers must have a verified weight declared before vessel loading. We handle VGM weighing and submission as part of our containerization service.' },
+          { q: 'Do you handle oversized cargo that won\'t fit in a standard container?', a: 'Yes. For out-of-gauge cargo we coordinate flat rack, open-top, or breakbulk solutions in conjunction with our trucking and drayage team.' },
+          { q: 'Can you stuff containers at the port?', a: 'We work closely with terminal operators at the Port of Houston and can arrange on-dock or near-dock stuffing depending on terminal requirements and scheduling.' },
+          { q: 'What blocking and bracing standards do you follow?', a: 'We follow CTU (Cargo Transport Unit) Code guidelines, IICL standards, and carrier-specific requirements to ensure compliance with international shipping regulations.' }
+        ],
+        industries: ['Oil & Gas Equipment', 'Automotive Parts', 'Industrial Machinery', 'Chemical Products', 'Consumer Goods'],
+        keyBenefits: ['FCL & LCL', 'Blocking & Bracing', 'VGM Compliant', 'Port of Houston Access', 'Damage Prevention', 'Full Documentation']
+      },
+      {
+        id: 'wrap-protection',
+        title: 'Wrap Protection',
+        slug: 'wrap-protection',
+        icon: 'shield',
+        imgSeed: 'wrap1',
+        category: 'Packing & Crating',
+        description: 'Advanced shrink wrapping and vapor corrosion inhibitor protection.',
+        content: 'Protect your equipment from corrosion and environmental damage with our advanced wrap protection. We use heavy-duty vinyl shrink wrap and VCI (Vapor Corrosion Inhibitor) materials to safeguard metal surfaces during long-term storage or sea transit.',
+        features: ['Heavy-duty vinyl shrink wrap', 'VCI moisture and corrosion protection', 'Climate-resistant outer layering'],
+        longDescription: [
+          'Corrosion is one of the most costly and preventable forms of cargo damage during international shipping. Salt air, humidity, condensation, and temperature swings during ocean transit can devastate exposed metal surfaces in a matter of weeks. Our wrap protection services form an impenetrable barrier against these threats.',
+          'We apply multi-layer protection systems tailored to your equipment type and transit duration. For standard shipments, we use industrial-grade heat-shrink vinyl — conforming tightly to any shape and shedding water completely. For long-haul or extended storage situations, we incorporate VCI (Vapor Corrosion Inhibitor) film and foil, which actively neutralizes corrosive agents at the molecular level.',
+          'Whether you\'re shipping a single pump or an entire processing skid, our wrap teams assess every exposed surface and design a protection strategy that ensures your equipment arrives in identical condition to how it left your facility.'
+        ],
+        stats: [
+          { value: 'VCI', label: 'Molecular Corrosion Inhibition' },
+          { value: '5yr+', label: 'Protection Rated Materials Available' },
+          { value: 'Any Shape', label: 'Custom Conforming Application' }
+        ],
+        process: [
+          { step: '01', title: 'Surface Prep', desc: 'Bare metal surfaces are cleaned and dried. Exposed threaded connections, flanges, and machined surfaces receive targeted VCI desiccant treatment.' },
+          { step: '02', title: 'Interior Wrapping', desc: 'VCI film is applied directly against metal surfaces, creating a molecular vapor barrier that prevents oxidation during storage and transit.' },
+          { step: '03', title: 'Outer Shrink Wrap', desc: 'Heavy-duty industrial heat-shrink vinyl is applied over the full unit and heat-activated to create a watertight, UV-resistant outer skin.' },
+          { step: '04', title: 'Labeling & Verification', desc: 'Wrap integrity is inspected, desiccant indicators are placed inside, and shipping labels and handling marks are applied externally.' }
+        ],
+        faqs: [
+          { q: 'What is VCI wrap and when is it recommended?', a: 'VCI (Vapor Corrosion Inhibitor) film emits molecules that form a protective layer on metal surfaces, preventing rust without coatings or oils. It\'s especially valuable for equipment stored or shipped for 30+ days in humid environments.' },
+          { q: 'Can you wrap equipment that is already crated?', a: 'Wrapping is typically applied before crating. However, for items stored in the yard or warehouse without crating, we can apply stand-alone wrap protection at any time.' },
+          { q: 'How long does shrink wrap protection last?', a: 'Industrial shrink wrap provides protection for 6–24 months under normal outdoor storage conditions. With VCI enhancements, protection can extend 5 years or more for sealed units.' },
+          { q: 'Is wrap protection available for on-site application?', a: 'Yes, our mobile wrap teams travel to customer facilities with all necessary equipment — shrink guns, VCI film rolls, and desiccant materials — to wrap in place.' }
+        ],
+        industries: ['Oil & Gas', 'Power Generation', 'Pump & Valve Manufacturing', 'Compressor OEMs', 'Defense & Aerospace'],
+        keyBenefits: ['VCI Protection', 'Waterproof Seal', 'UV Resistant', 'On-Site Available', 'All Equipment Shapes', 'Long-Term Storage Ready']
+      },
+      {
+        id: 'trucking-drayage',
+        title: 'Trucking & Drayage',
+        slug: 'trucking-drayage',
+        icon: 'truck',
+        imgSeed: 'truck1',
+        category: 'Logistics & Transport',
+        description: 'Port of Houston drayage and specialized OOG trucking.',
+        content: 'Our trucking and drayage services provide reliable transport for your exports. We specialize in Port of Houston logistics, offering drayage and specialized trucking for oversized or heavy cargo (Out of Gauge).',
+        features: ['Port of Houston drayage experts', 'Out of Gauge (OOG) specialized trucking', 'Real-time transit monitoring'],
+        longDescription: [
+          'Getting freight to and from the Port of Houston requires local expertise that goes far beyond general trucking. Morris Export Services has been navigating the terminals, gate procedures, and cut-off windows of the Port of Houston for decades, giving our clients a distinct advantage over brokers who lack that institutional knowledge.',
+          'We provide container drayage — picking up or delivering ISO containers between the port and customer facilities — along with specialized flatbed, lowboy, and step-deck services for oversized or overweight cargo that cannot travel in a standard container. Our out-of-gauge (OOG) trucking team coordinates all necessary oversize permits, pilot cars, and routing for complex moves.',
+          'For crating and export customers, our trucking services are fully integrated with our packing operations: we crate it, we move it, we deliver it to the dock, and we manage the gate paperwork — a true one-stop solution that eliminates scheduling friction between vendors.'
+        ],
+        stats: [
+          { value: 'Port Direct', label: 'Houston Terminal Access' },
+          { value: 'OOG Certified', label: 'Oversize Permit Handling' },
+          { value: '24/7', label: 'Transit Monitoring' }
+        ],
+        process: [
+          { step: '01', title: 'Shipment Planning', desc: 'We review cargo dimensions, port terminal, vessel cut-offs, and delivery window to build a precise transport schedule.' },
+          { step: '02', title: 'Equipment Selection', desc: 'The appropriate trailer type is selected — chassis, flatbed, lowboy, or step-deck — based on cargo size and weight.' },
+          { step: '03', title: 'Permitting & Routing', desc: 'For OOG moves, we secure all required oversize/overweight permits, coordinate pilot car escort, and plan the approved route.' },
+          { step: '04', title: 'Delivery & POD', desc: 'Cargo is delivered to the port terminal or customer facility. Proof of delivery and gate receipts are provided promptly.' }
+        ],
+        faqs: [
+          { q: 'What is drayage?', a: 'Drayage refers to the short-haul trucking of freight, most commonly moving containers between a port terminal and a nearby warehouse or customer facility. It is a critical link in the international shipping supply chain.' },
+          { q: 'Can you move out-of-gauge (OOG) cargo?', a: 'Yes. Our specialized equipment and permitting expertise allows us to move oversized or overweight cargo that exceeds standard legal highway dimensions, including turbines, transformers, and pressure vessels.' },
+          { q: 'Do you have access to all Port of Houston terminals?', a: 'We have established relationships and operational access across all major terminals at the Port of Houston, including Barbours Cut, Bayport, and various breakbulk facilities.' },
+          { q: 'Can you coordinate port delivery with my crating schedule?', a: 'Absolutely — because we handle both crating and trucking in-house, we can seamlessly coordinate the packing and transport timeline to meet vessel cut-off dates without missed windows.' }
+        ],
+        industries: ['Oil & Gas', 'Industrial Equipment', 'Import/Export Traders', 'Freight Forwarders', 'EPC Contractors'],
+        keyBenefits: ['Port of Houston Experts', 'OOG Permitted', 'Container Drayage', 'Integrated with Crating', 'Real-Time Tracking', 'Full Documentation']
+      },
+      {
+        id: 'equipment-facility-relocation',
+        title: 'Equipment & Facility Relocation',
+        slug: 'equipment-facility-relocation',
+        icon: 'factory',
+        imgSeed: 'factory1',
+        category: 'Logistics & Transport',
+        description: 'Turnkey plant and equipment moves from disassembly to reinstallation.',
+        content: 'Relocating a facility requires meticulous planning. We offer turnkey solutions for machinery moving and warehouse relocation, handling everything from disassembly and packing to transportation and re-installation at your new site.',
+        features: ['Complete project management', 'Machinery disassembly and re-assembly', 'Specialized heavy-haul logistics'],
+        longDescription: [
+          'Plant relocations and equipment moves are among the most complex logistics challenges in manufacturing and industrial operations. A failed relocation means production downtime — and downtime has a real dollar cost. Morris Export Services approaches every relocation project with the same engineering discipline we apply to our export packing services.',
+          'Our turnkey relocation process begins with a thorough site survey at both the origin and destination. We document existing equipment arrangements, utility connections, floor loadings, and access constraints. This becomes the baseline for a comprehensive move plan that sequences every phase of the relocation to minimize downtime and prevent damage.',
+          'From disassembly and tagging of equipment to custom crating, heavy-haul transport, and reinstallation at the new site, our teams manage the entire project under a single point of contact. We also coordinate with rigging crews, transportation providers, and destination facility managers to keep every move on schedule.'
+        ],
+        stats: [
+          { value: 'Turnkey', label: 'Single-Source Project Management' },
+          { value: '80+', label: 'Years Relocation Experience' },
+          { value: '140K lbs', label: 'Max Lifting Capacity On-Site' }
+        ],
+        process: [
+          { step: '01', title: 'Site Survey & Planning', desc: 'Both origin and destination sites are surveyed. Equipment inventory is tagged, access routes are mapped, and a detailed move sequence is developed.' },
+          { step: '02', title: 'Disassembly & Packing', desc: 'Equipment is systematically disassembled by qualified technicians, with all parts tagged and inventoried. Components are packed and crated for safe transport.' },
+          { step: '03', title: 'Transport', desc: 'Packed machinery is transported via appropriate vehicles — flatbed, lowboy, or specialized heavy-haul — with permits secured as needed.' },
+          { step: '04', title: 'Reinstallation & Commissioning Support', desc: 'Equipment is unloaded, positioned, and reassembled at the destination. We coordinate with your engineering team for commissioning readiness.' }
+        ],
+        faqs: [
+          { q: 'Do you handle international facility relocations?', a: 'Yes. Our export packing capabilities make us uniquely positioned to handle relocations that involve international shipping — we pack, crate, containerize, and coordinate ocean or air freight for overseas equipment moves.' },
+          { q: 'How do you minimize production downtime during a move?', a: 'We develop a phased relocation plan that sequences equipment moves to maintain partial production where possible, and we work around your maintenance windows and production schedules when scheduling the move.' },
+          { q: 'Can you handle clean room or precision equipment?', a: 'Our teams are trained in handling sensitive equipment, including coordinate measuring machines, CNC systems, and other precision assets that require special care during transport.' },
+          { q: 'Do you provide inventory documentation for the move?', a: 'Yes — every item is tagged, photographed, and inventoried before and after the move. Detailed manifests are provided to the client upon project completion.' }
+        ],
+        industries: ['Advanced Manufacturing', 'Chemical Processing', 'Food & Beverage', 'Semiconductor Fab', 'Oil & Gas'],
+        keyBenefits: ['Single-Source Turnkey', 'Disassembly & Reassembly', 'International Capable', 'Phased Planning', 'Full Inventory Control', 'Minimize Downtime']
+      },
+      {
+        id: 'facilities-warehouse-storage',
+        title: 'Facilities & Warehouse Storage',
+        slug: 'facilities-warehouse-storage',
+        icon: 'warehouse',
+        imgSeed: 'warehouse1',
+        category: 'Storage & Management',
+        description: '250,000+ sq ft of secure indoor, climate-controlled, and outdoor storage near the Port of Houston.',
+        content: 'Our state-of-the-art Houston facility provides secure indoor, climate-controlled, and outdoor storage solutions. With high-capacity material handling and 24/7 security, your cargo is in safe hands until it\'s ready for shipping.',
+        features: ['250,000+ sq ft of storage', 'Climate-controlled indoor space', 'Secure 24/7 monitored yard'],
+        longDescription: [
+          'Proximity to the Port of Houston combined with our 250,000+ square foot facility gives Morris Export Services a decisive storage advantage. Whether you need short-term staging space ahead of vessel loading or long-term warehouse storage while your project matures, we have the space, equipment, and security infrastructure to accommodate your needs.',
+          'Our indoor space includes dock-height bays with heavy forklift access and dedicated crane bays capable of handling units up to 140,000 lbs. Climate-controlled sections protect temperature-sensitive electronics, instrumentation, and chemical products. Our secured outdoor laydown yard accommodates large structural steel, pressure vessels, spools, and bulk materials on firm, compacted gravel surfaces.',
+          'Every piece of cargo stored in our facility is logged into our M-Pact inventory system, giving you real-time visibility into your inventory status. Security cameras, access control, and 24/7 on-site security personnel ensure your cargo is protected around the clock.'
+        ],
+        stats: [
+          { value: '250K+', label: 'Square Feet of Storage' },
+          { value: '24/7', label: 'Security & Monitoring' },
+          { value: 'Port Adjacent', label: 'Houston Location' }
+        ],
+        process: [
+          { step: '01', title: 'Intake & Logging', desc: 'All incoming cargo is weighed, measured, photographed, and logged into the M-Pact inventory system. A client-facing receipt is issued immediately.' },
+          { step: '02', title: 'Storage Assignment', desc: 'Cargo is assigned to the appropriate storage zone — indoor climate-controlled, general indoor warehouse, or secured outdoor laydown — based on type and client requirements.' },
+          { step: '03', title: 'Ongoing Monitoring', desc: 'Inventory status is updated in real time. Clients have 24/7 access to their inventory reports via the M-Pact portal.' },
+          { step: '04', title: 'Release & Dispatch', desc: 'When cargo is ready for shipment, our team coordinates loading, documentation, and port delivery to meet your vessel or transport schedule.' }
+        ],
+        faqs: [
+          { q: 'What is the minimum storage period?', a: 'We accommodate both short-term staging (even a single day before port delivery) and long-term project storage measured in months or years. Contact us to discuss your specific timeline.' },
+          { q: 'Is climate-controlled storage available?', a: 'Yes. We have dedicated climate-controlled warehouse sections for electronics, instrumentation, packaged equipment, and other temperature- or humidity-sensitive cargo.' },
+          { q: 'Can I inspect my cargo while it is in storage?', a: 'Absolutely. Clients are welcome to visit the facility by appointment to inspect, inventory, or photo-document their stored cargo at any time.' },
+          { q: 'Do you offer material handling within the facility?', a: 'Yes. Our on-site forklift fleet (5,000–36,000 lbs) and crane assets provide full material handling for receiving, relocating, and loading all stored cargo.' }
+        ],
+        industries: ['Oil & Gas', 'EPC Contractors', 'Freight Forwarders', 'Import/Export', 'Manufacturing'],
+        keyBenefits: ['250K Sq Ft', 'Climate-Controlled', 'Outdoor Laydown', 'Real-Time Inventory', '24/7 Security', 'Port Proximity']
+      },
+      {
+        id: 'on-site-packing-services',
+        title: 'On-Site Packing Services',
+        slug: 'on-site-packing-services',
+        icon: 'package',
+        imgSeed: 'packing1',
+        category: 'Packing & Crating',
+        description: 'Fully equipped mobile packing teams come directly to your facility.',
+        content: 'When items are too large to move or require immediate protection, we bring our professional packing services to your location. Our mobile teams are equipped with all necessary materials to crate and secure goods on-site.',
+        features: ['Fully equipped mobile teams', 'Minimizes risk of transit damage', 'Convenient and efficient workflow'],
+        longDescription: [
+          'Not all cargo can be conveniently transported to a packing facility. Large installed equipment, operating production machinery, or items at remote project sites all present the same challenge: the packing must come to the cargo. Morris Export Services mobile packing teams are equipped and experienced to deliver full-service crating, wrapping, and blocking to any location.',
+          'Our mobile crews arrive with everything needed: ISPM-15 certified lumber, power tools, VCI wrap, strapping materials, blocking hardware, and forklift support where required. We assess the site upon arrival, develop a packing plan appropriate to the cargo and available space, and execute the job with the same craftsmanship we apply in our main facility.',
+          'On-site packing is especially valuable for plant-of-origin documentation, allowing your team to witness the packing process directly and reducing chain-of-custody concerns. We integrate seamlessly into your facility operations, working around your production schedule and safety requirements.'
+        ],
+        stats: [
+          { value: 'Mobile', label: 'Fully Self-Sufficient Teams' },
+          { value: 'ISPM-15', label: 'Certified Materials On-Site' },
+          { value: 'Zero Setup', label: 'Time Required at Your End' }
+        ],
+        process: [
+          { step: '01', title: 'Site Coordination', desc: 'We discuss your facility access requirements, safety protocols, and cargo details in advance to arrive fully prepared.' },
+          { step: '02', title: 'On-Site Assessment', desc: 'Upon arrival, our crew leader evaluates cargo conditions, access constraints, and available overhead clearance to finalize the packing approach.' },
+          { step: '03', title: 'Crating & Protection', desc: 'Our team builds crates, applies wrap protection, and installs blocking and bracing — all using materials brought from our facility.' },
+          { step: '04', title: 'Documentation', desc: 'Packing lists, crate marks, and weight declarations are completed on-site and provided to your shipping team before we depart.' }
+        ],
+        faqs: [
+          { q: 'How far from Houston do you travel for on-site packing?', a: 'We regularly serve the greater Houston area and regularly travel throughout Texas and neighboring states. For distant locations or international project sites, contact us to discuss logistics and mobilization costs.' },
+          { q: 'Can you work within an active production environment?', a: 'Yes. Our teams are experienced working in active industrial plants and are fully compliant with customer safety requirements including JSA/JHA documentation, PPE standards, and site-specific orientation.' },
+          { q: 'What if I need a crane or forklift at my site?', a: 'We can mobilize our own forklift equipment to your site, or use your facility\'s existing material handling equipment if it meets our safety standards.' },
+          { q: 'Do you provide packing documentation for insurance purposes?', a: 'Yes. We furnish full packing reports including photographs, material certifications, weight tallies, and crate dimension records that satisfy most export insurance documentation requirements.' }
+        ],
+        industries: ['Petrochemical', 'Power Generation', 'Defense Contractors', 'Mining Operations', 'OEM Equipment Builders'],
+        keyBenefits: ['Mobile Service', 'ISPM-15 Compliant', 'Plant Safety Trained', 'Documentation Provided', 'Forklift Support', 'Houston & Beyond']
+      },
+      {
+        id: 'hazardous-packaging',
+        title: 'Hazardous Packaging',
+        slug: 'hazardous-packaging',
+        icon: 'alert-triangle',
+        imgSeed: 'hazmat1',
+        category: 'Packing & Crating',
+        description: 'UN-certified hazmat packing, storage, and drayage for domestic and international shipments.',
+        content: 'Properly managing hazardous materials is critical. We offer certified hazmat storage, packing, and drayage services, ensuring full compliance with international safety regulations for air and sea transport.',
+        features: ['UN-certified packaging', 'Compliance documentation management', 'Dedicated hazmat storage area'],
+        longDescription: [
+          'Shipping dangerous goods requires strict adherence to IATA, IMDG, and DOT regulations — and the consequences of non-compliance range from cargo rejection to substantial fines. Morris Export Services maintains the certifications, equipment, and trained personnel to handle hazardous materials safely and in full regulatory compliance.',
+          'Our dedicated hazmat storage area provides properly segregated, ventilated, and placarded storage for class-rated dangerous goods awaiting export. We work with licensed HAZMAT-certified packers who understand UN performance packaging requirements, proper labeling and marking specifications, and the documentation requirements of shipper\'s declarations and material safety data sheets.',
+          'From chemicals and batteries to flammable liquids and compressed gases, we tailor our hazmat packing approach to the specific class, quantity, and transport mode for each shipment — ensuring your dangerous goods reach their destination without regulatory incident.'
+        ],
+        stats: [
+          { value: 'UN Certified', label: 'Packaging Standards' },
+          { value: 'IATA & IMDG', label: 'Regulation Compliance' },
+          { value: 'Dedicated', label: 'Segregated Hazmat Storage' }
+        ],
+        process: [
+          { step: '01', title: 'Hazmat Classification', desc: 'We review your Safety Data Sheet (SDS) to confirm the correct UN number, hazard class, packing group, and applicable regulatory mode (air, sea, or ground).' },
+          { step: '02', title: 'UN Packaging Selection', desc: 'The appropriate UN performance-certified packaging — drum, IBC, box, or overpack — is selected and verified against the current applicable regulations.' },
+          { step: '03', title: 'Packing & Marking', desc: 'Hazmat-certified staff pack the material and apply all required labels, placards, orientation arrows, and hazard communication marks.' },
+          { step: '04', title: 'Documentation', desc: 'Shipper\'s Declaration for Dangerous Goods, emergency response information, and all required certificates are prepared and verified before handover to the carrier.' }
+        ],
+        faqs: [
+          { q: 'What hazmat classes can you handle?', a: 'We are equipped to handle the most common export hazmat classes including Class 3 (Flammables), Class 8 (Corrosives), Class 9 (Miscellaneous), and various Class 2 compressed gases. Contact us to confirm capability for your specific material.' },
+          { q: 'Do you handle lithium battery shipments?', a: 'Yes. Lithium batteries (UN3480, UN3481, UN3090, UN3091) require specific packaging and documentation under both IATA and IMDG regulations — we are fully versed in current lithium battery requirements.' },
+          { q: 'Can you handle hazmat drayage to the Port of Houston?', a: 'Yes. Our drayage team is equipped for hazmat container moves to and from port terminals, with all required placarding and documentation for terminal gate compliance.' },
+          { q: 'What documentation do you provide for hazmat shipments?', a: 'We provide a complete documentation package: Shipper\'s Declaration, MSDS/SDS copies, packaging performance certificates, and emergency contact information as required by the transport mode and destination country.' }
+        ],
+        industries: ['Chemical Manufacturing', 'Oil & Gas', 'Pharmaceutical', 'Electronics', 'Defense & Aerospace'],
+        keyBenefits: ['UN Certified Packing', 'IATA Compliant', 'IMDG Compliant', 'Hazmat Storage', 'Full Documentation', 'Port Drayage']
+      },
+      {
+        id: 'customer-warehouse-management',
+        title: 'Customer Warehouse Management',
+        slug: 'customer-warehouse-management',
+        icon: 'clipboard-list',
+        imgSeed: 'office1',
+        category: 'Storage & Management',
+        description: 'Technology-driven inventory control and logistics optimization for your operation.',
+        content: 'Improve your operation\'s efficiency with our warehouse management solutions. We leverage our technology and logistics expertise to help you manage inventory, streamline picking/packing, and monitor shipments.',
+        features: ['Inventory tracking and reporting', 'Process optimization consulting', 'Seamless ERP data integration'],
+        longDescription: [
+          'Modern export operations demand total supply chain visibility — and Morris Export Services delivers it. Our customer warehouse management service goes beyond simple storage: we provide active inventory management, real-time reporting, and logistics coordination that integrates with your internal ERP or operations systems.',
+          'Through our proprietary M-Pact software platform, every item in your inventory at our facility is tracked with location data, condition status, in/out history, and shipment readiness flags. Custom dashboards and reports can be configured to match your operational needs, giving your procurement, shipping, and finance teams exactly the data they need without manual reconciliation.',
+          'For clients with high-velocity shipments or complex project cargo, we assign a dedicated account coordinator who serves as your daily point of contact — managing receiving appointments, shipment releases, carrier coordination, and reporting in a seamless extension of your own logistics team.'
+        ],
+        stats: [
+          { value: 'Real-Time', label: 'Inventory Visibility' },
+          { value: 'ERP', label: 'Integrated Reporting' },
+          { value: 'Dedicated', label: 'Account Coordinator' }
+        ],
+        process: [
+          { step: '01', title: 'Account Setup', desc: 'We configure your M-Pact client portal, establish receiving and release authorization workflows, and integrate with your ERP if applicable.' },
+          { step: '02', title: 'Inventory Onboarding', desc: 'All existing or incoming cargo is logged with full detail: item description, dimensions, weight, condition, and storage location.' },
+          { step: '03', title: 'Ongoing Management', desc: 'Your dedicated coordinator handles daily inbounds, outbounds, cycle counts, and reporting. You receive scheduled or on-demand inventory reports.' },
+          { step: '04', title: 'Shipment Execution', desc: 'When items are ready for release, your coordinator arranges packing, documentation, carrier scheduling, and port delivery — all under your account.' }
+        ],
+        faqs: [
+          { q: 'Can your system integrate with SAP or Oracle?', a: 'Our M-Pact platform is designed to export data in standard formats compatible with major ERP systems including SAP, Oracle, and Microsoft Dynamics. Custom integrations are available — contact us to discuss your specific system.' },
+          { q: 'How often are inventory reports generated?', a: 'Reports can be scheduled daily, weekly, or monthly, or accessed on demand via the client portal 24/7. We also provide exception-based alerts for items nearing critical shipping windows.' },
+          { q: 'Do you provide a dedicated account manager?', a: 'Yes. High-volume and project-based clients are assigned a dedicated account coordinator who is your single point of contact for all warehouse management activities.' },
+          { q: 'Can you manage vendor-managed inventory (VMI) for us?', a: 'We can adapt our warehouse management workflows to support VMI arrangements, managing replenishment triggers and supplier coordination on your behalf.' }
+        ],
+        industries: ['EPC & Project Cargo', 'Oil & Gas Operators', 'Import/Export Trading', 'Freight Forwarders', 'Industrial Distributors'],
+        keyBenefits: ['Real-Time Visibility', 'M-Pact Portal', 'ERP Integration', 'Dedicated Coordinator', 'Custom Reporting', 'Full Audit Trail']
+      },
+      {
+        id: 'pipe-protection-bolsters',
+        title: 'Pipe Protection & Bolsters',
+        slug: 'pipe-protection-bolsters',
+        icon: 'circle-dot',
+        imgSeed: 'pipe1',
+        category: 'Packing & Crating',
+        description: 'Custom bolster fabrication and tubular cargo protection for oil & gas exports.',
+        content: 'Oil and gas projects often involve tubular cargo that requires specialized handling. We provide custom-designed pipe protection systems and high-strength bolsters to prevent damage and ensure safe stacking during export.',
+        features: ['Custom bolster fabrication', 'Tubular cargo protection specialists', 'High-capacity stacking solutions'],
+        longDescription: [
+          'Tubular goods — OCTG pipe, casing, tubing, and drill pipe — represent some of the highest-value cargo the oil and gas industry ships internationally. Thread damage, surface corrosion, or structural deformation caused by improper handling can make individual joints unusable and cause project delays worth far more than the pipe itself.',
+          'Morris Export Services has developed proprietary bolster designs specifically for tubular cargo, optimizing stack height, weight distribution, and thread protection in a single integrated system. Our bolsters are fabricated from structural steel or heavy timber to customer specifications, and we maintain a substantial inventory of standard sizes for rapid deployment.',
+          'In addition to bolsters, we apply thread protector systems, VCI corrosion-inhibiting wraps, and full-length pipe sleeve systems to protect tubular cargo from the Houston climate and the rigors of ocean transit. Our pipe protection specialists work directly with your logistics and procurement teams to develop cost-effective solutions that meet API and OCTG handling standards.'
+        ],
+        stats: [
+          { value: 'Custom Fab', label: 'Steel & Timber Bolsters' },
+          { value: 'API Aligned', label: 'OCTG Handling Standards' },
+          { value: 'High Stack', label: 'Capacity Optimization' }
+        ],
+        process: [
+          { step: '01', title: 'Cargo Specification Review', desc: 'We review pipe OD, weight, grade, and connection type to design an appropriate bolster and protection system.' },
+          { step: '02', title: 'Bolster Fabrication', desc: 'Custom steel or timber bolsters are fabricated in our shop to match the pipe bundle configuration and required stack height.' },
+          { step: '03', title: 'Thread & Surface Protection', desc: 'Thread protectors are verified, VCI wrap is applied to exposed surfaces, and full-length sleeve protection is installed as required.' },
+          { step: '04', title: 'Bundle & Mark', desc: 'Pipe bundles are banded, labeled with tally sheets and shipping marks, and staged for containerization or breakbulk loading.' }
+        ],
+        faqs: [
+          { q: 'What pipe sizes and grades can you handle?', a: 'We work with a full range of OCTG and line pipe — from small-diameter tubing through large-bore casing and conductor pipe. Both standard API and premium connection grades are within our experience.' },
+          { q: 'Do you fabricate bolsters or are they rented?', a: 'We fabricate custom bolsters in our shop for purchase or arrange client-owned bolster management and storage within our facility between shipments.' },
+          { q: 'Can you apply corrosion protection to pipe in our yard?', a: 'Yes. Our mobile wrap teams can travel to your storage yard to apply VCI protection and inspect thread protectors on site, without requiring transport to our facility.' },
+          { q: 'Do you provide tally sheets and shipping documentation?', a: 'We provide full pipe tally documentation including joint count, footage, weight, grade, and connection specification — both in hard copy and digital format.' }
+        ],
+        industries: ['Oil & Gas E&P', 'OCTG Distributors', 'Drilling Contractors', 'Pipeline Operators', 'Energy EPC Firms'],
+        keyBenefits: ['Custom Bolsters', 'Thread Protection', 'VCI Corrosion Wrap', 'API-Aligned', 'Tally Documentation', 'Mobile Application']
+      },
+      {
+        id: 'm-pact-technology-software',
+        title: 'M-PACT Technology & Software',
+        slug: 'm-pact-technology-software',
+        icon: 'cpu',
+        imgSeed: 'code1',
+        category: 'Technology',
+        description: 'Proprietary 24/7 logistics visibility platform integrated across all Morris operations.',
+        content: 'Transparency is key in modern logistics. Our proprietary M-Pact software gives you 24/7 access to your packing status, inventory levels, and documentation, providing full visibility across your entire supply chain.',
+        features: ['Real-time status updates', '24/7 online portal access', 'Comprehensive digital documentation'],
+        longDescription: [
+          'M-Pact was built by logistics professionals for logistics professionals. Developed in-house by the Morris Export Services technology team, M-Pact gives every client a live window into their cargo\'s status — from the moment it arrives at our facility through packing, storage, and final port delivery.',
+          'Unlike off-the-shelf WMS platforms bolted together by general logistics providers, M-Pact was purpose-built around the workflows of export packing and international freight preparation. Status flags cover every milestone of our packing process: cargo receipt, inspection, fabrication start, packing complete, labeling, and release-ready. Each event is time-stamped and attached to digital photos, making audit trails effortless.',
+          'M-Pact integrates with major ERP systems via standard data exports, and our team works with clients to configure custom reports, alert triggers, and dashboard views that match your internal logistics workflows. For freight forwarders and project managers coordinating multiple vendors, M-Pact is the single source of truth that eliminates guesswork from export schedules.'
+        ],
+        stats: [
+          { value: 'Live', label: 'Real-Time Status Tracking' },
+          { value: '24/7', label: 'Portal Access' },
+          { value: 'ERP', label: 'Integration Capable' }
+        ],
+        process: [
+          { step: '01', title: 'Client Onboarding', desc: 'We set up your secure M-Pact client account, configure your preferred dashboard views, and connect your team members with appropriate access levels.' },
+          { step: '02', title: 'Cargo Intake', desc: 'As cargo arrives, it is logged with photos, weights, dimensions, and condition notes — immediately visible in your M-Pact dashboard.' },
+          { step: '03', title: 'Live Status Tracking', desc: 'Every milestone — inspection, packing, labeling, release — is updated in real time with timestamps and digital documentation attachments.' },
+          { step: '04', title: 'Reporting & Integration', desc: 'Export custom reports for your ERP or download shipment packages with all required documentation in a single click before vessel departure.' }
+        ],
+        faqs: [
+          { q: 'Is M-Pact accessible on mobile devices?', a: 'Yes. M-Pact is a web-based platform accessible from any device with a browser, including smartphones and tablets — ideal for project managers monitoring cargo status in the field.' },
+          { q: 'Can multiple users access the same account?', a: 'Yes. M-Pact supports multi-user account access with configurable permission levels, allowing your shipping, procurement, and finance teams to access only the data relevant to their roles.' },
+          { q: 'Does M-Pact integrate with our ERP system?', a: 'M-Pact can export data in formats compatible with major ERP platforms. Custom API integrations are available for clients with specific integration requirements.' },
+          { q: 'Can we access historical shipment records?', a: 'Yes. All historical shipment records, documents, and status logs are retained and searchable in M-Pact, providing a permanent audit trail for every shipment processed through Morris Export.' }
+        ],
+        industries: ['Freight Forwarders', 'Project Cargo Managers', 'Procurement Teams', 'Export Compliance', 'Global Manufacturers'],
+        keyBenefits: ['Live Tracking', '24/7 Access', 'Photo Documentation', 'ERP Integration', 'Multi-User Access', 'Full Audit Trail']
+      }
+    ];
+
+    const navLinks = [
+      { name: 'Home', path: '#/' },
+      { name: 'About Us', path: '#/about-us' },
+      {
+        name: 'Services',
+        path: '#/services',
+        dropdown: [
+          ['Crating', 'Crane', 'Containerization'],
+          ['Wrap Protection', 'Trucking & Drayage', 'Equipment & Facility Relocation'],
+          ['Facilities & Warehouse Storage', 'On-Site Packing Services', 'Hazardous Packaging'],
+          ['Customer Warehouse Management', 'Pipe Protection & Bolsters', 'M-PACT Technology & Software']
+        ]
+      },
+      {
+        name: 'Customer Center',
+        path: '#/customer-center',
+        dropdown: [
+          ['Customer Reports', 'Credit Application', 'FAQ']
+        ]
+      },
+      { name: 'Our Team', path: '#/our-team' },
+      { name: 'Terms & Conditions', path: '#/terms-and-conditions' },
+      { name: 'Contact Us', path: '#/contact-us' },
+    ];
+
+    // Router
+    function renderPage() {
+      const hash = window.location.hash || '#/';
+      const content = document.getElementById('content');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+
+      if (hash === '#/') {
+        content.innerHTML = renderHome();
+      } else if (hash === '#/about-us') {
+        content.innerHTML = renderAbout();
+      } else if (hash === '#/services') {
+        content.innerHTML = renderServicesHub();
+      } else if (hash.startsWith('#/services/')) {
+        const slug = hash.split('/').pop();
+        content.innerHTML = renderServiceDetail(slug);
+      } else if (hash === '#/facilities') {
+        content.innerHTML = renderFacilities();
+      } else if (hash === '#/customer-center') {
+        content.innerHTML = renderCustomerCenter();
+      } else if (hash === '#/contact-us') {
+        content.innerHTML = renderContact();
+      } else if (hash === '#/credit-application') {
+        content.innerHTML = renderCreditApplication();
+      } else if (hash === '#/faq') {
+        content.innerHTML = renderFAQ();
+      } else if (hash === '#/our-team') {
+        content.innerHTML = renderOurTeam();
+      } else if (hash === '#/terms-and-conditions') {
+        content.innerHTML = renderTerms();
+      } else if (hash === '#/html-sitemap') {
+        content.innerHTML = renderHtmlSitemap();
+      } else {
+        content.innerHTML = '<div class="pt-32 text-center h-[50vh]">Page not found</div>';
+      }
+
+      updateNavActiveStates(hash);
+      lucide.createIcons();
+    }
+
+    function updateNavActiveStates(hash) {
+      const links = document.querySelectorAll('#nav-links a, #mobile-nav-links a');
+      links.forEach(link => {
+        const path = link.getAttribute('href');
+        if (path === hash || (hash.startsWith('#/services/') && path === '#/services')) {
+          link.classList.add('text-blue-600');
+          link.classList.remove('text-zinc-600');
+        } else {
+          link.classList.remove('text-blue-600');
+          link.classList.add('text-zinc-600');
+        }
+      });
+    }
+
+    // Templates
+    function renderHome() {
+      const servicesGridHtml = SERVICES.map(s => `
+                <a href="#/services/${s.slug}" class="service-tile group">
+                    <img src="https://picsum.photos/seed/${s.imgSeed}/800/450" alt="${s.title}" class="w-full h-full object-cover">
+                    <div class="overlay absolute inset-0 flex items-end p-6">
+                        <h3 class="text-white font-bold text-lg uppercase tracking-tight">${s.title}</h3>
+                    </div>
+                </a>
+            `).join('');
+
+      return `
+                <div class="pt-20">
+                    <!-- Hero Section -->
+                    <section class="h-[60vh] relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/portmain/1920/1080" alt="Hero" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/30"></div>
+                    </section>
+
+                    <!-- Branding Section -->
+                    <section class="bg-white py-16">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex flex-col md:flex-row items-center gap-12 border-b border-zinc-100 pb-16">
+                                <!-- Logo SVG -->
+                                <div class="w-32 h-32 flex-shrink-0">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full text-morris-blue fill-current">
+                                        <path d="M50 0 L93.3 25 V75 L50 100 L6.7 75 V25 Z" opacity="0.1"/>
+                                        <rect x="25" y="25" width="20" height="50"/>
+                                        <rect x="55" y="25" width="20" height="50"/>
+                                        <rect x="25" y="45" width="50" height="10"/>
+                                    </svg>
+                                </div>
+                                <div class="text-center md:text-left border-l-0 md:border-l-4 border-blue-600 md:pl-12">
+                                    <h1 class="text-3xl md:text-4xl font-black text-morris-blue uppercase leading-tight">
+                                        Secure Your Products with <br> Field Export Packing and <br> Crating Services
+                                    </h1>
+                                </div>
+                            </div>
+
+                            <div class="mt-12 text-zinc-700 leading-relaxed text-sm md:text-base">
+                                <p class="mb-8 font-medium">At Morris Export Services, we specialize in providing comprehensive logistics and transportation solutions tailored to meet your unique needs. Our range of services includes:</p>
+                                <ul class="space-y-4 list-disc pl-6">
+                                    <li><strong>Export Packing and Crating:</strong> Ensuring your goods are securely packed and crated for international ocean or air shipping.</li>
+                                    <li><strong>Onsite Packing:</strong> Offering professional packing services at your location for convenience and efficiency.</li>
+                                    <li><strong>Container Stuffing and Transloading:</strong> Expertly loading (stuffing), including blocking and bracing, and unloading (stripping) containers to optimize space and ensure safe transport.</li>
+                                    <li><strong>Drayage and Out of Gauge Trucking:</strong> Providing reliable drayage services and specialized trucking for oversized or heavy cargo.</li>
+                                    <li><strong>Warehousing and Outdoor Storage:</strong> Offering secure indoor, climate controlled, and outdoor storage solutions to accommodate your short-term or long-term storage needs. We additionally offer onsite material handling and crane services, with lifting capacities up to 140,000 pounds.</li>
+                                    <li><strong>Hazmat:</strong> We offer hazmat storage, packing, and drayage services. Contact us today if you have any questions regarding our hazardous materials capabilities.</li>
+                                    <li><strong>Forklift Rental, Machinery Moving, & Warehouse Relocation:</strong> Supplying 5,000 – 36,000 lb capacity forklifts for rent, with or without OSHA certified operators, to assist with your material handling, machinery moving, and warehouse relocation requirements.</li>
+                                </ul>
+                                <p class="mt-8">With a commitment to excellence and customer satisfaction spanning more than 40 years, Morris Export Services is the partner you can trust to ensure your imports and exports at the Port of Houston and beyond reach their destination safely. Contact us today to learn how we can support your business operations.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Service Grid Title -->
+                    <section class="bg-white py-12 text-center uppercase">
+                        <h2 class="text-3xl font-black text-morris-blue mb-2">Morris Export Services</h2>
+                        <h3 class="text-xl font-bold text-zinc-800 tracking-widest">We Pack The World</h3>
+                    </section>
+
+                    <!-- Service Grid -->
+                    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                        ${servicesGridHtml}
+                    </section>
+
+                    <!-- Where We Excel -->
+                    <section class="bg-white py-24">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <h2 class="text-3xl font-black uppercase mb-12">Where We Excel</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-4 text-morris-blue border-b-2 border-morris-blue pb-2 inline-block">Wrap Protection</h4>
+                                    <p class="text-zinc-600 text-sm leading-relaxed">Wrapping products in a protective layer prevents damage during transportation. This service is particularly important for manufacturers who are shipping delicate or fragile products that require extra care and attention.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-4 text-morris-blue border-b-2 border-morris-blue pb-2 inline-block">Onsite Export Packing Services</h4>
+                                    <p class="text-zinc-600 text-sm leading-relaxed">We send a team of professionals to our client’s facilities to package and prepare their products for shipping. This packing service is ideal for manufacturers who need to ship large or bulky items that cannot easily be transported to a packaging facility.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-4 text-morris-blue border-b-2 border-morris-blue pb-2 inline-block">Facilities and Warehouse Management Solutions</h4>
+                                    <p class="text-zinc-600 text-sm leading-relaxed">Our state-of-the-art facility for field export packing & crafting in Houston, TX is equipped with the latest technology and equipment to provide safe and secure storage of your products before they’re ready for freight shipping. We take warehouse management seriously to ensure your continued success.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CTA Section -->
+                    <section class="relative py-32 overflow-hidden">
+                        <img src="https://picsum.photos/seed/truckcta/1920/600" alt="CTA BG" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                            <h2 class="text-4xl font-black text-white uppercase mb-8 tracking-tighter">Contact Us Today!</h2>
+                            <a href="#/contact-us" class="inline-block bg-morris-red hover-bg-morris-red text-white py-4 px-12 font-bold uppercase tracking-widest transition-all">
+                                Learn More
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Testimonials Section -->
+                    <section class="py-24 bg-white overflow-hidden">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="text-center mb-16 px-4 uppercase">
+                                <h2 class="text-3xl font-black text-morris-blue mb-2">A Word from Our Customers</h2>
+                                <p class="text-zinc-600 font-bold max-w-xl mx-auto">At Morris our management and employees work together to ensure that our customers receive the best service possible on every shipping project.</p>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row items-center gap-16">
+                                <div class="w-full md:w-1/2 flex justify-center">
+                                    <div class="w-80 h-80 hex-mask overflow-hidden shadow-xl border-4 border-zinc-100">
+                                        <img src="https://picsum.photos/seed/industrialhex/1000/1000" alt="Industrial" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <div class="w-full md:w-1/2 bg-zinc-50 p-12 relative border border-zinc-100 rounded-lg">
+                                    <div class="text-orange-400 mb-6 flex space-x-1">
+                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+                                    </div>
+                                    <p class="text-zinc-600 italic leading-relaxed mb-8">
+                                        "We have done business with Morris Export and used their crating services for more than 20 years now. We will continue to do so because of the competitive rates and reliable customer care. We have always appreciated Morris's timely responses and relied on their dependable and accurate paperwork. Whether for export crating purposes or yard storage, we can always count on service, 24 hours a day and 7 days a week. Thank you, Morris Export Services for 20+ years of trust and support!"
+                                    </p>
+                                    <div>
+                                        <h4 class="font-black text-zinc-900 uppercase">Bob Earl</h4>
+                                        <p class="text-morris-blue text-xs font-bold uppercase tracking-widest">Export Manager, Houston, TX.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom Text -->
+                    <section class="py-24 bg-zinc-50 border-t border-zinc-200">
+                        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                            <h2 class="text-2xl font-black uppercase mb-8 leading-tight">For Reliable Export Packing, Freight Shipping, and Warehouse Management, Choose Morris Export Services</h2>
+                            <p class="text-zinc-600 mb-8 leading-relaxed">Our goal is to cater to manufacturers who need to ship equipment and products internationally and require a reliable and efficient partner to help them do so. We work closely with our clients to understand their specific needs and develop customized solutions to meet their requirements. Our team is always available to answer questions, provide advice, and address any concerns that our customers may have.</p>
+                            <div class="h-px bg-zinc-200 w-24 mx-auto mb-8"></div>
+                            <p class="text-sm text-zinc-500 max-w-4xl mx-auto leading-relaxed">Morris Export is a leading field export and import service company located in Houston, Texas providing robust freight shipping and warehouse management services for manufacturers, freight forwarders, trucking companies, personal shipping needs and more. We offer services such as crating, containerization, wrap protection, trucking & drayage, equipment & facility relocation, facilities & warehouse storage, on-site packing services, hazardous packaging, customer warehouse management, pipe protection & bolsters, and M-PACT technology & software. Morris Export Services has earned a reputation for delivering exceptional customer support and high-quality services. Our team of experienced professionals is committed to meeting all your needs by consistently delivering outstanding results.</p>
+                        </div>
+                    </section>
+                </div>
+            `;
+    }
+
+    function renderAbout() {
+      return `
+                <div class="pt-20">
+                    <!-- About Sub-Header -->
+                    <section class="bg-white py-12 border-b border-zinc-100">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                                <h1 class="text-4xl font-bold text-morris-blue uppercase tracking-tight">About Us</h1>
+                                <div class="hidden md:block w-px h-12 bg-blue-600"></div>
+                                <h2 class="text-3xl font-bold text-morris-blue uppercase tracking-tight">Packing The World Since 1942</h2>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Main Biography Section -->
+                    <section class="bg-white py-24">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                                <div class="rounded-lg overflow-hidden shadow-lg border border-zinc-100">
+                                    <img src="https://picsum.photos/seed/facility2/1000/800" alt="Morris Export Facility" class="w-full h-auto object-cover">
+                                </div>
+                                <div class="space-y-6">
+                                    <h3 class="text-2xl font-black text-zinc-900 uppercase">Morris Export Services</h3>
+                                    <p class="text-zinc-700 leading-relaxed">
+                                        As reflected in the above header, Morris Export Services is steeped in history, dating back to our establishment in 1942. We have successfully blended old world craftsmanship, while utilizing today’s modern technology to generate the best service in the packing industry.
+                                    </p>
+                                    <p class="text-zinc-700 leading-relaxed">
+                                        Morris Export is able to lead industry standards by having the most experienced employees in the packing industry. With almost 80 years of experience in the packing industry, we’ve gained the knowledge and craftsmanship no other packer can compete with.
+                                    </p>
+                                    <p class="text-zinc-700 leading-relaxed">
+                                        Essential to our process, we also pride ourselves on our software and technological development. Our proprietary software, which works with any ERP system, gives you full transparency of our entire packing process. We encourage you to have full access to our shared system!
+                                    </p>
+                                    <div class="pt-4">
+                                        <a href="#/contact-us" class="text-morris-blue font-bold hover:underline">Contact us</a>
+                                        <span class="text-zinc-700">to see how our software integration can help you!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sales Presentation Section -->
+                    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+                        <div class="flex flex-col md:flex-row overflow-hidden rounded-2xl shadow-xl border border-zinc-200">
+                            <!-- Left: CTA Area -->
+                            <div class="w-full md:w-1/3 bg-white p-12 flex flex-col justify-center">
+                                <h3 class="text-2xl font-black text-zinc-900 uppercase mb-6 leading-tight">
+                                    For more information watch our <br>Sales Presentation!
+                                </h3>
+                                <p class="text-zinc-500 text-sm mb-8">
+                                    Please click ‘Save’ to save the presentation to your computer before opening.
+                                </p>
+                                <div class="flex flex-col gap-4">
+                                    <button class="bg-morris-red hover-bg-morris-red text-white py-3 px-8 font-bold uppercase flex items-center justify-center gap-2 transition-all">
+                                        <i data-lucide="play" class="w-4 h-4 fill-current"></i> WATCH
+                                    </button>
+                                    <button class="bg-morris-blue hover:opacity-90 text-white py-3 px-8 font-bold uppercase flex items-center justify-center gap-2 transition-all">
+                                        SAVE VIDEO
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Right: Visual Background -->
+                            <div class="w-full md:w-2/3 relative h-80 md:h-auto overflow-hidden">
+                                <img src="https://picsum.photos/seed/vintage-press/1200/600" alt="Historical Presentation" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black/20 group cursor-pointer flex items-center justify-center">
+                                    <div class="w-20 h-20 bg-morris-blue text-white rounded-full flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110">
+                                        <i data-lucide="play" class="w-10 h-10 fill-current ml-1"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom Nav Extension (Matching Reference) -->
+                    <section class="bg-zinc-50 py-12 border-t border-zinc-200">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center uppercase">
+                            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold text-zinc-600 mb-8">
+                                <a href="#/" class="hover:text-morris-blue">Home</a>
+                                <a href="#/about-us" class="hover:text-morris-blue">About Us</a>
+                                <a href="#/facilities" class="hover:text-morris-blue">Facilities</a>
+                                <a href="#/customer-center" class="hover:text-morris-blue">Customer Center</a>
+                                <a href="#/contact-us" class="hover:text-morris-blue">Contact Us</a>
+                                <a href="/sitemap.xml" target="_blank" class="hover:text-morris-blue">XML Sitemap</a>
+                                <a href="#/html-sitemap" class="hover:text-morris-blue">HTML Sitemap</a>
+                            </div>
+                            <p class="text-xs text-zinc-500 font-medium">© 2019, Morris Export Services, Inc. All Rights Reserved.</p>
+                        </div>
+                    </section>
+                </div>
+            `;
+    }
+
+    function renderServicesHub() {
+      const categories = ['Packing & Crating', 'Logistics & Transport', 'Storage & Management', 'Technology'];
+
+      const categorySections = categories.map(cat => {
+        const catServices = SERVICES.filter(s => s.category === cat);
+        const catIcon = { 'Packing & Crating': 'box', 'Logistics & Transport': 'truck', 'Storage & Management': 'warehouse', 'Technology': 'cpu' }[cat] || 'layers';
+        return `
+          <div class="mb-20">
+            <div class="flex items-center gap-4 mb-10 pb-4 border-b-2 border-zinc-200">
+              <div class="w-10 h-10 bg-morris-blue text-white rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="${catIcon}" class="w-5 h-5"></i>
+              </div>
+              <h2 class="text-2xl font-black uppercase tracking-tight text-zinc-900">${cat}</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              ${catServices.map(service => `
+                <a href="#/services/${service.slug}" class="group bg-white rounded-2xl border border-zinc-200 hover:border-blue-500 transition-all shadow-sm hover:shadow-lg overflow-hidden flex flex-col">
+                  <div class="relative h-40 overflow-hidden">
+                    <img src="https://picsum.photos/seed/${service.imgSeed}/600/300" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-3 left-4">
+                      <span class="text-xs font-bold text-white/80 uppercase tracking-widest">${service.category}</span>
+                    </div>
+                    <div class="absolute top-3 right-3 w-9 h-9 bg-white/10 backdrop-blur-sm text-white rounded-lg flex items-center justify-center border border-white/20">
+                      <i data-lucide="${service.icon}" class="w-4 h-4"></i>
+                    </div>
+                  </div>
+                  <div class="p-6 flex flex-col flex-1">
+                    <h3 class="text-lg font-bold mb-2 text-zinc-900 group-hover:text-morris-blue transition-colors">${service.title}</h3>
+                    <p class="text-zinc-500 text-sm mb-5 leading-relaxed flex-1">${service.description}</p>
+                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
+                      <div class="flex gap-1 flex-wrap">
+                        ${(service.keyBenefits || []).slice(0, 2).map(b => `<span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">${b}</span>`).join('')}
+                      </div>
+                      <span class="text-blue-600 font-bold text-sm flex items-center gap-1 whitespace-nowrap">Details <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                    </div>
+                  </div>
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="pt-20">
+          <!-- Services Hero -->
+          <section class="relative h-72 md:h-96 overflow-hidden">
+            <img src="https://picsum.photos/seed/serviceshub/1920/600" alt="Services" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+            <div class="absolute inset-0 flex items-center">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <nav class="text-white/70 text-sm mb-4 flex items-center gap-2">
+                  <a href="#/" class="hover:text-white transition-colors">Home</a>
+                  <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                  <span class="text-white font-medium">Services</span>
+                </nav>
+                <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none mb-4">Our Services</h1>
+                <p class="text-lg text-white/80 max-w-xl">End-to-end export packing, crating, logistics, and storage — engineered for global transit.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Stats Bar -->
+          <section class="bg-morris-blue text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
+                ${[
+          { val: '80+', label: 'Years in Business' },
+          { val: '250K+', label: 'Sq Ft of Storage' },
+          { val: '140K lbs', label: 'Max Lift Capacity' },
+          { val: '12', label: 'Specialized Services' }
+        ].map(s => `
+                  <div class="py-8 px-6 text-center">
+                    <div class="text-3xl font-black mb-1">${s.val}</div>
+                    <div class="text-blue-200 text-sm font-medium uppercase tracking-wider">${s.label}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </section>
+
+          <!-- Category Sections -->
+          <section class="bg-zinc-50 py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              ${categorySections}
+            </div>
+          </section>
+
+          <!-- Industries We Serve -->
+          <section class="bg-white py-16 border-t border-zinc-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 class="text-2xl font-black uppercase mb-8 text-zinc-900">Industries We Serve</h2>
+              <div class="flex flex-wrap gap-3">
+                ${['Oil & Gas', 'Power Generation', 'Aerospace & Defense', 'Chemical Processing', 'Heavy Manufacturing', 'Mining & Resources', 'EPC Contractors', 'Freight Forwarders', 'Pipeline & Tubular', 'Semiconductor Fab', 'Marine & Ports', 'Import/Export Trading'].map(ind => `
+                  <span class="px-4 py-2 bg-zinc-100 text-zinc-700 font-semibold text-sm rounded-full border border-zinc-200 hover:bg-morris-blue hover:text-white hover:border-morris-blue transition-all cursor-default">${ind}</span>
+                `).join('')}
+              </div>
+            </div>
+          </section>
+
+          <!-- CTA -->
+          <section class="bg-zinc-900 py-20 text-center">
+            <div class="max-w-3xl mx-auto px-4">
+              <h2 class="text-3xl font-black text-white uppercase mb-6">Ready to get started?</h2>
+              <p class="text-zinc-400 mb-10 text-lg">Tell us about your project and our team will develop a custom solution for your cargo.</p>
+              <a href="#/contact-us" class="inline-block bg-morris-red text-white px-12 py-4 font-bold uppercase tracking-widest hover:opacity-90 transition-all">Request a Quote</a>
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    function renderServiceDetail(slug) {
+      const service = SERVICES.find(s => s.slug === slug);
+      if (!service) return '<div class="pt-32 text-center h-[50vh]">Service not found</div>';
+
+      const featuresHtml = (service.features || []).map(f => `
+        <li class="flex items-start">
+          <i data-lucide="check-circle-2" class="w-5 h-5 mr-3 text-morris-red mt-1"></i>
+          <span class="text-zinc-700 font-medium">${f}</span>
+        </li>
+      `).join('');
+
+      return `
+                <div class="pt-20">
+                    <!-- Service Hero -->
+                    <section class="h-[40vh] relative overflow-hidden">
+                        <img src="https://picsum.photos/seed/${service.imgSeed}/1920/600" alt="${service.title}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter text-center px-4">${service.title}</h1>
+                        </div>
+                    </section>
+
+                    <section class="bg-white py-24">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                                <!-- Main Content -->
+                                <div class="lg:col-span-8">
+                                    <h2 class="text-2xl font-black text-morris-blue uppercase mb-8 border-b-4 border-morris-blue pb-2 inline-block">Service Overview</h2>
+                                    <p class="text-xl text-zinc-700 leading-relaxed mb-12">
+                                        ${service.content}
+                                    </p>
+                                    
+                                    <div class="bg-zinc-50 p-12 rounded-2xl border border-zinc-100 shadow-sm relative overflow-hidden">
+                                        <div class="absolute top-0 right-0 p-8 opacity-10">
+                                            <i data-lucide="${service.icon}" class="w-32 h-32"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold mb-8 uppercase tracking-widest text-zinc-900 flex items-center gap-3">
+                                            <i data-lucide="shield-check" class="text-morris-blue"></i> Why Choose Morris?
+                                        </h3>
+                                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                                            ${featuresHtml}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Sidebar -->
+                                <aside class="lg:col-span-4 space-y-8">
+                                    <div class="bg-morris-blue p-8 text-white rounded-2xl">
+                                        <h3 class="text-xl font-bold mb-4 uppercase">Request a Quote</h3>
+                                        <p class="text-blue-100 text-sm mb-8 leading-relaxed">
+                                            Need specialized packing or logistics for your next shipping project? Our team is ready to assist.
+                                        </p>
+                                        <a href="#/contact-us" class="block w-full bg-white text-morris-blue font-bold py-4 text-center rounded-xl hover:bg-zinc-100 transition-all uppercase tracking-widest">
+                                            Get Started
+                                        </a>
+                                    </div>
+
+                                    <div class="border border-zinc-200 p-8 rounded-2xl">
+                                        <h3 class="text-lg font-bold mb-6 uppercase border-b border-zinc-100 pb-4">Other Services</h3>
+                                        <ul class="space-y-4">
+                                            ${SERVICES.filter(s => s.slug !== slug).slice(0, 5).map(s => `
+                                                <li>
+                                                    <a href="#/services/${s.slug}" class="flex items-center text-sm font-medium text-zinc-600 hover:text-morris-blue transition-colors group">
+                                                        <i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-zinc-300 group-hover:text-morris-blue"></i>
+                                                        ${s.title}
+                                                    </a>
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                </aside>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Bottom CTA -->
+                    <section class="bg-zinc-900 py-24 text-center">
+                        <div class="max-w-4xl mx-auto px-4">
+                            <h2 class="text-3xl font-black text-white uppercase mb-8">Ready to secure your global transit?</h2>
+                            <p class="text-zinc-400 mb-12 text-lg">Join hundreds of manufacturers who trust Morris Export Services for their mission-critical shipping needs.</p>
+                            <div class="flex flex-col sm:flex-row justify-center gap-6 text-sm font-bold uppercase tracking-widest">
+                                <a href="#/contact-us" class="bg-morris-red text-white px-12 py-4 hover:opacity-90 transition-all">Contact Us Now</a>
+                                <a href="#/about-us" class="border border-zinc-700 text-white px-12 py-4 hover:bg-zinc-800 transition-all">Learn About Our History</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            `;
+    }
+
+    function renderFacilities() {
+      return `
+                <div class="pt-32 pb-24 bg-zinc-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Our Facilities</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="bg-white p-10 rounded-3xl border border-zinc-200 shadow-sm">
+                                <i data-lucide="warehouse" class="text-blue-600 mb-6 w-12 h-12"></i>
+                                <h2 class="text-2xl font-bold mb-4">Strategic Storage & Warehousing</h2>
+                                <p class="text-zinc-600 mb-6">
+                                    Our facilities offer over 250,000 square feet of indoor storage and extensive outdoor laydown areas, all secured and monitored 24/7.
+                                </p>
+                                <ul class="space-y-3 text-zinc-600">
+                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Climate-controlled options</li>
+                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Heavy-lift capabilities</li>
+                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Inventory management via M-Pact</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-3xl overflow-hidden">
+                                <img src="https://picsum.photos/seed/facility/800/600" alt="Facility Overview" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderCustomerCenter() {
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Customer Center</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <a href="https://webstars.morris-export.com" target="_blank" rel="noopener noreferrer" class="p-8 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all flex flex-col justify-between">
+                                <div>
+                                    <i data-lucide="external-link" class="w-8 h-8 mb-6 opacity-50"></i>
+                                    <h3 class="text-2xl font-bold mb-4">Customer Reports</h3>
+                                    <p class="opacity-80">Access your real-time tracking and inventory reports via our Webstars portal.</p>
+                                </div>
+                                <div class="mt-8 font-bold flex items-center">
+                                    Login Now <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                                </div>
+                            </a>
+                            
+                            <a href="#/credit-application" class="p-8 bg-zinc-100 text-zinc-900 rounded-2xl hover:bg-zinc-200 transition-all flex flex-col justify-between border border-zinc-200">
+                                <div>
+                                    <i data-lucide="clipboard-list" class="w-8 h-8 mb-6 text-zinc-400"></i>
+                                    <h3 class="text-2xl font-bold mb-4">Credit Application</h3>
+                                    <p class="text-zinc-600">Download and submit our credit application to establish an account with us.</p>
+                                </div>
+                                <div class="mt-8 font-bold text-blue-600 flex items-center">
+                                    View Application <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                                </div>
+                            </a>
+
+                            <a href="#/faq" class="p-8 bg-zinc-100 text-zinc-900 rounded-2xl hover:bg-zinc-200 transition-all flex flex-col justify-between border border-zinc-200">
+                                <div>
+                                    <i data-lucide="phone" class="w-8 h-8 mb-6 text-zinc-400"></i>
+                                    <h3 class="text-2xl font-bold mb-4">FAQ</h3>
+                                    <p class="text-zinc-600">Find answers to common questions about our services and procedures.</p>
+                                </div>
+                                <div class="mt-8 font-bold text-blue-600 flex items-center">
+                                    Read FAQs <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderContact() {
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                            <div>
+                                <h1 class="text-4xl font-black tracking-tight mb-8 uppercase">Contact Us</h1>
+                                <div class="space-y-8">
+                                    <div class="flex items-start space-x-4">
+                                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="map-pin"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold text-lg mb-1">Main Office</h3>
+                                            <p class="text-zinc-600">8300 Market St, Houston, TX 77029</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="phone"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold text-lg mb-1">Phone</h3>
+                                            <p class="text-zinc-600">(713) 672-1635</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                            <i data-lucide="mail"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-bold text-lg mb-1">Email</h3>
+                                            <p class="text-zinc-600">info@morris-export.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-zinc-50 p-10 rounded-3xl border border-zinc-200">
+                                <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+                                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent! (Simulation)');">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-bold text-zinc-700 mb-2">First Name</label>
+                                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-bold text-zinc-700 mb-2">Last Name</label>
+                                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-bold text-zinc-700 mb-2">Email Address</label>
+                                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-bold text-zinc-700 mb-2">Message</label>
+                                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-all">
+                                        Send Message
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderCreditApplication() {
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-8 uppercase">Credit Application</h1>
+                        <div class="bg-zinc-50 p-10 rounded-3xl border border-zinc-200">
+                            <p class="text-lg text-zinc-600 mb-8">
+                                To establish a credit account with Morris Export Services, please download our application form, 
+                                complete it, and return it to our billing department.
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <a href="#" class="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all">
+                                    Download Application (PDF) <i data-lucide="external-link" class="w-5 h-5 ml-2"></i>
+                                </a>
+                                <div class="flex items-center text-zinc-500 text-sm">
+                                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                                    Submit to: billing@morris-export.com
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderFAQ() {
+      const faqs = [
+        { q: "What are your standard operating hours?", a: "We are open Monday through Friday, 7:00 AM to 5:00 PM CST. Special arrangements can be made for after-hours or weekend requirements." },
+        { q: "Do you provide on-site services?", a: "Yes, our mobile packing teams can provide full crating and securing services at your facility." },
+        { q: "Are you certified for hazardous materials?", a: "Yes, we are fully certified to handle, package, and document hazardous materials for international export." }
+      ];
+
+      const faqHtml = faqs.map(item => `
+                <div class="p-8 bg-zinc-50 rounded-2xl border border-zinc-200">
+                    <h3 class="text-xl font-bold mb-3">${item.q}</h3>
+                    <p class="text-zinc-600">${item.a}</p>
+                </div>
+            `).join('');
+
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Frequently Asked Questions</h1>
+                        <div class="space-y-6">
+                            ${faqHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderOurTeam() {
+      const teamHtml = [1, 2, 3].map(i => `
+                <div class="group">
+                    <div class="aspect-square rounded-3xl overflow-hidden mb-6 bg-zinc-100">
+                        <img src="https://picsum.photos/seed/team${i}/600/600" alt="Team Member" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold">Team Member ${i}</h3>
+                    <p class="text-zinc-500">Department Lead</p>
+                </div>
+            `).join('');
+
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Our Team</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            ${teamHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderTerms() {
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-8 uppercase">Terms and Conditions</h1>
+                        <div class="prose prose-zinc lg:prose-lg max-w-none">
+                            <p class="mb-8">
+                                All services provided by Morris Export Services are subject to our standard terms and conditions. 
+                                Please review the full document for detailed information regarding liabilities, responsibilities, and service agreements.
+                            </p>
+                            <a href="/wp-content/uploads/2019/06/Terms-And-Conditions.pdf" class="inline-flex items-center bg-zinc-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-zinc-800 transition-all">
+                                Download Full Terms (PDF) <i data-lucide="external-link" class="w-5 h-5 ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderHtmlSitemap() {
+      const servicesLinks = SERVICES.map(s => `<li><a href="#/services/${s.slug}" class="hover:text-blue-600">${s.title}</a></li>`).join('');
+
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">HTML Sitemap</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div>
+                                <h2 class="text-xl font-bold mb-6 text-blue-600">Main Pages</h2>
+                                <ul class="space-y-4">
+                                    <li><a href="#/" class="hover:text-blue-600">Home</a></li>
+                                    <li><a href="#/about-us" class="hover:text-blue-600">About Us</a></li>
+                                    <li><a href="#/services" class="hover:text-blue-600">Services Hub</a></li>
+                                    <li><a href="#/facilities" class="hover:text-blue-600">Facilities</a></li>
+                                    <li><a href="#/customer-center" class="hover:text-blue-600">Customer Center</a></li>
+                                    <li><a href="#/contact-us" class="hover:text-blue-600">Contact Us</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold mb-6 text-blue-600">Services</h2>
+                                <ul class="space-y-4">
+                                    ${servicesLinks}
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold mb-6 text-blue-600">Customer Center</h2>
+                                <ul class="space-y-4">
+                                    <li><a href="https://webstars.morris-export.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">Customer Reports <i data-lucide="external-link" class="w-4 h-4 inline ml-1"></i></a></li>
+                                    <li><a href="#/credit-application" class="hover:text-blue-600">Credit Application</a></li>
+                                    <li><a href="#/faq" class="hover:text-blue-600">FAQ</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h2 class="text-xl font-bold mb-6 text-blue-600">Company</h2>
+                                <ul class="space-y-4">
+                                    <li><a href="#/our-team" class="hover:text-blue-600">Our Team</a></li>
+                                    <li><a href="#/terms-and-conditions" class="hover:text-blue-600">Terms & Conditions</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render nav links
+      const navLinksContainer = document.getElementById('nav-links');
+      const mobileNavLinksContainer = document.getElementById('mobile-nav-links');
+
+      navLinks.forEach(link => {
+        const container = document.createElement('div');
+        container.className = 'group h-20 flex items-center';
+
+        if (link.dropdown) {
+          container.innerHTML = `
+            <button class="flex items-center gap-1 text-sm font-medium transition-colors hover:text-blue-600 text-zinc-600">
+              ${link.name} <i data-lucide="chevron-down" class="w-3 h-3"></i>
+            </button>
+            <div class="mega-menu left-1/2 -translate-x-1/2 w-screen max-w-5xl bg-white border border-zinc-200 mt-0 py-8 px-12 grid grid-cols-1 md:grid-cols-${link.dropdown.length} gap-8">
+              ${link.dropdown.map(col => `
+                <div class="mega-menu-column space-y-4">
+                  ${col.map(item => {
+            const service = SERVICES.find(s => s.title === item || s.title.includes(item));
+            const path = service ? `#/services/${service.slug}` : '#/services';
+            return `<a href="${path}" class="block text-sm font-medium text-zinc-700 hover:text-blue-600 transition-colors uppercase tracking-tight">${item}</a>`;
+          }).join('')}
+                </div>
+              `).join('')}
+            </div>
+          `;
+          navLinksContainer.appendChild(container);
+        } else {
+          const a = document.createElement('a');
+          a.href = link.path;
+          a.className = 'text-sm font-medium transition-colors hover:text-blue-600 text-zinc-600';
+          a.textContent = link.name;
+          navLinksContainer.appendChild(a);
+        }
+
+        // Mobile Links
+        if (link.dropdown) {
+          const btn = document.createElement('button');
+          btn.className = 'flex items-center justify-between w-full px-3 py-4 text-base font-medium text-zinc-600 hover:text-blue-600';
+          btn.innerHTML = `<span>${link.name}</span> <i data-lucide="plus" class="w-4 h-4"></i>`;
+
+          const subMenu = document.createElement('div');
+          subMenu.className = 'hidden pl-6 bg-zinc-50 border-l border-zinc-200';
+          link.dropdown.flat().forEach(item => {
+            const service = SERVICES.find(s => s.title === item || s.title.includes(item));
+            const path = service ? `#/services/${service.slug}` : '#/services';
+            const subA = document.createElement('a');
+            subA.href = path;
+            subA.className = 'block py-3 text-sm font-medium text-zinc-600 hover:text-blue-600';
+            subA.textContent = item;
+            subA.onclick = () => document.getElementById('mobile-menu').classList.add('hidden');
+            subMenu.appendChild(subA);
+          });
+
+          btn.onclick = () => subMenu.classList.toggle('hidden');
+          mobileNavLinksContainer.appendChild(btn);
+          mobileNavLinksContainer.appendChild(subMenu);
+        } else {
+          const mobileA = document.createElement('a');
+          mobileA.href = link.path;
+          mobileA.className = 'block px-3 py-4 text-base font-medium text-zinc-600 hover:text-blue-600 hover:bg-zinc-50 rounded-lg';
+          mobileA.textContent = link.name;
+          mobileA.onclick = () => {
+            document.getElementById('mobile-menu').classList.add('hidden');
+          };
+          mobileNavLinksContainer.appendChild(mobileA);
+        }
+      });
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuButton.onclick = () => {
+        mobileMenu.classList.toggle('hidden');
+      };
+
+      // Set current year
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+
+      // Initial render
+      window.onhashchange = renderPage;
+      renderPage();
+    });
+  </script>
+</body>
+
+</html>
