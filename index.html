@@ -1036,6 +1036,46 @@
         </li>
       `).join('');
 
+      const longDescriptionHtml = (service.longDescription || []).map(p => `
+        <p class="text-zinc-700 leading-relaxed mb-6">${p}</p>
+      `).join('');
+
+      const statsHtml = (service.stats || []).map(stat => `
+        <div class="bg-white border border-zinc-200 rounded-xl p-6 text-center">
+          <p class="text-2xl font-black text-morris-blue leading-none">${stat.value}</p>
+          <p class="text-xs uppercase tracking-wider text-zinc-500 mt-2">${stat.label}</p>
+        </div>
+      `).join('');
+
+      const processHtml = (service.process || []).map(item => `
+        <div class="bg-white border border-zinc-200 rounded-xl p-6">
+          <p class="text-xs font-black text-morris-red tracking-widest mb-2">STEP ${item.step}</p>
+          <h4 class="text-lg font-bold text-zinc-900 mb-3">${item.title}</h4>
+          <p class="text-sm text-zinc-600 leading-relaxed">${item.desc}</p>
+        </div>
+      `).join('');
+
+      const faqHtml = (service.faqs || []).map(faq => `
+        <details class="bg-white border border-zinc-200 rounded-xl p-5 group">
+          <summary class="font-semibold text-zinc-900 cursor-pointer list-none flex items-start justify-between gap-4">
+            <span>${faq.q}</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-500 shrink-0 mt-1 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="text-sm text-zinc-600 mt-4 leading-relaxed">${faq.a}</p>
+        </details>
+      `).join('');
+
+      const industriesHtml = (service.industries || []).map(industry => `
+        <span class="text-xs bg-blue-50 text-blue-700 font-semibold px-3 py-1 rounded-full">${industry}</span>
+      `).join('');
+
+      const keyBenefitsHtml = (service.keyBenefits || []).map(benefit => `
+        <li class="flex items-start text-sm text-zinc-700">
+          <i data-lucide="check" class="w-4 h-4 mr-2 text-morris-red mt-0.5"></i>
+          <span>${benefit}</span>
+        </li>
+      `).join('');
+
       return `
                 <div class="pt-20">
                     <!-- Service Hero -->
@@ -1056,6 +1096,14 @@
                                     <p class="text-xl text-zinc-700 leading-relaxed mb-12">
                                         ${service.content}
                                     </p>
+
+                                    <div class="mb-12">
+                                      ${longDescriptionHtml}
+                                    </div>
+
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+                                      ${statsHtml}
+                                    </div>
                                     
                                     <div class="bg-zinc-50 p-12 rounded-2xl border border-zinc-100 shadow-sm relative overflow-hidden">
                                         <div class="absolute top-0 right-0 p-8 opacity-10">
@@ -1067,6 +1115,20 @@
                                         <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                                             ${featuresHtml}
                                         </ul>
+                                    </div>
+
+                                    <div class="mt-12">
+                                      <h3 class="text-xl font-black text-morris-blue uppercase mb-6 border-b-4 border-morris-blue pb-2 inline-block">How We Execute</h3>
+                                      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        ${processHtml}
+                                      </div>
+                                    </div>
+
+                                    <div class="mt-12">
+                                      <h3 class="text-xl font-black text-morris-blue uppercase mb-6 border-b-4 border-morris-blue pb-2 inline-block">Frequently Asked Questions</h3>
+                                      <div class="space-y-4">
+                                        ${faqHtml}
+                                      </div>
                                     </div>
                                 </div>
 
@@ -1080,6 +1142,20 @@
                                         <a href="#/contact-us" class="block w-full bg-white text-morris-blue font-bold py-4 text-center rounded-xl hover:bg-zinc-100 transition-all uppercase tracking-widest">
                                             Get Started
                                         </a>
+                                    </div>
+
+                                    <div class="border border-zinc-200 p-8 rounded-2xl bg-zinc-50">
+                                        <h3 class="text-lg font-bold mb-4 uppercase border-b border-zinc-200 pb-4">Industries Served</h3>
+                                        <div class="flex flex-wrap gap-2">
+                                          ${industriesHtml}
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-zinc-200 p-8 rounded-2xl">
+                                        <h3 class="text-lg font-bold mb-6 uppercase border-b border-zinc-100 pb-4">Key Benefits</h3>
+                                        <ul class="space-y-3">
+                                          ${keyBenefitsHtml}
+                                        </ul>
                                     </div>
 
                                     <div class="border border-zinc-200 p-8 rounded-2xl">
