@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morris Export Services | Engineered for Global Transit</title>
+  <link rel="icon" type="image/png" href="images/Screenshot 2026-03-19 103621.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -230,7 +231,11 @@
   <!-- Navbar -->
   <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-zinc-200 modern-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-center h-20 items-center">
+      <div class="flex justify-between h-20 items-center">
+        <!-- Logo -->
+        <a href="#/" class="flex-shrink-0 flex items-center">
+          <img src="images/Screenshot 2026-03-19 103621.png" alt="Morris Export Services Logo" class="h-10 w-auto">
+        </a>
         <div class="hidden md:flex items-center space-x-12" id="nav-links">
           <!-- Links injected via JS -->
         </div>
@@ -245,6 +250,9 @@
 
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-zinc-200 overflow-hidden">
+      <div class="px-4 py-4 border-b border-zinc-100 mb-2">
+        <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-8 w-auto">
+      </div>
       <div class="px-4 pt-2 pb-6 space-y-1" id="mobile-nav-links">
         <!-- Links injected via JS -->
       </div>
@@ -260,8 +268,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
         <div class="col-span-1 md:col-span-2">
-          <span class="text-2xl font-black tracking-tighter text-white mb-6 block">MORRIS<span
-              class="text-blue-500">EXPORT</span></span>
+          <a href="#/" class="mb-6 block">
+            <img src="images/Screenshot 2026-03-19 103621.png" alt="Morris Export Services Logo" class="h-12 w-auto brightness-0 invert">
+          </a>
           <p class="max-w-md mb-8">
             Providing world-class export packing, crating, and logistics solutions since 1958.
             Your partner in global industrial transportation.
@@ -884,13 +893,8 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex flex-col md:flex-row items-center gap-12 border-b border-zinc-100 pb-16">
                                 <!-- Logo SVG -->
-                                <div class="w-32 h-32 flex-shrink-0">
-                                    <svg viewBox="0 0 100 100" class="w-full h-full text-morris-blue fill-current">
-                                        <path d="M50 0 L93.3 25 V75 L50 100 L6.7 75 V25 Z" opacity="0.1"/>
-                                        <rect x="25" y="25" width="20" height="50"/>
-                                        <rect x="55" y="25" width="20" height="50"/>
-                                        <rect x="25" y="45" width="50" height="10"/>
-                                    </svg>
+                                <div class="w-48 h-auto flex-shrink-0">
+                                    <img src="images/Screenshot 2026-03-19 103621.png" alt="Morris Export Services Logo" class="w-full h-auto">
                                 </div>
                                 <div class="text-center md:text-left border-l-0 md:border-l-4 border-blue-600 md:pl-12">
                                     <h1 class="text-3xl md:text-4xl font-black text-morris-blue uppercase leading-tight">
@@ -1013,7 +1017,10 @@
                     <section class="bg-white py-12 border-b border-zinc-100">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                                <h1 class="text-4xl font-bold text-morris-blue uppercase tracking-tight">About Us</h1>
+                                <div class="flex items-center gap-4">
+                                    <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
+                                    <h1 class="text-4xl font-bold text-morris-blue uppercase tracking-tight">About Us</h1>
+                                </div>
                                 <div class="hidden md:block w-px h-12 bg-blue-600"></div>
                                 <h2 class="text-3xl font-bold text-morris-blue uppercase tracking-tight">Packing The World Since 1942</h2>
                             </div>
@@ -1522,7 +1529,10 @@
       return `
                 <div class="pt-32 pb-24">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h1 class="text-4xl font-black tracking-tight mb-8 uppercase">Credit Application</h1>
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
+                            <h1 class="text-4xl font-black tracking-tight uppercase">Credit Application</h1>
+                        </div>
               <div class="bg-zinc-50 p-6 md:p-10 rounded-3xl border border-zinc-200">
                 <p class="text-zinc-600 mb-8">Please complete all applicable fields below to apply for credit.</p>
 
@@ -1860,7 +1870,10 @@
       return `
                 <div class="pt-32 pb-24 bg-zinc-100">
                     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h1 class="text-4xl font-black tracking-tight mb-10 uppercase">Frequently Asked Questions</h1>
+                        <div class="flex items-center gap-4 mb-10">
+                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
+                            <h1 class="text-4xl font-black tracking-tight uppercase">Frequently Asked Questions</h1>
+                        </div>
                         <div class="space-y-3 bg-zinc-100 p-3 md:p-5 rounded-md">
                             ${faqHtml}
                         </div>
@@ -1877,7 +1890,7 @@
           phone: '(713) 672-5411',
           cell: '',
           title: 'CEO',
-          image: 'https://picsum.photos/seed/andrew-talley/200/200'
+          image: 'images/Screenshot 2026-03-19 103621.png'
         },
         {
           name: 'Gary Baumbach',
@@ -1885,7 +1898,7 @@
           phone: '(713) 672-5425',
           cell: '',
           title: 'Treasurer & CFO',
-          image: 'https://picsum.photos/seed/gary-baumbach/200/200'
+          image: 'images/Screenshot 2026-03-19 103621.png'
         },
         {
           name: 'Herbie Garza',
@@ -1893,7 +1906,7 @@
           phone: '(713) 672-5428',
           cell: '(713) 907-4983',
           title: 'Sales',
-          image: 'https://picsum.photos/seed/herbie-garza/200/200'
+          image: 'images/Screenshot 2026-03-19 103621.png'
         },
         {
           name: 'Kim Solomon',
@@ -1922,8 +1935,8 @@
       ];
 
       const teamHtml = teamMembers.map(member => `
-                <article class="bg-white border border-zinc-200 shadow-sm rounded-2xl text-center relative pt-16">
-                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-2 border-zinc-300 overflow-hidden bg-white">
+                <article class="bg-white border-2 border-blue-500/20 shadow-md rounded-2xl text-center relative pt-16 hover:border-blue-500/40 transition-all">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-2 border-blue-500/30 overflow-hidden bg-white shadow-sm">
                         <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">
                     </div>
                     <div class="px-4 pb-5">
@@ -1939,7 +1952,10 @@
       return `
                 <div class="pt-32 pb-24 bg-zinc-100">
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h1 class="text-4xl font-black tracking-tight mb-8">Staff Directory:</h1>
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
+                            <h1 class="text-4xl font-black tracking-tight">Staff Directory:</h1>
+                        </div>
 
                         <div class="text-zinc-800 text-sm md:text-base leading-relaxed space-y-5 max-w-3xl">
                             <p>At Morris Export Services, our team is the foundation of everything we do. Each member brings years of experience in export packing, crating, and logistics management.</p>
