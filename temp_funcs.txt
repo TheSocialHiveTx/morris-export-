@@ -1,0 +1,602 @@
+function renderFacilities() {
+      return `
+                <div class="pt-32 pb-24 bg-zinc-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Our Facilities</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="bg-white p-10 rounded-3xl border border-zinc-200 shadow-sm">
+                                <i data-lucide="warehouse" class="text-blue-600 mb-6 w-12 h-12"></i>
+                                <h2 class="text-2xl font-bold mb-4">Strategic Storage & Warehousing</h2>
+                                <p class="text-zinc-600 mb-6">
+                                    Our facilities offer over 250,000 square feet of indoor storage and extensive outdoor laydown areas, all secured and monitored 24/7.
+                                </p>
+                                <ul class="space-y-3 text-zinc-600">
+                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Climate-controlled options</li>
+                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Heavy-lift capabilities</li>
+                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Inventory management via M-Pact</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-3xl overflow-hidden">
+                                <img src="images/facilitiesstorage/Secure Facilities.webp" alt="Facility Overview" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderCustomerCenter() {
+      return `
+                <div class="pt-32 pb-24">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Customer Center</h1>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <a href="https://webstars.morris-export.com" target="_blank" rel="noopener noreferrer" class="p-8 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all flex flex-col justify-between">
+                                <div>
+                                    <i data-lucide="external-link" class="w-8 h-8 mb-6 opacity-50"></i>
+                                    <h3 class="text-2xl font-bold mb-4">Customer Reports</h3>
+                                    <p class="opacity-80">Access your real-time tracking and inventory reports via our Webstars portal.</p>
+                                </div>
+                                <div class="mt-8 font-bold flex items-center">
+                                    Login Now <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                                </div>
+                            </a>
+                            
+                            <a href="#/credit-application" class="p-8 bg-zinc-100 text-zinc-900 rounded-2xl hover:bg-zinc-200 transition-all flex flex-col justify-between border border-zinc-200">
+                                <div>
+                                    <i data-lucide="clipboard-list" class="w-8 h-8 mb-6 text-zinc-400"></i>
+                                    <h3 class="text-2xl font-bold mb-4">Credit Application</h3>
+                                    <p class="text-zinc-600">Download and submit our credit application to establish an account with us.</p>
+                                </div>
+                                <div class="mt-8 font-bold text-blue-600 flex items-center">
+                                    View Application <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                                </div>
+                            </a>
+
+                            <a href="#/faq" class="p-8 bg-zinc-100 text-zinc-900 rounded-2xl hover:bg-zinc-200 transition-all flex flex-col justify-between border border-zinc-200">
+                                <div>
+                                    <i data-lucide="phone" class="w-8 h-8 mb-6 text-zinc-400"></i>
+                                    <h3 class="text-2xl font-bold mb-4">FAQ</h3>
+                                    <p class="text-zinc-600">Find answers to common questions about our services and procedures.</p>
+                                </div>
+                                <div class="mt-8 font-bold text-blue-600 flex items-center">
+                                    Read FAQs <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderContact() {
+      return `
+                <div class="pt-20">
+                    <section class="relative h-[40vh] flex items-center overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <img src="images/warehousemanagement/warehousepackaging2.webp" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Contact Background">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10">
+                            <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 drop-shadow-lg">Contact Us</h1>
+                            <div class="w-24 h-1.5 bg-morris-red mb-6"></div>
+                            <h2 class="text-xl md:text-2xl font-medium text-blue-100 max-w-2xl">We're here to help with your global logistics needs.</h2>
+                        </div>
+                    </section>
+
+                    <section class="py-24 bg-zinc-50 relative -mt-10 z-20 rounded-t-[3rem] shadow-2xl">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                                <div>
+                                    <h3 class="text-3xl font-black tracking-tight mb-10 uppercase text-zinc-900">Get In Touch</h3>
+                                    <div class="space-y-8">
+                                        <div class="flex items-start space-x-6 group">
+                                            <div class="w-16 h-16 bg-blue-100 text-morris-blue rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-morris-blue group-hover:text-white transition-all shadow-sm">
+                                                <i data-lucide="map-pin" class="w-7 h-7"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-xl mb-2 text-zinc-900">Main Office</h4>
+                                                <p class="text-zinc-600 text-lg">8300 Market St<br>Houston, TX 77029</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start space-x-6 group">
+                                            <div class="w-16 h-16 bg-red-100 text-morris-red rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-morris-red group-hover:text-white transition-all shadow-sm">
+                                                <i data-lucide="phone" class="w-7 h-7"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-xl mb-2 text-zinc-900">Phone</h4>
+                                                <a href="tel:7136721635" class="text-zinc-600 text-lg hover:text-morris-red transition-colors">(713) 672-1635</a>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start space-x-6 group">
+                                            <div class="w-16 h-16 bg-blue-100 text-morris-blue rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-morris-blue group-hover:text-white transition-all shadow-sm">
+                                                <i data-lucide="mail" class="w-7 h-7"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-xl mb-2 text-zinc-900">Email</h4>
+                                                <a href="mailto:info@morris-export.com" class="text-zinc-600 text-lg hover:text-morris-blue transition-colors">info@morris-export.com</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white p-10 md:p-14 rounded-[2rem] border border-zinc-100 shadow-xl">
+                                    <h3 class="text-2xl font-black mb-8 uppercase text-zinc-900">Send a Message</h3>
+                                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Message sent! (Simulation)');">
+                                        <div class="grid grid-cols-2 gap-6">
+                                            <div>
+                                                <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">First Name</label>
+                                                <input type="text" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">Last Name</label>
+                                                <input type="text" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">Email Address</label>
+                                            <input type="email" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">Message</label>
+                                            <textarea rows="4" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg resize-none"></textarea>
+                                        </div>
+                                        <button type="submit" class="w-full bg-morris-blue text-white font-black uppercase tracking-widest py-5 rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/30">
+                                            Send Message
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            `;
+    }
+function renderCreditApplication() {
+      return `
+                <div class="pt-32 pb-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
+                            <h1 class="text-4xl font-black tracking-tight uppercase">Credit Application</h1>
+                        </div>
+              <div class="bg-zinc-50 p-6 md:p-10 rounded-3xl border border-zinc-200">
+                <p class="text-zinc-600 mb-8">Please complete all applicable fields below to apply for credit.</p>
+
+                <form class="space-y-10">
+                  <section>
+                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Company Information</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold mb-2">NAME OF COMPANY:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold mb-2">MAILING/BILLING ADDRESS:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">CITY:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div class="grid grid-cols-2 gap-4">
+                        <div>
+                          <label class="block text-sm font-semibold mb-2">STATE:</label>
+                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                        </div>
+                        <div>
+                          <label class="block text-sm font-semibold mb-2">ZIP CODE:</label>
+                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                        </div>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
+                        <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold mb-2">WEB SITE:</label>
+                        <input type="url" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold mb-2">TYPE OF BUSINESS OR SERVICE:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Purchase Orders & Company Type</h2>
+                    <div class="space-y-5">
+                      <div>
+                        <p class="block text-sm font-semibold mb-2">Purchase Order Numbers required?</p>
+                        <div class="flex items-center gap-8 text-sm">
+                          <label class="inline-flex items-center gap-2"><input type="radio" name="po_required" class="text-blue-600" /> Yes</label>
+                          <label class="inline-flex items-center gap-2"><input type="radio" name="po_required" class="text-blue-600" /> No</label>
+                        </div>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">If yes, please provide sample here:</label>
+                        <textarea rows="3" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">Please choose whether the company is a CORPORATION, PARTNERSHIP or INDIVIDUAL PROPRIETORSHIP</label>
+                        <select class="w-full border border-zinc-300 rounded-xl px-4 py-3 bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                          <option selected disabled>Please choose your company Type</option>
+                          <option>CORPORATION</option>
+                          <option>PARTNERSHIP</option>
+                          <option>INDIVIDUAL PROPRIETORSHIP</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">Please list relevant corporate officers and titles:</label>
+                        <textarea rows="3" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
+                      </div>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                          <label class="block text-sm font-semibold mb-2">INCORPORATION - DATE</label>
+                          <input type="date" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                        </div>
+                        <div>
+                          <label class="block text-sm font-semibold mb-2">INCORPORATION - STATE</label>
+                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                        </div>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">IF A BRANCH / DIVISION, LIST LOCATION OF HOME OFFICE:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">PERSON IN CHARGE OF ACCOUNTS PAYABLE:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Bank Reference</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold mb-2">NAME AND ACCOUNT NUMBER:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">CONTACT NAME:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">STREET ADDRESS:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">CITY:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div class="grid grid-cols-2 gap-4">
+                        <div>
+                          <label class="block text-sm font-semibold mb-2">STATE:</label>
+                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                        </div>
+                        <div>
+                          <label class="block text-sm font-semibold mb-2">ZIP:</label>
+                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                        </div>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
+                        <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Business References</h2>
+                    <div class="space-y-8">
+                      <div class="bg-white border border-zinc-200 rounded-2xl p-5 md:p-6">
+                        <h3 class="font-bold mb-4">Reference 1</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">COMPANY NAME:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">CONTACT NAME:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div class="md:col-span-2">
+                            <label class="block text-sm font-semibold mb-2">STREET ADDRESS:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">CITY:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div class="grid grid-cols-2 gap-4">
+                            <div>
+                              <label class="block text-sm font-semibold mb-2">STATE:</label>
+                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                            </div>
+                            <div>
+                              <label class="block text-sm font-semibold mb-2">ZIP:</label>
+                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                            </div>
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
+                            <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="bg-white border border-zinc-200 rounded-2xl p-5 md:p-6">
+                        <h3 class="font-bold mb-4">Reference 2</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">COMPANY NAME:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">CONTACT NAME:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div class="md:col-span-2">
+                            <label class="block text-sm font-semibold mb-2">STREET ADDRESS:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">CITY:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div class="grid grid-cols-2 gap-4">
+                            <div>
+                              <label class="block text-sm font-semibold mb-2">STATE:</label>
+                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                            </div>
+                            <div>
+                              <label class="block text-sm font-semibold mb-2">ZIP:</label>
+                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                            </div>
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
+                            <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                          <div>
+                            <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
+                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section>
+                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Applicant Authorization</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div class="md:col-span-2">
+                        <label class="block text-sm font-semibold mb-2">SIGNATURE OF APPLICANT:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">NAME OF APPLICANT:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">TITLE OF APPLICANT:</label>
+                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-semibold mb-2">DATE SIGNED:</label>
+                        <input type="date" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
+                      </div>
+                    </div>
+                  </section>
+
+                  <div class="pt-2 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                    <button type="submit" class="bg-morris-blue text-white font-bold px-8 py-3 rounded-xl hover:opacity-90 transition-all">Submit Credit Application</button>
+                    <p class="text-sm text-zinc-500">For direct submission support, email billing@morris-export.com</p>
+                  </div>
+                </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderFAQ() {
+      const faqs = [
+        {
+          q: "What is an NCB inspection?",
+          a: "An NCB inspection is an inspection conducted by National Cargo Bureau. Many shippers now require that Flat Racks be inspected prior to being loaded onto the vessel. Morris will handle all aspects of the inspection including scheduling."
+        },
+        {
+          q: "Is Morris a \"Bonded\" facility?",
+          a: "Yes. Morris operates bonded warehouse capabilities and follows U.S. Customs procedures for bonded cargo handling and storage."
+        },
+        {
+          q: "Q: Is Morris C-TPAT Certified?",
+          a: "Morris follows strict cargo security and compliance procedures. For current C-TPAT status and documentation requirements, please contact our team directly."
+        },
+        {
+          q: "Does Morris pack air freight?",
+          a: "Yes. We provide export packing and crating solutions suitable for air freight shipments, including weight-conscious and carrier-compliant packaging options."
+        },
+        {
+          q: "Does Morris have their own trucks?",
+          a: "Yes. Morris provides trucking and drayage support, including Port of Houston moves and specialized transport coordination for oversized cargo."
+        },
+        {
+          q: "Can Morris receive rail freight?",
+          a: "Yes, we can coordinate receiving for rail-delivered cargo. Contact operations in advance so unloading and scheduling requirements can be arranged."
+        },
+        {
+          q: "Can Morris pack Hazardous Materials?",
+          a: "Yes. We provide hazardous material packaging services with appropriate handling and documentation based on shipment class and destination requirements."
+        },
+        {
+          q: "Can Morris pack offsite at either a vendor facility or at the local area docks?",
+          a: "Yes. Our mobile teams can perform offsite packing at customer or vendor facilities and can also support packing activities at local dock locations when scheduled."
+        },
+        {
+          q: "Is Morris' wood IPPC compliant?",
+          a: "Yes. Morris uses ISPM-15 / IPPC-compliant heat-treated wood for export crating where required for international shipments."
+        },
+        {
+          q: "How long does it take to pack material once received?",
+          a: "Turnaround depends on cargo type, dimensions, and project scope. Standard jobs are often completed quickly; complex projects are scheduled with a detailed production timeline."
+        },
+        {
+          q: "Does Morris provide moisture-sensitive packing?",
+          a: "Yes. We offer moisture-control solutions including VCI materials, desiccants, barrier wrapping, and sealed protection systems for sensitive equipment."
+        },
+        {
+          q: "Do Morris offsite employees have TWIC cards?",
+          a: "Yes. Personnel assigned to applicable port and secure areas maintain required credentials, including TWIC, as needed for site access."
+        },
+        {
+          q: "What is a TWIC card and what is it used for?",
+          a: "A TWIC (Transportation Worker Identification Credential) card is a federal security credential required for unescorted access to secure maritime and port facilities."
+        },
+        {
+          q: "What are Morris' receiving hours?",
+          a: "Standard receiving is handled during normal business hours. For exact receiving windows and after-hours coordination, please contact our operations team before delivery."
+        },
+        {
+          q: "Does Morris have a secured facility?",
+          a: "Yes. Our facility uses controlled access and active security measures to protect customer cargo, equipment, and documentation."
+        },
+        {
+          q: "Compliance Bulletin: Price Transparency Via Machine-Readable Files",
+          a: "Machine-readable file information for applicable price transparency requirements is available upon request. Contact our office for access details."
+        }
+      ];
+
+      const faqHtml = faqs.map(item => `
+                <details class="bg-white border border-blue-500/80 rounded-none group" ${item.q === 'What is an NCB inspection?' ? 'open' : ''}>
+                    <summary class="list-none cursor-pointer px-4 md:px-6 py-4 flex items-center justify-between gap-4 text-blue-500 font-bold text-base">
+                        <span>${item.q}</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 shrink-0 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="px-4 md:px-6 pb-5 pt-1 text-zinc-700 leading-relaxed text-sm md:text-base bg-zinc-50 border-t border-zinc-200">
+                        ${item.a}
+                    </div>
+                </details>
+            `).join('');
+
+      return `
+                <div class="pt-32 pb-24 bg-zinc-100">
+                    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex items-center gap-4 mb-10">
+                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
+                            <h1 class="text-4xl font-black tracking-tight uppercase">Frequently Asked Questions</h1>
+                        </div>
+                        <div class="space-y-3 bg-zinc-100 p-3 md:p-5 rounded-md">
+                            ${faqHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    function renderOurTeam() {
+      const teamMembers = [
+        {
+          name: 'Andrew Talley',
+          email: 'ATalley@morrisexport.com',
+          phone: '(713) 672-5411',
+          cell: '',
+          title: 'CEO',
+          image: 'images/Screenshot 2026-03-19 103621.png'
+        },
+        {
+          name: 'Gary Baumbach',
+          email: 'gbaumbach@morrisexport.com',
+          phone: '(713) 672-5425',
+          cell: '',
+          title: 'Treasurer & CFO',
+          image: 'images/Screenshot 2026-03-19 103621.png'
+        },
+        {
+          name: 'Herbie Garza',
+          email: 'HGarza@morrisexport.com',
+          phone: '(713) 672-5428',
+          cell: '(713) 907-4983',
+          title: 'Sales',
+          image: 'images/Screenshot 2026-03-19 103621.png'
+        },
+        {
+          name: 'Kim Solomon',
+          email: 'ksolomon@morrisexport.com',
+          phone: '(713) 672-5443',
+          cell: '',
+          title: 'Account Coordinator',
+          image: 'images/team/kimsolomon.webp'
+        },
+        {
+          name: 'Lisa Allen',
+          email: 'LAllen@morrisexport.com',
+          phone: '(713) 672-5436',
+          cell: '',
+          title: 'Account Coordinator',
+          image: 'images/team/lisaallen.webp'
+        },
+        {
+          name: 'Ray Vargas',
+          email: 'rvargas@morrisexport.com',
+          phone: '(713) 672-5484',
+          cell: '',
+          title: 'Operations Manager',
+          image: 'images/team/rayvargas.webp'
+        }
+      ];
+
+      const teamHtml = teamMembers.map(member => `
+                <article class="bg-white border-2 border-blue-500/20 shadow-md rounded-2xl text-center relative pt-16 hover:border-blue-500/40 transition-all">
+                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-2 border-blue-500/30 overflow-hidden bg-white shadow-sm">
+                        <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-4 pb-5">
+                        <h3 class="font-bold text-zinc-900 leading-tight mb-2">${member.name}</h3>
+                        <p class="text-xs text-zinc-700 break-words">${member.email}</p>
+                        <p class="text-xs text-zinc-700">Phone: ${member.phone}</p>
+                        ${member.cell ? `<p class="text-xs text-zinc-700">Cell: ${member.cell}</p>` : ''}
+                    </div>
+                    <div class="bg-zinc-900 text-white text-xs font-bold py-2 uppercase tracking-wide rounded-b-2xl">${member.title}</div>
+                </article>
+            `).join('');
+
+      return `
+                <div class="pt-32 pb-24 bg-zinc-100">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex items-center gap-4 mb-8">
+                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
+                            <h1 class="text-4xl font-black tracking-tight">Staff Directory:</h1>
+                        </div>
+
+                        <div class="text-zinc-800 text-sm md:text-base leading-relaxed space-y-5 max-w-3xl">
+                            <p>At Morris Export Services, our team is the foundation of everything we do. Each member brings years of experience in export packing, crating, and logistics management.</p>
+                            <p>Together, we ensure every shipment receives the same level of care and attention, from initial packing to final delivery. In addition, our professionals are fully trained in bonded warehouse procedures and U.S. Customs compliance, giving our clients confidence and peace of mind.</p>
+                            <p>Moreover, collaboration drives our success. Our field teams, warehouse specialists, and project coordinators work hand in hand to deliver seamless logistics solutions across Houston and beyond.</p>
+                            <p>As a result, our customers benefit from consistent communication, reliable performance, and a commitment to excellence that defines Morris Export Services.</p>
+                        </div>
+
+                        <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12">
+                            ${teamHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+    

@@ -7,9 +7,23 @@
   <title>Morris Export Services | Engineered for Global Transit</title>
   <link rel="icon" type="image/png" href="images/Screenshot 2026-03-19 103621.png">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'morris-blue': '#005bb5',
+            'morris-red': '#cc0f1f',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --morris-blue: #0078D4;
@@ -19,9 +33,9 @@
     body {
       font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
       background:
-        radial-gradient(1000px 500px at 10% -10%, rgba(0, 120, 212, 0.06), transparent 60%),
-        radial-gradient(900px 450px at 90% -20%, rgba(232, 17, 35, 0.05), transparent 60%),
-        #ffffff;
+        radial-gradient(1000px 500px at 10% -10%, rgba(0, 91, 181, 0.08), transparent 60%),
+        radial-gradient(900px 450px at 90% -20%, rgba(204, 15, 31, 0.05), transparent 60%),
+        #f8fafc;
       scroll-behavior: smooth;
     }
 
@@ -226,34 +240,43 @@
   </style>
 </head>
 
-<body class="antialiased text-zinc-900 bg-white">
+<body class="antialiased text-zinc-300 bg-zinc-950">
 
   <!-- Navbar -->
-  <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-zinc-200 modern-nav">
+  <nav class="fixed w-full z-50 bg-zinc-950/90 backdrop-blur-xl border-b border-white/10 shadow-2xl transition-all duration-300 modern-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-20 items-center">
+      <div class="flex justify-between h-24 items-center">
         <!-- Logo -->
-        <a href="#/" class="flex-shrink-0 flex items-center">
-          <img src="images/Screenshot 2026-03-19 103621.png" alt="Morris Export Services Logo" class="h-10 w-auto">
+        <a href="#/" class="flex-shrink-0 flex items-center group gap-4">
+          <div class="w-12 h-12 bg-morris-blue flex items-center justify-center rounded-sm shadow-[0_0_15px_rgba(37,99,235,0.5)]">
+            <span class="text-white font-black text-2xl tracking-tighter">M</span>
+          </div>
+          <div class="flex flex-col justify-center">
+            <span class="text-white font-black text-xl tracking-tight uppercase leading-none group-hover:text-morris-blue transition-colors">Morris Export</span>
+            <span class="text-zinc-500 text-xs font-bold tracking-widest uppercase">Services</span>
+          </div>
         </a>
-        <div class="hidden md:flex items-center space-x-12" id="nav-links">
-          <!-- Links injected via JS -->
+        <div class="hidden lg:flex items-center space-x-10" id="nav-links">
+          <!-- Links injected via JS, but we'll style them dark -->
         </div>
 
-        <div class="md:hidden flex items-center absolute right-4">
-          <button id="mobile-menu-button" class="text-zinc-600 hover:text-zinc-900">
-            <i data-lucide="menu"></i>
+        <div class="lg:hidden flex items-center absolute right-4">
+          <button id="mobile-menu-button" class="text-zinc-400 hover:text-white transition-colors">
+            <i data-lucide="menu" class="w-8 h-8"></i>
           </button>
         </div>
       </div>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-zinc-200 overflow-hidden">
-      <div class="px-4 py-4 border-b border-zinc-100 mb-2">
-        <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-8 w-auto">
+    <div id="mobile-menu" class="hidden lg:hidden bg-zinc-950 border-b border-zinc-800 shadow-2xl">
+      <div class="px-4 py-6 border-b border-zinc-900 mb-2 flex items-center gap-4">
+        <div class="w-10 h-10 bg-morris-blue flex items-center justify-center rounded-sm">
+            <span class="text-white font-black text-xl tracking-tighter">M</span>
+        </div>
+        <span class="text-white font-black text-lg tracking-tight uppercase">Morris Export</span>
       </div>
-      <div class="px-4 pt-2 pb-6 space-y-1" id="mobile-nav-links">
+      <div class="px-4 pt-2 pb-8 space-y-2" id="mobile-nav-links">
         <!-- Links injected via JS -->
       </div>
     </div>
@@ -264,47 +287,56 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-zinc-900 text-zinc-400 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+  <footer class="bg-zinc-950 text-zinc-400 py-20 border-t border-zinc-900 relative overflow-hidden mt-20">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-morris-blue/5 via-zinc-950 to-zinc-950"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-16">
         <div class="col-span-1 md:col-span-2">
-          <a href="#/" class="mb-6 block">
-            <img src="images/Screenshot 2026-03-19 103621.png" alt="Morris Export Services Logo" class="h-12 w-auto brightness-0 invert">
+          <a href="#/" class="mb-8 flex items-center gap-4 group">
+            <div class="w-12 h-12 bg-morris-blue flex items-center justify-center rounded-sm">
+                <span class="text-white font-black text-2xl tracking-tighter">M</span>
+            </div>
+            <div class="flex flex-col justify-center">
+                <span class="text-white font-black text-xl tracking-tight uppercase leading-none group-hover:text-morris-blue transition-colors">Morris Export</span>
+                <span class="text-zinc-500 text-xs font-bold tracking-widest uppercase">Services</span>
+            </div>
           </a>
-          <p class="max-w-md mb-8">
-            Providing world-class export packing, crating, and logistics solutions since 1958.
+          <p class="max-w-md mb-8 text-zinc-500 text-lg leading-relaxed">
+            Providing world-class export packing, crating, and logistics solutions since 1942.
             Your partner in global industrial transportation.
           </p>
-          <div class="flex space-x-4">
-            <div class="flex items-center space-x-2">
-              <i data-lucide="phone" class="w-4 h-4"></i>
-              <span>(713) 672-1635</span>
-            </div>
+          <div class="flex space-x-6">
+            <a href="tel:7136721635" class="flex items-center space-x-3 text-zinc-400 hover:text-morris-blue transition-colors group">
+              <div class="w-10 h-10 bg-zinc-900 rounded-full flex items-center justify-center group-hover:bg-blue-900/30">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </div>
+              <span class="font-medium">(713) 672-1635</span>
+            </a>
           </div>
         </div>
 
         <div>
-          <h4 class="text-white font-bold mb-6">Quick Links</h4>
+          <h4 class="text-white font-black uppercase tracking-widest mb-8 text-sm">Quick Links</h4>
           <ul class="space-y-4">
-            <li><a href="#/about-us" class="hover:text-white transition-colors">About Us</a></li>
-            <li><a href="#/services" class="hover:text-white transition-colors">Services</a></li>
-            <li><a href="#/facilities" class="hover:text-white transition-colors">Facilities</a></li>
-            <li><a href="#/contact-us" class="hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#/about-us" class="hover:text-morris-blue transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-morris-blue"></i> About Us</a></li>
+            <li><a href="#/services" class="hover:text-morris-blue transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-morris-blue"></i> Services</a></li>
+            <li><a href="#/facilities" class="hover:text-morris-blue transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-morris-blue"></i> Facilities</a></li>
+            <li><a href="#/contact-us" class="hover:text-morris-blue transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-morris-blue"></i> Contact</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-white font-bold mb-6">Legal</h4>
+          <h4 class="text-white font-black uppercase tracking-widest mb-8 text-sm">Legal</h4>
           <ul class="space-y-4">
-            <li><a href="#/terms-and-conditions" class="hover:text-white transition-colors">Terms & Conditions</a></li>
-            <li><a href="#/html-sitemap" class="hover:text-white transition-colors">Sitemap</a></li>
+            <li><a href="#/terms-and-conditions" class="hover:text-morris-blue transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-morris-blue"></i> Terms & Conditions</a></li>
+            <li><a href="#/html-sitemap" class="hover:text-morris-blue transition-colors flex items-center gap-2"><i data-lucide="chevron-right" class="w-3 h-3 text-morris-blue"></i> Sitemap</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="mt-16 pt-8 border-t border-zinc-800 text-sm flex flex-col md:flex-row justify-between items-center">
-        <p>© <span id="current-year"></span> Morris Export Services. All rights reserved.</p>
-        <p className="mt-4 md:mt-0">Houston, Texas</p>
+      <div class="mt-20 pt-8 border-t border-zinc-900 text-sm flex flex-col md:flex-row justify-between items-center text-zinc-600">
+        <p> <span id="current-year"></span> Morris Export Services. All rights reserved.</p>
+        <p class="mt-4 md:mt-0 font-bold tracking-widest uppercase text-xs">Houston, Texas</p>
       </div>
     </div>
   </footer>
@@ -747,28 +779,10 @@
     ];
 
     const navLinks = [
-      { name: 'Home', path: '#/' },
-      { name: 'About Us', path: '#/about-us' },
-      {
-        name: 'Services',
-        path: '#/services',
-        dropdown: [
-          ['Crating', 'Crane', 'Containerization'],
-          ['Wrap Protection', 'Trucking & Drayage', 'Equipment & Facility Relocation'],
-          ['Facilities & Warehouse Storage', 'On-Site Packing Services', 'Hazardous Packaging'],
-          ['Customer Warehouse Management', 'Pipe Protection & Bolsters', 'M-PACT Technology & Software']
-        ]
-      },
-      {
-        name: 'Customer Center',
-        path: '#/customer-center',
-        dropdown: [
-          ['Customer Reports', 'Credit Application', 'FAQ']
-        ]
-      },
-      { name: 'Our Team', path: '#/our-team' },
-      { name: 'Terms & Conditions', path: '#/terms-and-conditions' },
-      { name: 'Contact Us', path: '#/contact-us' },
+      { name: 'Services', path: '#/services' },
+      { name: 'Success Stories', path: '#/success-stories' },
+      { name: 'About & History', path: '#/about-us' },
+      { name: 'Customer Hub', path: '#/customer-center' }
     ];
 
     // Router
@@ -781,7 +795,7 @@
 
       if (hash === '#/') {
         content.innerHTML = renderHome();
-      } else if (hash === '#/about-us') {
+      } else if (hash === '#/success-stories') { content.innerHTML = renderSuccessStories(); } else if (hash === '#/about-us') {
         content.innerHTML = renderAbout();
       } else if (hash === '#/services') {
         content.innerHTML = renderServicesHub();
@@ -871,11 +885,15 @@
 
     // Templates
     function renderHome() {
-      const servicesGridHtml = SERVICES.map(s => `
-                <a href="#/services/${s.slug}" class="service-tile group">
-                    <img src="${s.coverImg}" alt="${s.title}" class="w-full h-full object-cover">
-                    <div class="overlay absolute inset-0 flex items-end p-6">
-                        <h3 class="text-white font-bold text-lg uppercase tracking-tight">${s.title}</h3>
+      const servicesGridHtml = SERVICES.slice(0, 8).map(s => `
+                <a href="#/services/${s.slug}" class="service-tile group rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white border border-white/20">
+                    <div class="relative h-48 md:h-64 overflow-hidden">
+                        <img src="${s.coverImg}" alt="${s.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-6 right-6">
+                            <h3 class="text-white font-black text-xl tracking-tight mb-1">${s.title}</h3>
+                            <div class="w-12 h-1 bg-morris-red transform origin-left transition-all duration-300 group-hover:w-full"></div>
+                        </div>
                     </div>
                 </a>
             `).join('');
@@ -883,69 +901,96 @@
       return `
                 <div class="pt-20">
                     <!-- Hero Section -->
-                    <section class="h-[60vh] relative overflow-hidden">
-                        <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Hero" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/30"></div>
-                    </section>
-
-                    <!-- Branding Section -->
-                    <section class="bg-white py-16">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="flex flex-col md:flex-row items-center gap-12 border-b border-zinc-100 pb-16">
-                                <!-- Logo SVG -->
-                                <div class="w-48 h-auto flex-shrink-0">
-                                    <img src="images/Screenshot 2026-03-19 103621.png" alt="Morris Export Services Logo" class="w-full h-auto">
+                    <section class="min-h-[85vh] relative overflow-hidden flex items-center">
+                        <div class="absolute inset-0 z-0">
+                            <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Hero" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-12 pb-24">
+                            <div class="max-w-3xl">
+                                <span class="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 font-semibold text-sm mb-6 border border-blue-500/30 backdrop-blur-md">Established 1942</span>
+                                <h1 class="text-5xl md:text-7xl font-black text-white uppercase leading-[1.1] tracking-tighter mb-6 drop-shadow-lg">
+                                    Engineered For <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">Global Transit</span>
+                                </h1>
+                                <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
+                                    Comprehensive logistics and transportation solutions. From field export packing and custom crating to heavy-haul trucking and warehousing.
+                                </p>
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <a href="#/services" class="btn-modern bg-morris-red text-white py-4 px-8 rounded-xl font-bold uppercase tracking-widest text-center hover:bg-red-700 transition-colors shadow-lg shadow-red-900/50">Explore Services</a>
+                                    <a href="#/contact-us" class="btn-modern bg-white/10 backdrop-blur-md border border-white/20 text-white py-4 px-8 rounded-xl font-bold uppercase tracking-widest text-center hover:bg-white/20 transition-colors">Get a Quote</a>
                                 </div>
-                                <div class="text-center md:text-left border-l-0 md:border-l-4 border-blue-600 md:pl-12">
-                                    <h1 class="text-3xl md:text-4xl font-black text-morris-blue uppercase leading-tight">
-                                        Secure Your Products with <br> Field Export Packing and <br> Crating Services
-                                    </h1>
-                                </div>
-                            </div>
-
-                            <div class="mt-12 text-zinc-700 leading-relaxed text-sm md:text-base">
-                                <p class="mb-8 font-medium">At Morris Export Services, we specialize in providing comprehensive logistics and transportation solutions tailored to meet your unique needs. Our range of services includes:</p>
-                                <ul class="space-y-4 list-disc pl-6">
-                                    <li><strong>Export Packing and Crating:</strong> Ensuring your goods are securely packed and crated for international ocean or air shipping.</li>
-                                    <li><strong>Onsite Packing:</strong> Offering professional packing services at your location for convenience and efficiency.</li>
-                                    <li><strong>Container Stuffing and Transloading:</strong> Expertly loading (stuffing), including blocking and bracing, and unloading (stripping) containers to optimize space and ensure safe transport.</li>
-                                    <li><strong>Drayage and Out of Gauge Trucking:</strong> Providing reliable drayage services and specialized trucking for oversized or heavy cargo.</li>
-                                    <li><strong>Warehousing and Outdoor Storage:</strong> Offering secure indoor, climate controlled, and outdoor storage solutions to accommodate your short-term or long-term storage needs. We additionally offer onsite material handling and crane services, with lifting capacities up to 140,000 pounds.</li>
-                                    <li><strong>Hazmat:</strong> We offer hazmat storage, packing, and drayage services. Contact us today if you have any questions regarding our hazardous materials capabilities.</li>
-                                    <li><strong>Forklift Rental, Machinery Moving, & Warehouse Relocation:</strong> Supplying 5,000 – 36,000 lb capacity forklifts for rent, with or without OSHA certified operators, to assist with your material handling, machinery moving, and warehouse relocation requirements.</li>
-                                </ul>
-                                <p class="mt-8">With a commitment to excellence and customer satisfaction spanning more than 40 years, Morris Export Services is the partner you can trust to ensure your imports and exports at the Port of Houston and beyond reach their destination safely. Contact us today to learn how we can support your business operations.</p>
                             </div>
                         </div>
                     </section>
 
-                    <!-- Service Grid Title -->
-                    <section class="bg-white py-12 text-center uppercase">
-                        <h2 class="text-3xl font-black text-morris-blue mb-2">Morris Export Services</h2>
-                        <h3 class="text-xl font-bold text-zinc-800 tracking-widest">We Pack The World</h3>
-                    </section>
-
-                    <!-- Service Grid -->
-                    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-                        ${servicesGridHtml}
-                    </section>
-
-                    <!-- Where We Excel -->
-                    <section class="bg-white py-24">
+                    <!-- Service Grid Section -->
+                    <section class="bg-zinc-50 py-24 relative">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <h2 class="text-3xl font-black uppercase mb-12">Where We Excel</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                                 <div>
-                                    <h4 class="font-bold text-lg mb-4 text-morris-blue border-b-2 border-morris-blue pb-2 inline-block">Wrap Protection</h4>
-                                    <p class="text-zinc-600 text-sm leading-relaxed">Wrapping products in a protective layer prevents damage during transportation. This service is particularly important for manufacturers who are shipping delicate or fragile products that require extra care and attention.</p>
+                                    <h3 class="text-morris-blue font-bold tracking-widest uppercase mb-2">Our Capabilities</h3>
+                                    <h2 class="text-4xl font-black text-zinc-900 uppercase tracking-tight">Featured Services</h2>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-4 text-morris-blue border-b-2 border-morris-blue pb-2 inline-block">Onsite Export Packing Services</h4>
-                                    <p class="text-zinc-600 text-sm leading-relaxed">We send a team of professionals to our client’s facilities to package and prepare their products for shipping. This packing service is ideal for manufacturers who need to ship large or bulky items that cannot easily be transported to a packaging facility.</p>
+                                <a href="#/services" class="mt-4 md:mt-0 text-morris-red font-bold flex items-center hover:text-red-700 transition-colors">
+                                    View all services <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+                                </a>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                ${servicesGridHtml}
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Modern Stats / Info Section -->
+                    <section class="py-24 bg-white border-t border-zinc-100">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                                <div class="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+                                    <img src="images/onsitepacking/onsitepacking2.webp" class="w-full h-full object-cover" alt="Industrial Operations">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-morris-blue/80 to-transparent flex items-end p-10">
+                                        <div class="text-white">
+                                            <div class="text-5xl font-black mb-2">80+</div>
+                                            <div class="text-lg font-medium text-blue-100 uppercase tracking-widest">Years of Excellence</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 class="font-bold text-lg mb-4 text-morris-blue border-b-2 border-morris-blue pb-2 inline-block">Facilities and Warehouse Management Solutions</h4>
-                                    <p class="text-zinc-600 text-sm leading-relaxed">Our state-of-the-art facility for field export packing & crafting in Houston, TX is equipped with the latest technology and equipment to provide safe and secure storage of your products before they’re ready for freight shipping. We take warehouse management seriously to ensure your continued success.</p>
+                                <div class="space-y-8">
+                                    <h2 class="text-4xl font-black text-zinc-900 uppercase tracking-tight leading-tight">
+                                        Why Choose <br><span class="text-morris-blue">Morris Export?</span>
+                                    </h2>
+                                    <p class="text-lg text-zinc-600 leading-relaxed">
+                                        With a commitment to excellence and customer satisfaction spanning more than 80 years, we are the partner you can trust to ensure your imports and exports reach their destination safely.
+                                    </p>
+                                    
+                                    <div class="space-y-6 mt-8">
+                                        <div class="flex items-start bg-zinc-50 p-6 rounded-2xl border border-zinc-100">
+                                            <div class="w-12 h-12 bg-blue-100 text-morris-blue rounded-xl flex items-center justify-center shrink-0 mr-5">
+                                                <i data-lucide="shield" class="w-6 h-6"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xl font-bold text-zinc-900 mb-2">Wrap Protection</h4>
+                                                <p class="text-zinc-600 text-sm">Protective layering prevents damage during transportation, ideal for delicate or fragile shipments.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start bg-zinc-50 p-6 rounded-2xl border border-zinc-100">
+                                            <div class="w-12 h-12 bg-red-100 text-morris-red rounded-xl flex items-center justify-center shrink-0 mr-5">
+                                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xl font-bold text-zinc-900 mb-2">Onsite Export Packing</h4>
+                                                <p class="text-zinc-600 text-sm">We send professionals to your facilities to package and prepare products too large for a standard packaging facility.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start bg-zinc-50 p-6 rounded-2xl border border-zinc-100">
+                                            <div class="w-12 h-12 bg-blue-100 text-morris-blue rounded-xl flex items-center justify-center shrink-0 mr-5">
+                                                <i data-lucide="warehouse" class="w-6 h-6"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-xl font-bold text-zinc-900 mb-2">Warehouse Management</h4>
+                                                <p class="text-zinc-600 text-sm">State-of-the-art facility equipped with the latest technology for safe storage and inventory transparency.</p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -954,100 +999,147 @@
                     <!-- CTA Section -->
                     <section class="relative py-32 overflow-hidden">
                         <img src="images/trucking/Screenshot 2026-03-19 091824.png" alt="CTA BG" class="absolute inset-0 w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black/50"></div>
-                        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                            <h2 class="text-4xl font-black text-white uppercase mb-8 tracking-tighter">Contact Us Today!</h2>
-                            <a href="#/contact-us" class="inline-block bg-morris-red hover-bg-morris-red text-white py-4 px-12 font-bold uppercase tracking-widest transition-all">
-                                Learn More
+                        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60 backdrop-blur-sm"></div>
+                        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                            <h2 class="text-5xl font-black text-white uppercase mb-6 tracking-tighter">Ready to Ship?</h2>
+                            <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">Get in touch with our experts today and discover how we can optimize your global logistics.</p>
+                            <a href="#/contact-us" class="inline-block bg-morris-red hover:bg-red-700 text-white py-5 px-14 rounded-xl font-bold uppercase tracking-widest transition-all shadow-xl shadow-red-900/30 transform hover:-translate-y-1">
+                                Contact Us Today
                             </a>
-                        </div>
-                    </section>
-
-                    <!-- Testimonials Section -->
-                    <section class="py-24 bg-white overflow-hidden">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="text-center mb-16 px-4 uppercase">
-                                <h2 class="text-3xl font-black text-morris-blue mb-2">A Word from Our Customers</h2>
-                                <p class="text-zinc-600 font-bold max-w-xl mx-auto">At Morris our management and employees work together to ensure that our customers receive the best service possible on every shipping project.</p>
-                            </div>
-
-                            <div class="flex flex-col md:flex-row items-center gap-16">
-                                <div class="w-full md:w-1/2 flex justify-center">
-                                    <div class="w-80 h-80 hex-mask overflow-hidden shadow-xl border-4 border-zinc-100">
-                                        <img src="images/onsitepacking/onsitepacking2.webp" alt="Industrial" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                                <div class="w-full md:w-1/2 bg-zinc-50 p-12 relative border border-zinc-100 rounded-lg">
-                                    <div class="text-orange-400 mb-6 flex space-x-1">
-                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                                    </div>
-                                    <p class="text-zinc-600 italic leading-relaxed mb-8">
-                                        "We have done business with Morris Export and used their crating services for more than 20 years now. We will continue to do so because of the competitive rates and reliable customer care. We have always appreciated Morris's timely responses and relied on their dependable and accurate paperwork. Whether for export crating purposes or yard storage, we can always count on service, 24 hours a day and 7 days a week. Thank you, Morris Export Services for 20+ years of trust and support!"
-                                    </p>
-                                    <div>
-                                        <h4 class="font-black text-zinc-900 uppercase">Bob Earl</h4>
-                                        <p class="text-morris-blue text-xs font-bold uppercase tracking-widest">Export Manager, Houston, TX.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Bottom Text -->
-                    <section class="py-24 bg-zinc-50 border-t border-zinc-200">
-                        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                            <h2 class="text-2xl font-black uppercase mb-8 leading-tight">For Reliable Export Packing, Freight Shipping, and Warehouse Management, Choose Morris Export Services</h2>
-                            <p class="text-zinc-600 mb-8 leading-relaxed">Our goal is to cater to manufacturers who need to ship equipment and products internationally and require a reliable and efficient partner to help them do so. We work closely with our clients to understand their specific needs and develop customized solutions to meet their requirements. Our team is always available to answer questions, provide advice, and address any concerns that our customers may have.</p>
-                            <div class="h-px bg-zinc-200 w-24 mx-auto mb-8"></div>
-                            <p class="text-sm text-zinc-500 max-w-4xl mx-auto leading-relaxed">Morris Export is a leading field export and import service company located in Houston, Texas providing robust freight shipping and warehouse management services for manufacturers, freight forwarders, trucking companies, personal shipping needs and more. We offer services such as crating, containerization, wrap protection, trucking & drayage, equipment & facility relocation, facilities & warehouse storage, on-site packing services, hazardous packaging, customer warehouse management, pipe protection & bolsters, and M-PACT technology & software. Morris Export Services has earned a reputation for delivering exceptional customer support and high-quality services. Our team of experienced professionals is committed to meeting all your needs by consistently delivering outstanding results.</p>
                         </div>
                     </section>
                 </div>
             `;
+    }
+function renderSuccessStories() {
+      const stories = [
+        {
+          client: "Global Petrochemical",
+          title: "Delta Refinery Expansion",
+          metric: "40+ Oversized Units",
+          img: "images/containerization/container1.webp",
+          desc: "Managed the transloading, securing, and export packing of massive refinery components destined for South America. Zero incidents, delivered ahead of schedule."
+        },
+        {
+          client: "Aerospace Defense",
+          title: "Fragile Instrumentation Transport",
+          metric: "Shock-proof Crating",
+          img: "images/mpacttech/mpact2.webp",
+          desc: "Engineered specialized vapor-barrier and shock-absorbing crates for highly sensitive satellite instrumentation."
+        },
+        {
+          client: "Heavy Manufacturing",
+          title: "Factory Relocation",
+          metric: "Turnkey Operation",
+          img: "images/facilityrelocation/facilityrelocation].webp",
+          desc: "Dismantled, packed, and transported an entire manufacturing line from Texas to Mexico. Coordinated heavy haul, crating, and border logistics."
+        }
+      ];
+
+      const storiesHtml = stories.map((story, idx) => `
+            <div class="flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center">
+              <div class="w-full lg:w-1/2 relative h-[400px] border border-zinc-800 p-2 bg-zinc-900 rounded-[2rem] shadow-2xl">
+                <div class="relative w-full h-full overflow-hidden rounded-2xl">
+                  <img src="${story.img}" alt="${story.title}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div class="absolute -bottom-6 -right-6 bg-morris-blue p-6 shadow-xl hidden md:block rounded-xl">
+                  <div class="text-white font-black uppercase tracking-widest text-sm">${story.metric}</div>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/2">
+                <h3 class="text-morris-red font-bold text-sm tracking-[0.2em] uppercase mb-4">${story.client}</h3>
+                <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tight text-white mb-6">${story.title}</h2>
+                <p class="text-zinc-400 text-lg leading-relaxed mb-8">${story.desc}</p>
+                <button class="flex items-center text-sm font-bold uppercase tracking-widest text-white hover:text-morris-blue transition-colors group">
+                  Read Full Study <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+              </div>
+            </div>
+      `).join('');
+
+      return `
+        <div class="pt-20">
+          <section class="pt-32 pb-16 bg-zinc-950 border-b border-zinc-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6">Success Stories</h1>
+              <p class="text-xl text-zinc-400 max-w-3xl leading-relaxed">
+                Case studies demonstrating our capacity to handle the most demanding logistical challenges across the energy, manufacturing, and defense sectors.
+              </p>
+            </div>
+          </section>
+          <section class="py-24 bg-zinc-950">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+              ${storiesHtml}
+            </div>
+          </section>
+        </div>
+      `;
     }
 
     function renderAbout() {
       return `
                 <div class="pt-20">
                     <!-- About Sub-Header -->
-                    <section class="bg-white py-12 border-b border-zinc-100">
-                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                                <div class="flex items-center gap-4">
-                                    <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
-                                    <h1 class="text-4xl font-bold text-morris-blue uppercase tracking-tight">About Us</h1>
-                                </div>
-                                <div class="hidden md:block w-px h-12 bg-blue-600"></div>
-                                <h2 class="text-3xl font-bold text-morris-blue uppercase tracking-tight">Packing The World Since 1942</h2>
+                    <section class="relative h-[50vh] flex items-center overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <img src="images/facilitiesstorage/Screenshot 2026-03-19 091959.png" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Morris Export Facility">
+                            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-12 w-auto brightness-0 invert opacity-90">
                             </div>
+                            <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 drop-shadow-lg">About Us</h1>
+                            <div class="w-24 h-1.5 bg-morris-red mb-6"></div>
+                            <h2 class="text-2xl md:text-3xl font-medium text-blue-100 uppercase tracking-widest max-w-2xl">Packing The World Since 1942</h2>
                         </div>
                     </section>
 
                     <!-- Main Biography Section -->
-                    <section class="bg-white py-24">
+                    <section class="bg-zinc-50 py-24 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-1/2 h-full bg-white/50 backdrop-blur-3xl transform skew-x-12 -z-10 translate-x-1/4"></div>
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                                <div class="rounded-lg overflow-hidden shadow-lg border border-zinc-100">
-                                    <img src="images/facilitiesstorage/Screenshot 2026-03-19 091959.png" alt="Morris Export Facility" class="w-full h-auto object-cover">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-morris-blue rounded-3xl transform translate-x-4 translate-y-4"></div>
+                                    <div class="rounded-3xl overflow-hidden shadow-2xl relative z-10 border border-zinc-200 bg-white p-2">
+                                        <img src="images/team/rayvargas.webp" alt="Historical Experience" class="w-full h-auto object-cover rounded-2xl">
+                                    </div>
+                                    
+                                    <!-- Floating badge -->
+                                    <div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-2xl border border-zinc-100 z-20 flex items-center gap-4 animate-[floatAura_8s_ease-in-out_infinite]">
+                                        <div class="w-16 h-16 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center">
+                                            <i data-lucide="award" class="w-8 h-8"></i>
+                                        </div>
+                                        <div>
+                                            <div class="text-3xl font-black text-zinc-900 leading-none mb-1">80+</div>
+                                            <div class="text-xs font-bold text-zinc-500 uppercase tracking-widest">Years Expertise</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="space-y-6">
-                                    <h3 class="text-2xl font-black text-zinc-900 uppercase">Morris Export Services</h3>
-                                    <p class="text-zinc-700 leading-relaxed">
-                                        As reflected in the above header, Morris Export Services is steeped in history, dating back to our establishment in 1942. We have successfully blended old world craftsmanship, while utilizing today’s modern technology to generate the best service in the packing industry.
-                                    </p>
-                                    <p class="text-zinc-700 leading-relaxed">
-                                        Morris Export is able to lead industry standards by having the most experienced employees in the packing industry. With almost 80 years of experience in the packing industry, we’ve gained the knowledge and craftsmanship no other packer can compete with.
-                                    </p>
-                                    <p class="text-zinc-700 leading-relaxed">
-                                        Essential to our process, we also pride ourselves on our software and technological development. Our proprietary software, which works with any ERP system, gives you full transparency of our entire packing process. We encourage you to have full access to our shared system!
-                                    </p>
-                                    <div class="pt-4">
-                                        <a href="#/contact-us" class="text-morris-blue font-bold hover:underline">Contact us</a>
-                                        <span class="text-zinc-700">to see how our software integration can help you!</span>
+                                <div class="space-y-8">
+                                    <div>
+                                        <h3 class="text-sm font-bold text-morris-blue uppercase tracking-widest mb-3">Our Heritage</h3>
+                                        <h2 class="text-4xl font-black text-zinc-900 uppercase tracking-tight leading-tight">Morris Export Services</h2>
+                                    </div>
+                                    
+                                    <div class="prose prose-lg text-zinc-600 prose-p:leading-relaxed">
+                                        <p>
+                                            Steeped in history, dating back to our establishment in 1942, we have successfully blended old world craftsmanship, while utilizing today’s modern technology to generate the best service in the packing industry.
+                                        </p>
+                                        <p>
+                                            Morris Export is able to lead industry standards by having the most experienced employees in the packing industry. With almost 80 years of experience in the packing industry, we’ve gained the knowledge and craftsmanship no other packer can compete with.
+                                        </p>
+                                        <p>
+                                            Essential to our process, we also pride ourselves on our software and technological development. Our proprietary software, which works with any ERP system, gives you full transparency of our entire packing process. We encourage you to have full access to our shared system!
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="pt-6 border-t border-zinc-200">
+                                        <a href="#/contact-us" class="inline-flex items-center font-bold text-lg text-morris-blue hover:text-blue-800 transition-colors group">
+                                            Contact us to see how our software integration can help you
+                                            <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -1055,30 +1147,32 @@
                     </section>
 
                     <!-- Sales Presentation Section -->
-                    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-                        <div class="flex flex-col md:flex-row overflow-hidden rounded-2xl shadow-xl border border-zinc-200">
+                    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                        <div class="flex flex-col md:flex-row overflow-hidden rounded-[2.5rem] shadow-2xl border border-zinc-100 bg-white">
                             <!-- Left: CTA Area -->
-                            <div class="w-full md:w-1/3 bg-white p-12 flex flex-col justify-center">
-                                <h3 class="text-2xl font-black text-zinc-900 uppercase mb-6 leading-tight">
-                                    For more information watch our <br>Sales Presentation!
+                            <div class="w-full md:w-5/12 bg-zinc-900 p-12 md:p-16 flex flex-col justify-center relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                                <h3 class="text-3xl font-black text-white uppercase mb-6 leading-tight relative z-10">
+                                    For more information watch our <span class="text-morris-red">Sales Presentation</span>
                                 </h3>
-                                <p class="text-zinc-500 text-sm mb-8">
+                                <p class="text-zinc-400 text-base mb-10 relative z-10">
                                     Please click ‘Save’ to save the presentation to your computer before opening.
                                 </p>
-                                <div class="flex flex-col gap-4">
-                                    <button class="bg-morris-red hover-bg-morris-red text-white py-3 px-8 font-bold uppercase flex items-center justify-center gap-2 transition-all">
-                                        <i data-lucide="play" class="w-4 h-4 fill-current"></i> WATCH
+                                <div class="flex flex-col sm:flex-row gap-4 relative z-10">
+                                    <button class="bg-morris-red hover:bg-red-700 text-white py-4 px-8 rounded-xl font-bold uppercase tracking-widest flex items-center justify-center gap-3 transition-all shadow-lg shadow-red-900/40">
+                                        <i data-lucide="play" class="w-5 h-5 fill-current"></i> WATCH
                                     </button>
-                                    <button class="bg-morris-blue hover:opacity-90 text-white py-3 px-8 font-bold uppercase flex items-center justify-center gap-2 transition-all">
-                                        SAVE VIDEO
+                                    <button class="bg-white/10 hover:bg-white/20 text-white py-4 px-8 rounded-xl font-bold uppercase tracking-widest flex items-center justify-center gap-3 transition-all border border-white/10">
+                                        <i data-lucide="download" class="w-5 h-5"></i> SAVE
                                     </button>
                                 </div>
                             </div>
                             <!-- Right: Visual Background -->
-                            <div class="w-full md:w-2/3 relative h-80 md:h-auto overflow-hidden">
+                            <div class="w-full md:w-7/12 relative min-h-[400px]">
                                 <img src="images/team/rayvargas.webp" alt="Historical Presentation" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-transparent to-transparent opacity-80 md:opacity-100"></div>
                                 <div class="absolute inset-0 bg-black/20 group cursor-pointer flex items-center justify-center">
-                                    <div class="w-20 h-20 bg-morris-blue text-white rounded-full flex items-center justify-center shadow-2xl transform transition-transform group-hover:scale-110">
+                                    <div class="w-24 h-24 bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] transform transition-all duration-500 group-hover:scale-110 group-hover:bg-white group-hover:text-morris-red">
                                         <i data-lucide="play" class="w-10 h-10 fill-current ml-1"></i>
                                     </div>
                                 </div>
@@ -1087,59 +1181,57 @@
                     </section>
 
                     <!-- Bottom Nav Extension (Matching Reference) -->
-                    <section class="bg-zinc-50 py-12 border-t border-zinc-200">
+                    <section class="bg-zinc-100 py-16 border-t border-zinc-200">
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center uppercase">
-                            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold text-zinc-600 mb-8">
-                                <a href="#/" class="hover:text-morris-blue">Home</a>
-                                <a href="#/about-us" class="hover:text-morris-blue">About Us</a>
-                                <a href="#/facilities" class="hover:text-morris-blue">Facilities</a>
-                                <a href="#/customer-center" class="hover:text-morris-blue">Customer Center</a>
-                                <a href="#/contact-us" class="hover:text-morris-blue">Contact Us</a>
-                                <a href="/sitemap.xml" target="_blank" class="hover:text-morris-blue">XML Sitemap</a>
-                                <a href="#/html-sitemap" class="hover:text-morris-blue">HTML Sitemap</a>
+                            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-bold text-zinc-500 mb-8 tracking-widest">
+                                <a href="#/" class="hover:text-morris-blue transition-colors">Home</a>
+                                <a href="#/about-us" class="text-morris-blue">About Us</a>
+                                <a href="#/facilities" class="hover:text-morris-blue transition-colors">Facilities</a>
+                                <a href="#/customer-center" class="hover:text-morris-blue transition-colors">Customer Center</a>
+                                <a href="#/contact-us" class="hover:text-morris-blue transition-colors">Contact Us</a>
+                                <a href="/sitemap.xml" target="_blank" class="hover:text-morris-blue transition-colors">XML Sitemap</a>
+                                <a href="#/html-sitemap" class="hover:text-morris-blue transition-colors">HTML Sitemap</a>
                             </div>
-                            <p class="text-xs text-zinc-500 font-medium">© 2019, Morris Export Services, Inc. All Rights Reserved.</p>
+                            <p class="text-xs text-zinc-400 font-medium tracking-widest">© 2026, Morris Export Services, Inc. All Rights Reserved.</p>
                         </div>
                     </section>
                 </div>
             `;
     }
-
-    function renderServicesHub() {
+function renderServicesHub() {
       const categories = ['Packing & Crating', 'Logistics & Transport', 'Storage & Management', 'Technology'];
 
       const categorySections = categories.map(cat => {
         const catServices = SERVICES.filter(s => s.category === cat);
         const catIcon = { 'Packing & Crating': 'box', 'Logistics & Transport': 'truck', 'Storage & Management': 'warehouse', 'Technology': 'cpu' }[cat] || 'layers';
         return `
-          <div class="mb-20">
-            <div class="flex items-center gap-4 mb-10 pb-4 border-b-2 border-zinc-200">
-              <div class="w-10 h-10 bg-morris-blue text-white rounded-lg flex items-center justify-center flex-shrink-0">
-                <i data-lucide="${catIcon}" class="w-5 h-5"></i>
+          <div class="mb-24">
+            <div class="flex items-center gap-4 mb-12 pb-4 border-b border-zinc-200">
+              <div class="w-12 h-12 bg-blue-100 text-morris-blue rounded-xl flex items-center justify-center flex-shrink-0 shadow-inner">
+                <i data-lucide="${catIcon}" class="w-6 h-6"></i>
               </div>
-              <h2 class="text-2xl font-black uppercase tracking-tight text-zinc-900">${cat}</h2>
+              <h2 class="text-3xl font-black uppercase tracking-tight text-zinc-900">${cat}</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               ${catServices.map(service => `
-                <a href="#/services/${service.slug}" class="group bg-white rounded-2xl border border-zinc-200 hover:border-blue-500 transition-all shadow-sm hover:shadow-lg overflow-hidden flex flex-col">
-                  <div class="relative h-40 overflow-hidden">
-                    <img src="${service.coverImg}" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-3 left-4">
-                      <span class="text-xs font-bold text-white/80 uppercase tracking-widest">${service.category}</span>
-                    </div>
-                    <div class="absolute top-3 right-3 w-9 h-9 bg-white/10 backdrop-blur-sm text-white rounded-lg flex items-center justify-center border border-white/20">
-                      <i data-lucide="${service.icon}" class="w-4 h-4"></i>
+                <a href="#/services/${service.slug}" class="group bg-white rounded-3xl border border-zinc-100 hover:border-blue-500/30 transition-all duration-300 shadow-sm hover:shadow-2xl overflow-hidden flex flex-col transform hover:-translate-y-2">
+                  <div class="relative h-56 overflow-hidden">
+                    <img src="${service.coverImg}" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md text-white rounded-xl flex items-center justify-center border border-white/30 shadow-lg">
+                      <i data-lucide="${service.icon}" class="w-5 h-5"></i>
                     </div>
                   </div>
-                  <div class="p-6 flex flex-col flex-1">
-                    <h3 class="text-lg font-bold mb-2 text-zinc-900 group-hover:text-morris-blue transition-colors">${service.title}</h3>
-                    <p class="text-zinc-500 text-sm mb-5 leading-relaxed flex-1">${service.description}</p>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
-                      <div class="flex gap-1 flex-wrap">
-                        ${(service.keyBenefits || []).slice(0, 2).map(b => `<span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">${b}</span>`).join('')}
+                  <div class="p-8 flex flex-col flex-1">
+                    <h3 class="text-xl font-bold mb-3 text-zinc-900 group-hover:text-morris-blue transition-colors">${service.title}</h3>
+                    <p class="text-zinc-500 text-sm mb-6 leading-relaxed flex-1">${service.description}</p>
+                    <div class="flex items-center justify-between pt-5 border-t border-zinc-100 mt-auto">
+                      <div class="flex gap-2 flex-wrap">
+                        ${(service.keyBenefits || []).slice(0, 2).map(b => `<span class="text-[10px] bg-blue-50 text-blue-700 font-bold uppercase tracking-widest px-3 py-1 rounded-full">${b}</span>`).join('')}
                       </div>
-                      <span class="text-blue-600 font-bold text-sm flex items-center gap-1 whitespace-nowrap">Details <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                      <div class="w-8 h-8 rounded-full bg-zinc-50 group-hover:bg-blue-50 flex items-center justify-center transition-colors">
+                        <i data-lucide="arrow-right" class="w-4 h-4 text-zinc-400 group-hover:text-morris-blue transition-colors"></i>
+                      </div>
                     </div>
                   </div>
                 </a>
@@ -1152,73 +1244,58 @@
       return `
         <div class="pt-20">
           <!-- Services Hero -->
-          <section class="relative h-72 md:h-96 overflow-hidden">
-            <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Services" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
-            <div class="absolute inset-0 flex items-center">
-              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <nav class="text-white/70 text-sm mb-4 flex items-center gap-2">
-                  <a href="#/" class="hover:text-white transition-colors">Home</a>
-                  <i data-lucide="chevron-right" class="w-3 h-3"></i>
-                  <span class="text-white font-medium">Services</span>
-                </nav>
-                <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none mb-4">Our Services</h1>
-                <p class="text-lg text-white/80 max-w-xl">End-to-end export packing, crating, logistics, and storage — engineered for global transit.</p>
-              </div>
+          <section class="relative h-[60vh] overflow-hidden flex items-center">
+            <div class="absolute inset-0 z-0">
+                <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Services" class="w-full h-full object-cover scale-105 animate-[pulse_15s_ease-in-out_infinite]">
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
+            </div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12">
+              <nav class="text-white/60 text-sm mb-6 flex items-center gap-2 font-medium tracking-wide">
+                <a href="#/" class="hover:text-white transition-colors">HOME</a>
+                <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                <span class="text-white">SERVICES</span>
+              </nav>
+              <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none mb-6 drop-shadow-md">Our Services</h1>
+              <p class="text-xl text-blue-100 max-w-2xl leading-relaxed">End-to-end export packing, crating, logistics, and storage — engineered for global transit.</p>
             </div>
           </section>
 
           <!-- Stats Bar -->
-          <section class="bg-morris-blue text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
-                ${[
-          { val: '80+', label: 'Years in Business' },
-          { val: '250K+', label: 'Sq Ft of Storage' },
-          { val: '140K lbs', label: 'Max Lift Capacity' },
-          { val: '12', label: 'Specialized Services' }
-        ].map(s => `
-                  <div class="py-8 px-6 text-center">
-                    <div class="text-3xl font-black mb-1">${s.val}</div>
-                    <div class="text-blue-200 text-sm font-medium uppercase tracking-wider">${s.label}</div>
-                  </div>
-                `).join('')}
-              </div>
+          <section class="bg-morris-blue text-white relative z-20 shadow-2xl -mt-8 mx-4 md:mx-auto max-w-7xl rounded-2xl overflow-hidden">
+            <div class="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-blue-400/30">
+              ${[
+                { val: '80+', label: 'Years in Business' },
+                { val: '250K+', label: 'Sq Ft of Storage' },
+                { val: '140K', label: 'Max Lift Capacity (lbs)' },
+                { val: '12+', label: 'Specialized Services' }
+              ].map(s => `
+                <div class="py-10 px-6 text-center hover:bg-blue-700/50 transition-colors">
+                  <div class="text-4xl font-black mb-2">${s.val}</div>
+                  <div class="text-blue-200 text-xs font-bold uppercase tracking-widest">${s.label}</div>
+                </div>
+              `).join('')}
             </div>
           </section>
 
           <!-- Category Sections -->
-          <section class="bg-zinc-50 py-20">
+          <section class="bg-zinc-50 pt-32 pb-20 -mt-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               ${categorySections}
             </div>
           </section>
 
-          <!-- Industries We Serve -->
-          <section class="bg-white py-16 border-t border-zinc-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 class="text-2xl font-black uppercase mb-8 text-zinc-900">Industries We Serve</h2>
-              <div class="flex flex-wrap gap-3">
-                ${['Oil & Gas', 'Power Generation', 'Aerospace & Defense', 'Chemical Processing', 'Heavy Manufacturing', 'Mining & Resources', 'EPC Contractors', 'Freight Forwarders', 'Pipeline & Tubular', 'Semiconductor Fab', 'Marine & Ports', 'Import/Export Trading'].map(ind => `
-                  <span class="px-4 py-2 bg-zinc-100 text-zinc-700 font-semibold text-sm rounded-full border border-zinc-200 hover:bg-morris-blue hover:text-white hover:border-morris-blue transition-all cursor-default">${ind}</span>
-                `).join('')}
-              </div>
-            </div>
-          </section>
-
           <!-- CTA -->
-          <section class="bg-zinc-900 py-20 text-center">
-            <div class="max-w-3xl mx-auto px-4">
-              <h2 class="text-3xl font-black text-white uppercase mb-6">Ready to get started?</h2>
-              <p class="text-zinc-400 mb-10 text-lg">Tell us about your project and our team will develop a custom solution for your cargo.</p>
-              <a href="#/contact-us" class="inline-block bg-morris-red text-white px-12 py-4 font-bold uppercase tracking-widest hover:opacity-90 transition-all">Request a Quote</a>
+          <section class="bg-zinc-900 py-24 text-center">
+            <div class="max-w-4xl mx-auto px-4">
+              <h2 class="text-4xl font-black text-white uppercase mb-6 tracking-tight">Ready to get started?</h2>
+              <p class="text-zinc-400 mb-10 text-xl leading-relaxed">Tell us about your project and our team will develop a custom solution for your cargo.</p>
+              <a href="#/contact-us" class="inline-block bg-morris-red text-white px-12 py-5 rounded-xl font-bold uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl shadow-red-900/40">Request a Quote</a>
             </div>
           </section>
         </div>
       `;
     }
-
-    function renderServiceDetail(slug) {
+function renderServiceDetail(slug) {
       const service = SERVICES.find(s => s.slug === slug);
       if (!service) return '<div class="pt-32 text-center h-[50vh]">Service not found</div>';
 
@@ -1386,593 +1463,369 @@
 
     function renderFacilities() {
       return `
-                <div class="pt-32 pb-24 bg-zinc-50">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Our Facilities</h1>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                            <div class="bg-white p-10 rounded-3xl border border-zinc-200 shadow-sm">
-                                <i data-lucide="warehouse" class="text-blue-600 mb-6 w-12 h-12"></i>
-                                <h2 class="text-2xl font-bold mb-4">Strategic Storage & Warehousing</h2>
-                                <p class="text-zinc-600 mb-6">
-                                    Our facilities offer over 250,000 square feet of indoor storage and extensive outdoor laydown areas, all secured and monitored 24/7.
-                                </p>
-                                <ul class="space-y-3 text-zinc-600">
-                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Climate-controlled options</li>
-                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Heavy-lift capabilities</li>
-                                    <li class="flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 text-blue-600"></i> Inventory management via M-Pact</li>
-                                </ul>
-                            </div>
-                            <div class="rounded-3xl overflow-hidden">
-                                <img src="images/facilitiesstorage/Secure Facilities.webp" alt="Facility Overview" class="w-full h-full object-cover">
+                <div class="pt-20">
+                    <section class="relative h-[40vh] flex items-center overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <img src="images/facilitiesstorage/Secure Facilities.webp" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Facility Background">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10">
+                            <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 drop-shadow-lg">Our Facilities</h1>
+                            <div class="w-24 h-1.5 bg-morris-red mb-6"></div>
+                            <h2 class="text-xl md:text-2xl font-medium text-blue-100 max-w-2xl">Strategic Storage & Warehousing Engineered for Global Transit.</h2>
+                        </div>
+                    </section>
+
+                    <section class="py-24 bg-zinc-50 relative -mt-10 z-20 rounded-t-[3rem] shadow-2xl">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                                <div class="bg-white p-10 md:p-14 rounded-[2.5rem] border border-zinc-100 shadow-xl relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-[5rem] -z-10"></div>
+                                    <div class="w-16 h-16 bg-blue-100 text-morris-blue rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+                                        <i data-lucide="warehouse" class="w-8 h-8"></i>
+                                    </div>
+                                    <h2 class="text-3xl font-black text-zinc-900 mb-6 uppercase tracking-tight">Scale & Security</h2>
+                                    <p class="text-lg text-zinc-600 mb-8 leading-relaxed">
+                                        Our facilities offer over <strong class="text-morris-blue">250,000 square feet</strong> of indoor storage and extensive outdoor laydown areas, all secured and monitored 24/7.
+                                    </p>
+                                    <ul class="space-y-5">
+                                        <li class="flex items-start">
+                                            <div class="w-6 h-6 bg-blue-100 text-morris-blue rounded-full flex items-center justify-center shrink-0 mr-4 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                            <span class="text-zinc-700 font-medium">Climate-controlled options for sensitive cargo</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <div class="w-6 h-6 bg-blue-100 text-morris-blue rounded-full flex items-center justify-center shrink-0 mr-4 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                            <span class="text-zinc-700 font-medium">Heavy-lift capabilities (up to 140K lbs)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <div class="w-6 h-6 bg-blue-100 text-morris-blue rounded-full flex items-center justify-center shrink-0 mr-4 mt-1"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                            <span class="text-zinc-700 font-medium">Real-time inventory management via M-Pact</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="relative h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/20 group">
+                                    <img src="images/facilitiesstorage/Secure Facilities1.webp" alt="Facility Overview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-10 left-10 right-10">
+                                        <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-white">
+                                            <div class="text-3xl font-black mb-1">24/7</div>
+                                            <div class="text-sm font-bold uppercase tracking-widest text-blue-200">Monitored Security</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             `;
     }
-
-    function renderCustomerCenter() {
+function renderCustomerCenter() {
       return `
-                <div class="pt-32 pb-24">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h1 class="text-4xl font-black tracking-tight mb-12 uppercase">Customer Center</h1>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <a href="https://webstars.morris-export.com" target="_blank" rel="noopener noreferrer" class="p-8 bg-blue-600 text-white rounded-2xl hover:bg-blue-700 transition-all flex flex-col justify-between">
-                                <div>
-                                    <i data-lucide="external-link" class="w-8 h-8 mb-6 opacity-50"></i>
-                                    <h3 class="text-2xl font-bold mb-4">Customer Reports</h3>
-                                    <p class="opacity-80">Access your real-time tracking and inventory reports via our Webstars portal.</p>
-                                </div>
-                                <div class="mt-8 font-bold flex items-center">
-                                    Login Now <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                                </div>
-                            </a>
-                            
-                            <a href="#/credit-application" class="p-8 bg-zinc-100 text-zinc-900 rounded-2xl hover:bg-zinc-200 transition-all flex flex-col justify-between border border-zinc-200">
-                                <div>
-                                    <i data-lucide="clipboard-list" class="w-8 h-8 mb-6 text-zinc-400"></i>
-                                    <h3 class="text-2xl font-bold mb-4">Credit Application</h3>
-                                    <p class="text-zinc-600">Download and submit our credit application to establish an account with us.</p>
-                                </div>
-                                <div class="mt-8 font-bold text-blue-600 flex items-center">
-                                    View Application <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                                </div>
-                            </a>
-
-                            <a href="#/faq" class="p-8 bg-zinc-100 text-zinc-900 rounded-2xl hover:bg-zinc-200 transition-all flex flex-col justify-between border border-zinc-200">
-                                <div>
-                                    <i data-lucide="phone" class="w-8 h-8 mb-6 text-zinc-400"></i>
-                                    <h3 class="text-2xl font-bold mb-4">FAQ</h3>
-                                    <p class="text-zinc-600">Find answers to common questions about our services and procedures.</p>
-                                </div>
-                                <div class="mt-8 font-bold text-blue-600 flex items-center">
-                                    Read FAQs <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
-                                </div>
-                            </a>
+                <div class="pt-20">
+                    <section class="relative h-[40vh] flex items-center overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <img src="images/warehousemanagement/warehousepackaging1.webp" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Customer Center Background">
+                            <div class="absolute inset-0 bg-gradient-to-r from-morris-blue/90 to-slate-900/90 mix-blend-multiply"></div>
                         </div>
-                    </div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10 text-center">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
+                                <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 drop-shadow-lg">Customer Center</h1>
+                            <p class="text-xl md:text-2xl font-medium text-blue-100 max-w-2xl mx-auto">Portals, resources, and applications to keep your logistics flowing.</p>
+                        </div>
+                    </section>
+
+                    <section class="py-24 bg-zinc-50 relative -mt-10 z-20 rounded-t-[3rem] shadow-2xl">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <a href="https://webstars.morris-export.com" target="_blank" rel="noopener noreferrer" class="group bg-zinc-900 border border-zinc-800 p-10 rounded-[2rem] hover:-translate-y-2 transition-all duration-300 shadow-xl hover:shadow-2xl flex flex-col justify-between">
+                                    <div>
+                                        <div class="w-16 h-16 bg-morris-blue text-white rounded-2xl flex items-center justify-center mb-8">
+                                            <i data-lucide="external-link" class="w-8 h-8"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-black text-white uppercase tracking-tight mb-4 group-hover:text-morris-blue transition-colors">Customer Reports</h3>
+                                        <p class="text-zinc-400 leading-relaxed">Access your real-time tracking, receiving documentation, and inventory reports via our secure Webstars portal.</p>
+                                    </div>
+                                    <div class="mt-8 pt-6 border-t border-zinc-800 flex items-center text-sm font-bold uppercase tracking-widest text-morris-blue">
+                                        Login Now <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                    </div>
+                                </a>
+
+                                <a href="#/credit-application" class="group bg-white border border-zinc-200 p-10 rounded-[2rem] hover:-translate-y-2 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between">
+                                    <div>
+                                        <div class="w-16 h-16 bg-blue-50 text-morris-blue rounded-2xl flex items-center justify-center mb-8">
+                                            <i data-lucide="clipboard-list" class="w-8 h-8"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-black text-zinc-900 uppercase tracking-tight mb-4 group-hover:text-morris-blue transition-colors">Credit Application</h3>
+                                        <p class="text-zinc-600 leading-relaxed">Establish an account with us. Quickly fill out our digital credit application to begin our partnership.</p>
+                                    </div>
+                                    <div class="mt-8 pt-6 border-t border-zinc-100 flex items-center text-sm font-bold uppercase tracking-widest text-morris-blue">
+                                        Apply Now <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                    </div>
+                                </a>
+
+                                <a href="#/faq" class="group bg-white border border-zinc-200 p-10 rounded-[2rem] hover:-translate-y-2 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between">
+                                    <div>
+                                        <div class="w-16 h-16 bg-blue-50 text-morris-blue rounded-2xl flex items-center justify-center mb-8">
+                                            <i data-lucide="help-circle" class="w-8 h-8"></i>
+                                        </div>
+                                        <h3 class="text-2xl font-black text-zinc-900 uppercase tracking-tight mb-4 group-hover:text-morris-blue transition-colors">FAQ</h3>
+                                        <p class="text-zinc-600 leading-relaxed">Have a question about NCB inspections, bonded facilities, or receiving hours? Find your answers here.</p>
+                                    </div>
+                                    <div class="mt-8 pt-6 border-t border-zinc-100 flex items-center text-sm font-bold uppercase tracking-widest text-morris-blue">
+                                        Read FAQs <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             `;
     }
-
-    function renderContact() {
+function renderContact() {
       return `
-                <div class="pt-32 pb-24">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                            <div>
-                                <h1 class="text-4xl font-black tracking-tight mb-8 uppercase">Contact Us</h1>
-                                <div class="space-y-8">
-                                    <div class="flex items-start space-x-4">
-                                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="map-pin"></i>
+                <div class="pt-20">
+                    <section class="relative h-[40vh] flex items-center overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <img src="images/warehousemanagement/warehousepackaging2.webp" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Contact Background">
+                            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10">
+                            <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 drop-shadow-lg">Contact Us</h1>
+                            <div class="w-24 h-1.5 bg-morris-red mb-6"></div>
+                            <h2 class="text-xl md:text-2xl font-medium text-blue-100 max-w-2xl">We're here to help with your global logistics needs.</h2>
+                        </div>
+                    </section>
+
+                    <section class="py-24 bg-zinc-50 relative -mt-10 z-20 rounded-t-[3rem] shadow-2xl">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                                <div>
+                                    <h3 class="text-3xl font-black tracking-tight mb-10 uppercase text-zinc-900">Get In Touch</h3>
+                                    <div class="space-y-8">
+                                        <div class="flex items-start space-x-6 group">
+                                            <div class="w-16 h-16 bg-blue-100 text-morris-blue rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-morris-blue group-hover:text-white transition-all shadow-sm">
+                                                <i data-lucide="map-pin" class="w-7 h-7"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-xl mb-2 text-zinc-900">Main Office</h4>
+                                                <p class="text-zinc-600 text-lg">8300 Market St<br>Houston, TX 77029</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h3 class="font-bold text-lg mb-1">Main Office</h3>
-                                            <p class="text-zinc-600">8300 Market St, Houston, TX 77029</p>
+                                        <div class="flex items-start space-x-6 group">
+                                            <div class="w-16 h-16 bg-red-100 text-morris-red rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-morris-red group-hover:text-white transition-all shadow-sm">
+                                                <i data-lucide="phone" class="w-7 h-7"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-xl mb-2 text-zinc-900">Phone</h4>
+                                                <a href="tel:7136721635" class="text-zinc-600 text-lg hover:text-morris-red transition-colors">(713) 672-1635</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="phone"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="font-bold text-lg mb-1">Phone</h3>
-                                            <p class="text-zinc-600">(713) 672-1635</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-start space-x-4">
-                                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                            <i data-lucide="mail"></i>
-                                        </div>
-                                        <div>
-                                            <h3 class="font-bold text-lg mb-1">Email</h3>
-                                            <p class="text-zinc-600">info@morris-export.com</p>
+                                        <div class="flex items-start space-x-6 group">
+                                            <div class="w-16 h-16 bg-blue-100 text-morris-blue rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-morris-blue group-hover:text-white transition-all shadow-sm">
+                                                <i data-lucide="mail" class="w-7 h-7"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="font-bold text-xl mb-2 text-zinc-900">Email</h4>
+                                                <a href="mailto:info@morris-export.com" class="text-zinc-600 text-lg hover:text-morris-blue transition-colors">info@morris-export.com</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <div class="bg-white p-10 md:p-14 rounded-[2rem] border border-zinc-100 shadow-xl">
+                                    <h3 class="text-2xl font-black mb-8 uppercase text-zinc-900">Send a Message</h3>
+                                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('Message sent! (Simulation)');">
+                                        <div class="grid grid-cols-2 gap-6">
+                                            <div>
+                                                <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">First Name</label>
+                                                <input type="text" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg">
+                                            </div>
+                                            <div>
+                                                <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">Last Name</label>
+                                                <input type="text" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">Email Address</label>
+                                            <input type="email" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-bold text-zinc-700 mb-2 uppercase tracking-wide">Message</label>
+                                            <textarea rows="4" required class="w-full px-5 py-4 bg-zinc-50 rounded-xl border border-zinc-200 focus:border-morris-blue focus:ring-2 focus:ring-blue-100 focus:bg-white outline-none transition-all text-lg resize-none"></textarea>
+                                        </div>
+                                        <button type="submit" class="w-full bg-morris-blue text-white font-black uppercase tracking-widest py-5 rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/30">
+                                            Send Message
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                            
-                            <div class="bg-zinc-50 p-10 rounded-3xl border border-zinc-200">
-                                <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
-                                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Message sent! (Simulation)');">
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label class="block text-sm font-bold text-zinc-700 mb-2">First Name</label>
-                                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-bold text-zinc-700 mb-2">Last Name</label>
-                                            <input type="text" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
-                                        </div>
+                        </div>
+                    </section>
+                </div>
+            `;
+    }
+function renderCreditApplication() {
+      return `
+                <div class="pt-20">
+                    <section class="relative h-[30vh] flex items-center overflow-hidden">
+                        <div class="absolute inset-0 z-0">
+                            <img src="images/warehousemanagement/warehousepackaging2.webp" class="w-full h-full object-cover grayscale opacity-20" alt="Background">
+                            <div class="absolute inset-0 bg-zinc-950"></div>
+                        </div>
+                        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center pt-8">
+                            <h1 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">Credit Application</h1>
+                            <p class="text-zinc-400">Establish your account with Morris Export Services.</p>
+                        </div>
+                    </section>
+
+                    <section class="py-16 bg-zinc-50 relative -mt-10 z-20 rounded-t-[3rem]">
+                        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="bg-white p-8 md:p-12 rounded-[2rem] border border-zinc-200 shadow-xl">
+                                <div class="flex items-center gap-4 mb-8 pb-8 border-b border-zinc-100">
+                                    <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center">
+                                        <i data-lucide="file-text" class="w-6 h-6"></i>
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-bold text-zinc-700 mb-2">Email Address</label>
-                                        <input type="email" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                        <h2 class="text-2xl font-black uppercase text-zinc-900">Application Form</h2>
+                                        <p class="text-sm text-zinc-500">Please complete all fields below to apply for credit.</p>
                                     </div>
-                                    <div>
-                                        <label class="block text-sm font-bold text-zinc-700 mb-2">Message</label>
-                                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"></textarea>
-                                    </div>
-                                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition-all">
-                                        Send Message
-                                    </button>
-                                </form>
+                                </div>
+                                <div class="text-center py-16">
+                                    <i data-lucide="wrench" class="w-16 h-16 text-zinc-300 mx-auto mb-6"></i>
+                                    <h3 class="text-xl font-bold text-zinc-800 mb-2">Digital Application Form</h3>
+                                    <p class="text-zinc-500 mb-8 max-w-md mx-auto">Our interactive digital credit application is currently being updated to provide a better experience. In the meantime, please contact our billing department directly.</p>
+                                    <a href="mailto:billing@morris-export.com" class="inline-flex items-center justify-center bg-morris-blue text-white font-bold uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-900/20">
+                                        Email Billing Department <i data-lucide="mail" class="w-5 h-5 ml-3"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             `;
     }
-
-    function renderCreditApplication() {
-      return `
-                <div class="pt-32 pb-24">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="flex items-center gap-4 mb-8">
-                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
-                            <h1 class="text-4xl font-black tracking-tight uppercase">Credit Application</h1>
-                        </div>
-              <div class="bg-zinc-50 p-6 md:p-10 rounded-3xl border border-zinc-200">
-                <p class="text-zinc-600 mb-8">Please complete all applicable fields below to apply for credit.</p>
-
-                <form class="space-y-10">
-                  <section>
-                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Company Information</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div class="md:col-span-2">
-                        <label class="block text-sm font-semibold mb-2">NAME OF COMPANY:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div class="md:col-span-2">
-                        <label class="block text-sm font-semibold mb-2">MAILING/BILLING ADDRESS:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">CITY:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div class="grid grid-cols-2 gap-4">
-                        <div>
-                          <label class="block text-sm font-semibold mb-2">STATE:</label>
-                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                        </div>
-                        <div>
-                          <label class="block text-sm font-semibold mb-2">ZIP CODE:</label>
-                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
-                        <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div class="md:col-span-2">
-                        <label class="block text-sm font-semibold mb-2">WEB SITE:</label>
-                        <input type="url" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div class="md:col-span-2">
-                        <label class="block text-sm font-semibold mb-2">TYPE OF BUSINESS OR SERVICE:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                    </div>
-                  </section>
-
-                  <section>
-                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Purchase Orders & Company Type</h2>
-                    <div class="space-y-5">
-                      <div>
-                        <p class="block text-sm font-semibold mb-2">Purchase Order Numbers required?</p>
-                        <div class="flex items-center gap-8 text-sm">
-                          <label class="inline-flex items-center gap-2"><input type="radio" name="po_required" class="text-blue-600" /> Yes</label>
-                          <label class="inline-flex items-center gap-2"><input type="radio" name="po_required" class="text-blue-600" /> No</label>
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">If yes, please provide sample here:</label>
-                        <textarea rows="3" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">Please choose whether the company is a CORPORATION, PARTNERSHIP or INDIVIDUAL PROPRIETORSHIP</label>
-                        <select class="w-full border border-zinc-300 rounded-xl px-4 py-3 bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
-                          <option selected disabled>Please choose your company Type</option>
-                          <option>CORPORATION</option>
-                          <option>PARTNERSHIP</option>
-                          <option>INDIVIDUAL PROPRIETORSHIP</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">Please list relevant corporate officers and titles:</label>
-                        <textarea rows="3" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
-                      </div>
-                      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <div>
-                          <label class="block text-sm font-semibold mb-2">INCORPORATION - DATE</label>
-                          <input type="date" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                        </div>
-                        <div>
-                          <label class="block text-sm font-semibold mb-2">INCORPORATION - STATE</label>
-                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">IF A BRANCH / DIVISION, LIST LOCATION OF HOME OFFICE:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">PERSON IN CHARGE OF ACCOUNTS PAYABLE:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                    </div>
-                  </section>
-
-                  <section>
-                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Bank Reference</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div class="md:col-span-2">
-                        <label class="block text-sm font-semibold mb-2">NAME AND ACCOUNT NUMBER:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">CONTACT NAME:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">STREET ADDRESS:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">CITY:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div class="grid grid-cols-2 gap-4">
-                        <div>
-                          <label class="block text-sm font-semibold mb-2">STATE:</label>
-                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                        </div>
-                        <div>
-                          <label class="block text-sm font-semibold mb-2">ZIP:</label>
-                          <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                        </div>
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
-                        <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                    </div>
-                  </section>
-
-                  <section>
-                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Business References</h2>
-                    <div class="space-y-8">
-                      <div class="bg-white border border-zinc-200 rounded-2xl p-5 md:p-6">
-                        <h3 class="font-bold mb-4">Reference 1</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">COMPANY NAME:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">CONTACT NAME:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div class="md:col-span-2">
-                            <label class="block text-sm font-semibold mb-2">STREET ADDRESS:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">CITY:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div class="grid grid-cols-2 gap-4">
-                            <div>
-                              <label class="block text-sm font-semibold mb-2">STATE:</label>
-                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                            </div>
-                            <div>
-                              <label class="block text-sm font-semibold mb-2">ZIP:</label>
-                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                            </div>
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
-                            <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="bg-white border border-zinc-200 rounded-2xl p-5 md:p-6">
-                        <h3 class="font-bold mb-4">Reference 2</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">COMPANY NAME:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">CONTACT NAME:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div class="md:col-span-2">
-                            <label class="block text-sm font-semibold mb-2">STREET ADDRESS:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">CITY:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div class="grid grid-cols-2 gap-4">
-                            <div>
-                              <label class="block text-sm font-semibold mb-2">STATE:</label>
-                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                            </div>
-                            <div>
-                              <label class="block text-sm font-semibold mb-2">ZIP:</label>
-                              <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                            </div>
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">TELEPHONE NUMBER:</label>
-                            <input type="tel" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                          <div>
-                            <label class="block text-sm font-semibold mb-2">FAX NUMBER:</label>
-                            <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </section>
-
-                  <section>
-                    <h2 class="text-xl font-bold mb-5 uppercase text-morris-blue border-b border-zinc-200 pb-3">Applicant Authorization</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div class="md:col-span-2">
-                        <label class="block text-sm font-semibold mb-2">SIGNATURE OF APPLICANT:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">NAME OF APPLICANT:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">TITLE OF APPLICANT:</label>
-                        <input type="text" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                      <div>
-                        <label class="block text-sm font-semibold mb-2">DATE SIGNED:</label>
-                        <input type="date" class="w-full border border-zinc-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none" />
-                      </div>
-                    </div>
-                  </section>
-
-                  <div class="pt-2 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                    <button type="submit" class="bg-morris-blue text-white font-bold px-8 py-3 rounded-xl hover:opacity-90 transition-all">Submit Credit Application</button>
-                    <p class="text-sm text-zinc-500">For direct submission support, email billing@morris-export.com</p>
-                  </div>
-                </form>
-                        </div>
-                    </div>
-                </div>
-            `;
-    }
-
-    function renderFAQ() {
+function renderFAQ() {
       const faqs = [
-        {
-          q: "What is an NCB inspection?",
-          a: "An NCB inspection is an inspection conducted by National Cargo Bureau. Many shippers now require that Flat Racks be inspected prior to being loaded onto the vessel. Morris will handle all aspects of the inspection including scheduling."
-        },
-        {
-          q: "Is Morris a \"Bonded\" facility?",
-          a: "Yes. Morris operates bonded warehouse capabilities and follows U.S. Customs procedures for bonded cargo handling and storage."
-        },
-        {
-          q: "Q: Is Morris C-TPAT Certified?",
-          a: "Morris follows strict cargo security and compliance procedures. For current C-TPAT status and documentation requirements, please contact our team directly."
-        },
-        {
-          q: "Does Morris pack air freight?",
-          a: "Yes. We provide export packing and crating solutions suitable for air freight shipments, including weight-conscious and carrier-compliant packaging options."
-        },
-        {
-          q: "Does Morris have their own trucks?",
-          a: "Yes. Morris provides trucking and drayage support, including Port of Houston moves and specialized transport coordination for oversized cargo."
-        },
-        {
-          q: "Can Morris receive rail freight?",
-          a: "Yes, we can coordinate receiving for rail-delivered cargo. Contact operations in advance so unloading and scheduling requirements can be arranged."
-        },
-        {
-          q: "Can Morris pack Hazardous Materials?",
-          a: "Yes. We provide hazardous material packaging services with appropriate handling and documentation based on shipment class and destination requirements."
-        },
-        {
-          q: "Can Morris pack offsite at either a vendor facility or at the local area docks?",
-          a: "Yes. Our mobile teams can perform offsite packing at customer or vendor facilities and can also support packing activities at local dock locations when scheduled."
-        },
-        {
-          q: "Is Morris' wood IPPC compliant?",
-          a: "Yes. Morris uses ISPM-15 / IPPC-compliant heat-treated wood for export crating where required for international shipments."
-        },
-        {
-          q: "How long does it take to pack material once received?",
-          a: "Turnaround depends on cargo type, dimensions, and project scope. Standard jobs are often completed quickly; complex projects are scheduled with a detailed production timeline."
-        },
-        {
-          q: "Does Morris provide moisture-sensitive packing?",
-          a: "Yes. We offer moisture-control solutions including VCI materials, desiccants, barrier wrapping, and sealed protection systems for sensitive equipment."
-        },
-        {
-          q: "Do Morris offsite employees have TWIC cards?",
-          a: "Yes. Personnel assigned to applicable port and secure areas maintain required credentials, including TWIC, as needed for site access."
-        },
-        {
-          q: "What is a TWIC card and what is it used for?",
-          a: "A TWIC (Transportation Worker Identification Credential) card is a federal security credential required for unescorted access to secure maritime and port facilities."
-        },
-        {
-          q: "What are Morris' receiving hours?",
-          a: "Standard receiving is handled during normal business hours. For exact receiving windows and after-hours coordination, please contact our operations team before delivery."
-        },
-        {
-          q: "Does Morris have a secured facility?",
-          a: "Yes. Our facility uses controlled access and active security measures to protect customer cargo, equipment, and documentation."
-        },
-        {
-          q: "Compliance Bulletin: Price Transparency Via Machine-Readable Files",
-          a: "Machine-readable file information for applicable price transparency requirements is available upon request. Contact our office for access details."
-        }
+        { q: "What is an NCB inspection?", a: "An NCB inspection is an inspection conducted by National Cargo Bureau. Many shippers now require that Flat Racks be inspected prior to being loaded onto the vessel. Morris will handle all aspects of the inspection including scheduling." },
+        { q: "Is Morris a 'Bonded' facility?", a: "Yes. Morris operates bonded warehouse capabilities and follows U.S. Customs procedures for bonded cargo handling and storage." },
+        { q: "Is Morris C-TPAT Certified?", a: "Morris follows strict cargo security and compliance procedures. For current C-TPAT status and documentation requirements, please contact our team directly." },
+        { q: "Does Morris pack air freight?", a: "Yes. We provide export packing and crating solutions suitable for air freight shipments, including weight-conscious and carrier-compliant packaging options." },
+        { q: "Does Morris have their own trucks?", a: "Yes. Morris provides trucking and drayage support, including Port of Houston moves and specialized transport coordination for oversized cargo." },
+        { q: "Can Morris receive rail freight?", a: "Yes, we can coordinate receiving for rail-delivered cargo. Contact operations in advance so unloading and scheduling requirements can be arranged." },
+        { q: "Can Morris pack Hazardous Materials?", a: "Yes. We provide hazardous material packaging services with appropriate handling and documentation based on shipment class and destination requirements." },
+        { q: "Can Morris pack offsite at either a vendor facility or at the local area docks?", a: "Yes. Our mobile teams can perform offsite packing at customer or vendor facilities and can also support packing activities at local dock locations when scheduled." },
+        { q: "Is Morris' wood IPPC compliant?", a: "Yes. Morris uses ISPM-15 / IPPC-compliant heat-treated wood for export crating where required for international shipments." },
+        { q: "How long does it take to pack material once received?", a: "Turnaround depends on cargo type, dimensions, and project scope. Standard jobs are often completed quickly; complex projects are scheduled with a detailed production timeline." },
+        { q: "Does Morris provide moisture-sensitive packing?", a: "Yes. We offer moisture-control solutions including VCI materials, desiccants, barrier wrapping, and sealed protection systems for sensitive equipment." },
+        { q: "Do Morris offsite employees have TWIC cards?", a: "Yes. Personnel assigned to applicable port and secure areas maintain required credentials, including TWIC, as needed for site access." },
+        { q: "What is a TWIC card and what is it used for?", a: "A TWIC (Transportation Worker Identification Credential) card is a federal security credential required for unescorted access to secure maritime and port facilities." },
+        { q: "What are Morris' receiving hours?", a: "Standard receiving is handled during normal business hours. For exact receiving windows and after-hours coordination, please contact our operations team before delivery." },
+        { q: "Does Morris have a secured facility?", a: "Yes. Our facility uses controlled access and active security measures to protect customer cargo, equipment, and documentation." },
+        { q: "Compliance Bulletin: Price Transparency", a: "Machine-readable file information for applicable price transparency requirements is available upon request. Contact our office for access details." }
       ];
 
       const faqHtml = faqs.map(item => `
-                <details class="bg-white border border-blue-500/80 rounded-none group" ${item.q === 'What is an NCB inspection?' ? 'open' : ''}>
-                    <summary class="list-none cursor-pointer px-4 md:px-6 py-4 flex items-center justify-between gap-4 text-blue-500 font-bold text-base">
+                <details class="bg-white border border-zinc-200 rounded-[1.5rem] group overflow-hidden shadow-sm hover:shadow-md transition-all mb-4" ${item.q === 'What is an NCB inspection?' ? 'open' : ''}>
+                    <summary class="list-none cursor-pointer px-6 md:px-8 py-6 flex items-center justify-between gap-4 text-zinc-900 font-bold text-lg hover:text-morris-blue transition-colors">
                         <span>${item.q}</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 shrink-0 group-open:rotate-180 transition-transform"></i>
+                        <div class="w-10 h-10 bg-zinc-50 rounded-full flex items-center justify-center shrink-0 group-open:bg-blue-50 group-open:text-morris-blue transition-colors">
+                            <i data-lucide="chevron-down" class="w-5 h-5 shrink-0 group-open:rotate-180 transition-transform"></i>
+                        </div>
                     </summary>
-                    <div class="px-4 md:px-6 pb-5 pt-1 text-zinc-700 leading-relaxed text-sm md:text-base bg-zinc-50 border-t border-zinc-200">
+                    <div class="px-6 md:px-8 pb-8 pt-2 text-zinc-600 leading-relaxed text-base">
                         ${item.a}
                     </div>
                 </details>
             `).join('');
 
       return `
-                <div class="pt-32 pb-24 bg-zinc-100">
-                    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="flex items-center gap-4 mb-10">
-                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
-                            <h1 class="text-4xl font-black tracking-tight uppercase">Frequently Asked Questions</h1>
+                <div class="pt-20">
+                    <section class="py-24 bg-zinc-50">
+                        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="text-center mb-16">
+                                <div class="w-16 h-16 bg-blue-100 text-morris-blue rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                    <i data-lucide="help-circle" class="w-8 h-8"></i>
+                                </div>
+                                <h1 class="text-5xl font-black tracking-tighter uppercase text-zinc-900 mb-6">Frequently Asked Questions</h1>
+                                <p class="text-lg text-zinc-600">Find answers to common questions about our services, certifications, and operational procedures.</p>
+                            </div>
+                            <div class="space-y-4">
+                                ${faqHtml}
+                            </div>
                         </div>
-                        <div class="space-y-3 bg-zinc-100 p-3 md:p-5 rounded-md">
-                            ${faqHtml}
-                        </div>
-                    </div>
+                    </section>
                 </div>
             `;
     }
-
-    function renderOurTeam() {
+function renderOurTeam() {
       const teamMembers = [
-        {
-          name: 'Andrew Talley',
-          email: 'ATalley@morrisexport.com',
-          phone: '(713) 672-5411',
-          cell: '',
-          title: 'CEO',
-          image: 'images/Screenshot 2026-03-19 103621.png'
-        },
-        {
-          name: 'Gary Baumbach',
-          email: 'gbaumbach@morrisexport.com',
-          phone: '(713) 672-5425',
-          cell: '',
-          title: 'Treasurer & CFO',
-          image: 'images/Screenshot 2026-03-19 103621.png'
-        },
-        {
-          name: 'Herbie Garza',
-          email: 'HGarza@morrisexport.com',
-          phone: '(713) 672-5428',
-          cell: '(713) 907-4983',
-          title: 'Sales',
-          image: 'images/Screenshot 2026-03-19 103621.png'
-        },
-        {
-          name: 'Kim Solomon',
-          email: 'ksolomon@morrisexport.com',
-          phone: '(713) 672-5443',
-          cell: '',
-          title: 'Account Coordinator',
-          image: 'images/team/kimsolomon.webp'
-        },
-        {
-          name: 'Lisa Allen',
-          email: 'LAllen@morrisexport.com',
-          phone: '(713) 672-5436',
-          cell: '',
-          title: 'Account Coordinator',
-          image: 'images/team/lisaallen.webp'
-        },
-        {
-          name: 'Ray Vargas',
-          email: 'rvargas@morrisexport.com',
-          phone: '(713) 672-5484',
-          cell: '',
-          title: 'Operations Manager',
-          image: 'images/team/rayvargas.webp'
-        }
+        { name: 'Andrew Talley', email: 'ATalley@morrisexport.com', phone: '(713) 672-5411', cell: '', title: 'CEO', image: 'images/Screenshot 2026-03-19 103621.png' },
+        { name: 'Gary Baumbach', email: 'gbaumbach@morrisexport.com', phone: '(713) 672-5425', cell: '', title: 'Treasurer & CFO', image: 'images/Screenshot 2026-03-19 103621.png' },
+        { name: 'Herbie Garza', email: 'HGarza@morrisexport.com', phone: '(713) 672-5428', cell: '(713) 907-4983', title: 'Sales', image: 'images/Screenshot 2026-03-19 103621.png' },
+        { name: 'Kim Solomon', email: 'ksolomon@morrisexport.com', phone: '(713) 672-5443', cell: '', title: 'Account Coordinator', image: 'images/team/kimsolomon.webp' },
+        { name: 'Lisa Allen', email: 'LAllen@morrisexport.com', phone: '(713) 672-5436', cell: '', title: 'Account Coordinator', image: 'images/team/lisaallen.webp' },
+        { name: 'Ray Vargas', email: 'rvargas@morrisexport.com', phone: '(713) 672-5484', cell: '', title: 'Operations Manager', image: 'images/team/rayvargas.webp' }
       ];
 
       const teamHtml = teamMembers.map(member => `
-                <article class="bg-white border-2 border-blue-500/20 shadow-md rounded-2xl text-center relative pt-16 hover:border-blue-500/40 transition-all">
-                    <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-2 border-blue-500/30 overflow-hidden bg-white shadow-sm">
-                        <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">
+                <article class="bg-white rounded-[2rem] border border-zinc-100 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden group transform hover:-translate-y-2">
+                    <div class="h-32 bg-zinc-900 relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-morris-blue/20 to-transparent"></div>
+                        <div class="absolute -bottom-12 left-8 w-24 h-24 rounded-2xl border-4 border-white overflow-hidden bg-white shadow-xl z-10 group-hover:scale-110 transition-transform duration-500">
+                            <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">
+                        </div>
                     </div>
-                    <div class="px-4 pb-5">
-                        <h3 class="font-bold text-zinc-900 leading-tight mb-2">${member.name}</h3>
-                        <p class="text-xs text-zinc-700 break-words">${member.email}</p>
-                        <p class="text-xs text-zinc-700">Phone: ${member.phone}</p>
-                        ${member.cell ? `<p class="text-xs text-zinc-700">Cell: ${member.cell}</p>` : ''}
+                    <div class="pt-16 pb-8 px-8">
+                        <div class="text-xs font-bold text-morris-blue uppercase tracking-widest mb-1">${member.title}</div>
+                        <h3 class="text-2xl font-black text-zinc-900 uppercase tracking-tight mb-4">${member.name}</h3>
+                        
+                        <div class="space-y-3 pt-4 border-t border-zinc-100">
+                            <div class="flex items-center text-zinc-600 text-sm">
+                                <i data-lucide="mail" class="w-4 h-4 mr-3 text-zinc-400"></i>
+                                <a href="mailto:${member.email}" class="hover:text-morris-blue transition-colors truncate">${member.email}</a>
+                            </div>
+                            <div class="flex items-center text-zinc-600 text-sm">
+                                <i data-lucide="phone" class="w-4 h-4 mr-3 text-zinc-400"></i>
+                                <a href="tel:${member.phone.replace(/[^0-9]/g, '')}" class="hover:text-morris-blue transition-colors">${member.phone}</a>
+                            </div>
+                            ${member.cell ? `
+                            <div class="flex items-center text-zinc-600 text-sm">
+                                <i data-lucide="smartphone" class="w-4 h-4 mr-3 text-zinc-400"></i>
+                                <a href="tel:${member.cell.replace(/[^0-9]/g, '')}" class="hover:text-morris-blue transition-colors">${member.cell}</a>
+                            </div>` : ''}
+                        </div>
                     </div>
-                    <div class="bg-zinc-900 text-white text-xs font-bold py-2 uppercase tracking-wide rounded-b-2xl">${member.title}</div>
                 </article>
             `).join('');
 
       return `
-                <div class="pt-32 pb-24 bg-zinc-100">
-                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="flex items-center gap-4 mb-8">
-                            <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-10 w-auto">
-                            <h1 class="text-4xl font-black tracking-tight">Staff Directory:</h1>
-                        </div>
+                <div class="pt-20">
+                    <section class="py-24 bg-zinc-50 relative">
+                        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                                <div class="max-w-2xl">
+                                    <h3 class="text-morris-red font-bold text-sm tracking-[0.2em] uppercase mb-4 flex items-center gap-4">
+                                        <span class="w-8 h-px bg-morris-red"></span>
+                                        Staff Directory
+                                    </h3>
+                                    <h1 class="text-5xl font-black text-zinc-900 uppercase tracking-tighter mb-6">Our Team</h1>
+                                    <p class="text-lg text-zinc-600 leading-relaxed">
+                                        Our team is the foundation of everything we do. Each member brings years of experience in export packing, crating, and logistics management, ensuring your cargo receives the ultimate level of care and attention.
+                                    </p>
+                                </div>
+                            </div>
 
-                        <div class="text-zinc-800 text-sm md:text-base leading-relaxed space-y-5 max-w-3xl">
-                            <p>At Morris Export Services, our team is the foundation of everything we do. Each member brings years of experience in export packing, crating, and logistics management.</p>
-                            <p>Together, we ensure every shipment receives the same level of care and attention, from initial packing to final delivery. In addition, our professionals are fully trained in bonded warehouse procedures and U.S. Customs compliance, giving our clients confidence and peace of mind.</p>
-                            <p>Moreover, collaboration drives our success. Our field teams, warehouse specialists, and project coordinators work hand in hand to deliver seamless logistics solutions across Houston and beyond.</p>
-                            <p>As a result, our customers benefit from consistent communication, reliable performance, and a commitment to excellence that defines Morris Export Services.</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                ${teamHtml}
+                            </div>
                         </div>
-
-                        <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12">
-                            ${teamHtml}
-                        </div>
-                    </div>
+                    </section>
                 </div>
             `;
     }
-
-    function renderTerms() {
+function renderTerms() {
       return `
                 <div class="pt-32 pb-24">
                     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2044,92 +1897,25 @@
       const mobileNavLinksContainer = document.getElementById('mobile-nav-links');
 
       navLinks.forEach(link => {
-        const container = document.createElement('div');
-        container.className = 'group h-20 flex items-center';
+        // Desktop Link
+        const a = document.createElement('a');
+        a.href = link.path;
+        a.className = 'text-sm font-bold text-zinc-300 hover:text-white uppercase tracking-widest transition-colors nav-modern';
+        a.textContent = link.name;
+        navLinksContainer.appendChild(a);
 
-        const customerReportsUrl = 'http://webstars.morris-export.com/webstars/CustomerSolution/';
-        const customerCenterPaths = {
-          'Customer Reports': customerReportsUrl,
-          'Credit Application': '#/credit-application',
-          'FAQ': '#/faq'
+        // Mobile Link
+        const mobileA = document.createElement('a');
+        mobileA.href = link.path;
+        mobileA.className = 'block px-4 py-4 border-b border-zinc-900 text-sm font-bold uppercase tracking-widest text-zinc-400 hover:text-white transition-colors';
+        mobileA.textContent = link.name;
+        mobileA.onclick = () => {
+          document.getElementById('mobile-menu').classList.add('hidden');
         };
-
-        if (link.dropdown) {
-          container.innerHTML = `
-            <button class="flex items-center gap-1 text-sm font-medium transition-colors hover:text-blue-600 text-zinc-600">
-              ${link.name} <i data-lucide="chevron-down" class="w-3 h-3"></i>
-            </button>
-            <div class="mega-menu left-1/2 -translate-x-1/2 w-screen max-w-5xl bg-white border border-zinc-200 mt-0 py-8 px-12 grid grid-cols-1 md:grid-cols-${link.dropdown.length} gap-8">
-              ${link.dropdown.map(col => `
-                <div class="mega-menu-column space-y-4">
-                  ${col.map(item => {
-            if (link.name === 'Customer Center' && customerCenterPaths[item]) {
-              const isExternal = item === 'Customer Reports';
-              return `<a href="${customerCenterPaths[item]}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''} class="block text-sm font-medium text-zinc-700 hover:text-blue-600 transition-colors uppercase tracking-tight">${item}</a>`;
-            }
-            const service = SERVICES.find(s => s.title === item || s.title.includes(item));
-            const path = service ? `#/services/${service.slug}` : '#/services';
-            return `<a href="${path}" class="block text-sm font-medium text-zinc-700 hover:text-blue-600 transition-colors uppercase tracking-tight">${item}</a>`;
-          }).join('')}
-                </div>
-              `).join('')}
-            </div>
-          `;
-          navLinksContainer.appendChild(container);
-        } else {
-          const a = document.createElement('a');
-          a.href = link.path;
-          a.className = 'text-sm font-medium transition-colors hover:text-blue-600 text-zinc-600';
-          a.textContent = link.name;
-          navLinksContainer.appendChild(a);
-        }
-
-        // Mobile Links
-        if (link.dropdown) {
-          const btn = document.createElement('button');
-          btn.className = 'flex items-center justify-between w-full px-3 py-4 text-base font-medium text-zinc-600 hover:text-blue-600';
-          btn.innerHTML = `<span>${link.name}</span> <i data-lucide="plus" class="w-4 h-4"></i>`;
-
-          const subMenu = document.createElement('div');
-          subMenu.className = 'hidden pl-6 bg-zinc-50 border-l border-zinc-200';
-          link.dropdown.flat().forEach(item => {
-            if (link.name === 'Customer Center' && customerCenterPaths[item]) {
-              const customerCenterA = document.createElement('a');
-              customerCenterA.href = customerCenterPaths[item];
-              if (item === 'Customer Reports') {
-                customerCenterA.target = '_blank';
-                customerCenterA.rel = 'noopener noreferrer';
-              }
-              customerCenterA.className = 'block py-3 text-sm font-medium text-zinc-600 hover:text-blue-600';
-              customerCenterA.textContent = item;
-              customerCenterA.onclick = () => document.getElementById('mobile-menu').classList.add('hidden');
-              subMenu.appendChild(customerCenterA);
-              return;
-            }
-            const service = SERVICES.find(s => s.title === item || s.title.includes(item));
-            const path = service ? `#/services/${service.slug}` : '#/services';
-            const subA = document.createElement('a');
-            subA.href = path;
-            subA.className = 'block py-3 text-sm font-medium text-zinc-600 hover:text-blue-600';
-            subA.textContent = item;
-            subA.onclick = () => document.getElementById('mobile-menu').classList.add('hidden');
-            subMenu.appendChild(subA);
-          });
-
-          btn.onclick = () => subMenu.classList.toggle('hidden');
-          mobileNavLinksContainer.appendChild(btn);
-          mobileNavLinksContainer.appendChild(subMenu);
-        } else {
-          const mobileA = document.createElement('a');
-          mobileA.href = link.path;
-          mobileA.className = 'block px-3 py-4 text-base font-medium text-zinc-600 hover:text-blue-600 hover:bg-zinc-50 rounded-lg';
-          mobileA.textContent = link.name;
-          mobileA.onclick = () => {
-            document.getElementById('mobile-menu').classList.add('hidden');
-          };
-          mobileNavLinksContainer.appendChild(mobileA);
-        }
+        mobileNavLinksContainer.appendChild(mobileA);
       });
+
+
 
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById('mobile-menu-button');
