@@ -1682,29 +1682,319 @@ function renderCreditApplication() {
 
                     <section class="py-16 bg-zinc-50 relative -mt-10 z-20 rounded-t-[3rem]">
                         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <div class="bg-white p-8 md:p-12 rounded-[2rem] border border-zinc-200 shadow-xl">
-                                <div class="flex items-center gap-4 mb-8 pb-8 border-b border-zinc-100">
-                                    <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center">
-                                        <i data-lucide="file-text" class="w-6 h-6"></i>
-                                    </div>
-                                    <div>
-                                        <h2 class="text-2xl font-black uppercase text-zinc-900">Application Form</h2>
-                                        <p class="text-sm text-zinc-500">Please complete all fields below to apply for credit.</p>
-                                    </div>
+
+                            <!-- Success Message (hidden by default) -->
+                            <div id="credit-app-success" class="hidden bg-white p-12 rounded-[2rem] border border-zinc-200 shadow-xl text-center">
+                                <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <i data-lucide="check-circle" class="w-10 h-10 text-green-500"></i>
                                 </div>
-                                <div class="text-center py-16">
-                                    <i data-lucide="wrench" class="w-16 h-16 text-zinc-300 mx-auto mb-6"></i>
-                                    <h3 class="text-xl font-bold text-zinc-800 mb-2">Digital Application Form</h3>
-                                    <p class="text-zinc-500 mb-8 max-w-md mx-auto">Our interactive digital credit application is currently being updated to provide a better experience. In the meantime, please contact our billing department directly.</p>
-                                    <a href="mailto:billing@morris-export.com" class="inline-flex items-center justify-center bg-morris-blue text-white font-bold uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-900/20">
-                                        Email Billing Department <i data-lucide="mail" class="w-5 h-5 ml-3"></i>
-                                    </a>
-                                </div>
+                                <h2 class="text-3xl font-black uppercase text-zinc-900 mb-4">Application Submitted</h2>
+                                <p class="text-zinc-500 max-w-md mx-auto mb-8">Thank you for submitting your credit application. Our billing department will review your information and contact you within 2–3 business days.</p>
+                                <a href="#/customer-center" class="inline-flex items-center gap-2 bg-morris-blue text-white font-bold uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-blue-700 transition-colors">
+                                    <i data-lucide="arrow-left" class="w-5 h-5"></i> Back to Customer Center
+                                </a>
                             </div>
+
+                            <!-- Application Form -->
+                            <form id="credit-app-form" onsubmit="submitCreditApplication(event)" class="space-y-8" novalidate>
+
+                                <!-- Section 1: Company Information -->
+                                <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-zinc-200 shadow-xl">
+                                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-zinc-100">
+                                        <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center shrink-0">
+                                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-xl font-black uppercase text-zinc-900">Company Information</h2>
+                                            <p class="text-sm text-zinc-500">Legal business name and primary contact details.</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="md:col-span-2">
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Legal Company Name <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="company_name" required placeholder="Acme Corporation" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">DBA / Trade Name (if different)</label>
+                                            <input type="text" name="dba_name" placeholder="Trade name or DBA" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Street Address <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="address" required placeholder="123 Main Street, Suite 100" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">City <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="city" required placeholder="Houston" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">State <span class="text-morris-red">*</span></label>
+                                                <input type="text" name="state" required placeholder="TX" maxlength="2" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all uppercase">
+                                            </div>
+                                            <div>
+                                                <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">ZIP <span class="text-morris-red">*</span></label>
+                                                <input type="text" name="zip" required placeholder="77001" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Phone <span class="text-morris-red">*</span></label>
+                                            <input type="tel" name="phone" required placeholder="(713) 000-0000" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Fax</label>
+                                            <input type="tel" name="fax" placeholder="(713) 000-0000" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email Address <span class="text-morris-red">*</span></label>
+                                            <input type="email" name="email" required placeholder="contact@company.com" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Website</label>
+                                            <input type="url" name="website" placeholder="https://www.company.com" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 2: Business Details -->
+                                <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-zinc-200 shadow-xl">
+                                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-zinc-100">
+                                        <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center shrink-0">
+                                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-xl font-black uppercase text-zinc-900">Business Details</h2>
+                                            <p class="text-sm text-zinc-500">Business structure and tax identification.</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Business Type <span class="text-morris-red">*</span></label>
+                                            <select name="business_type" required class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent transition-all appearance-none cursor-pointer">
+                                                <option value="" disabled selected>Select type...</option>
+                                                <option value="corporation">Corporation</option>
+                                                <option value="llc">LLC</option>
+                                                <option value="partnership">Partnership</option>
+                                                <option value="sole_proprietor">Sole Proprietor</option>
+                                                <option value="government">Government / Public Entity</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Years in Business <span class="text-morris-red">*</span></label>
+                                            <input type="number" name="years_in_business" required min="0" placeholder="e.g. 12" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Federal Tax ID (EIN) <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="tax_id" required placeholder="XX-XXXXXXX" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Credit Amount Requested <span class="text-morris-red">*</span></label>
+                                            <select name="credit_amount" required class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent transition-all appearance-none cursor-pointer">
+                                                <option value="" disabled selected>Select amount...</option>
+                                                <option value="under_5000">Under $5,000</option>
+                                                <option value="5000_10000">$5,000 – $10,000</option>
+                                                <option value="10000_25000">$10,000 – $25,000</option>
+                                                <option value="25000_50000">$25,000 – $50,000</option>
+                                                <option value="over_50000">Over $50,000</option>
+                                            </select>
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Nature of Business <span class="text-morris-red">*</span></label>
+                                            <textarea name="business_nature" required rows="3" placeholder="Describe your primary business activity and how you intend to use Morris Export Services..." class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all resize-none"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 3: Accounts Payable Contact -->
+                                <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-zinc-200 shadow-xl">
+                                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-zinc-100">
+                                        <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center shrink-0">
+                                            <i data-lucide="user" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-xl font-black uppercase text-zinc-900">Accounts Payable Contact</h2>
+                                            <p class="text-sm text-zinc-500">Primary contact for billing and invoice inquiries.</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Contact Name <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="ap_name" required placeholder="Jane Smith" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Title / Role</label>
+                                            <input type="text" name="ap_title" placeholder="Accounts Payable Manager" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Phone <span class="text-morris-red">*</span></label>
+                                            <input type="tel" name="ap_phone" required placeholder="(713) 000-0000" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email <span class="text-morris-red">*</span></label>
+                                            <input type="email" name="ap_email" required placeholder="ap@company.com" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 4: Bank Reference -->
+                                <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-zinc-200 shadow-xl">
+                                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-zinc-100">
+                                        <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center shrink-0">
+                                            <i data-lucide="landmark" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-xl font-black uppercase text-zinc-900">Bank Reference</h2>
+                                            <p class="text-sm text-zinc-500">Primary financial institution for your business.</p>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Bank Name <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="bank_name" required placeholder="First National Bank" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Account Type <span class="text-morris-red">*</span></label>
+                                            <select name="bank_account_type" required class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent transition-all appearance-none cursor-pointer">
+                                                <option value="" disabled selected>Select type...</option>
+                                                <option value="checking">Checking</option>
+                                                <option value="savings">Savings</option>
+                                                <option value="both">Both</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Bank Phone <span class="text-morris-red">*</span></label>
+                                            <input type="tel" name="bank_phone" required placeholder="(713) 000-0000" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Contact / Officer Name</label>
+                                            <input type="text" name="bank_contact" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Bank Address</label>
+                                            <input type="text" name="bank_address" placeholder="456 Bank Ave, Houston, TX 77002" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section 5: Trade References -->
+                                <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-zinc-200 shadow-xl">
+                                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-zinc-100">
+                                        <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center shrink-0">
+                                            <i data-lucide="handshake" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-xl font-black uppercase text-zinc-900">Trade References</h2>
+                                            <p class="text-sm text-zinc-500">Please provide three business trade references (not banks).</p>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-8">
+                                        ${[1, 2, 3].map(n => `
+                                        <div class="p-6 bg-zinc-50 rounded-2xl border border-zinc-100">
+                                            <p class="text-xs font-black uppercase tracking-widest text-morris-blue mb-5">Reference ${n}</p>
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                                <div>
+                                                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Company Name ${n === 1 ? '<span class="text-morris-red">*</span>' : ''}</label>
+                                                    <input type="text" name="ref${n}_company" ${n === 1 ? 'required' : ''} placeholder="Reference Company Name" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Contact Name</label>
+                                                    <input type="text" name="ref${n}_contact" placeholder="Contact Person" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Phone ${n === 1 ? '<span class="text-morris-red">*</span>' : ''}</label>
+                                                    <input type="tel" name="ref${n}_phone" ${n === 1 ? 'required' : ''} placeholder="(713) 000-0000" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                                </div>
+                                                <div>
+                                                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Email</label>
+                                                    <input type="email" name="ref${n}_email" placeholder="contact@reference.com" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                                </div>
+                                                <div class="md:col-span-2">
+                                                    <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Address</label>
+                                                    <input type="text" name="ref${n}_address" placeholder="City, State, ZIP" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-white text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+
+                                <!-- Section 6: Certification & Signature -->
+                                <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-zinc-200 shadow-xl">
+                                    <div class="flex items-center gap-4 mb-8 pb-6 border-b border-zinc-100">
+                                        <div class="w-12 h-12 bg-blue-50 text-morris-blue rounded-xl flex items-center justify-center shrink-0">
+                                            <i data-lucide="pen-line" class="w-6 h-6"></i>
+                                        </div>
+                                        <div>
+                                            <h2 class="text-xl font-black uppercase text-zinc-900">Certification</h2>
+                                            <p class="text-sm text-zinc-500">Review and certify the information provided is accurate.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-zinc-50 rounded-2xl p-6 mb-8 text-sm text-zinc-600 leading-relaxed border border-zinc-200">
+                                        By submitting this application, the undersigned certifies that all information provided is accurate and complete to the best of their knowledge. The applicant authorizes Morris Export Services, Inc. to verify all references and financial information provided herein. The applicant agrees to be bound by Morris Export Services' standard terms and conditions of sale, including net payment terms as established upon approval of this application. Failure to meet payment obligations may result in suspension of credit privileges.
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Applicant Full Name <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="signatory_name" required placeholder="Full legal name" class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Title <span class="text-morris-red">*</span></label>
+                                            <input type="text" name="signatory_title" required placeholder="President, Owner, CFO..." class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent placeholder-zinc-400 transition-all">
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">Date <span class="text-morris-red">*</span></label>
+                                            <input type="date" name="signatory_date" required class="w-full px-4 py-3 rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-900 font-medium focus:outline-none focus:ring-2 focus:ring-morris-blue focus:border-transparent transition-all">
+                                        </div>
+                                        <div class="flex items-end">
+                                            <label class="flex items-start gap-3 cursor-pointer group">
+                                                <input type="checkbox" name="terms_agreed" required class="mt-1 w-5 h-5 rounded border-zinc-300 text-morris-blue focus:ring-morris-blue shrink-0 cursor-pointer">
+                                                <span class="text-sm text-zinc-600">I certify that the information provided is accurate and I agree to the terms stated above. <span class="text-morris-red">*</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Error message -->
+                                    <div id="credit-form-error" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm font-medium">
+                                        <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                                        Please complete all required fields before submitting.
+                                    </div>
+
+                                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                        <p class="text-xs text-zinc-400"><span class="text-morris-red">*</span> Required fields</p>
+                                        <button type="submit" class="inline-flex items-center justify-center gap-3 bg-morris-blue hover:bg-blue-700 text-white font-black uppercase tracking-widest px-10 py-4 rounded-xl transition-all shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 hover:-translate-y-0.5 active:translate-y-0 text-sm">
+                                            <i data-lucide="send" class="w-5 h-5"></i>
+                                            Submit Application
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
                         </div>
                     </section>
                 </div>
             `;
+    }
+
+    function submitCreditApplication(e) {
+      e.preventDefault();
+      const form = document.getElementById('credit-app-form');
+      const errorEl = document.getElementById('credit-form-error');
+      const successEl = document.getElementById('credit-app-success');
+
+      if (!form.checkValidity()) {
+        errorEl.classList.remove('hidden');
+        form.querySelectorAll(':invalid')[0]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        lucide.createIcons();
+        return;
+      }
+
+      errorEl.classList.add('hidden');
+      form.classList.add('hidden');
+      successEl.classList.remove('hidden');
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      lucide.createIcons();
     }
 function renderFAQ() {
       const faqs = [
