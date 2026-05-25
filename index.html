@@ -6,6 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morris Export Services | Engineered for Global Transit</title>
   <link rel="icon" type="image/png" href="images/Screenshot 2026-03-19 103621.png">
+  <!-- Resource hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="images/warehousemanagement/warehousepackaging2.webp" fetchpriority="high">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -23,7 +30,7 @@
     }
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=optional" rel="stylesheet">
   <style>
     :root {
       --morris-blue: #0078D4;
@@ -236,6 +243,16 @@
       50% {
         transform: translate(30px, 20px) scale(1.08);
       }
+    }
+
+    /* Reserve height to prevent footer CLS during JS load */
+    #content {
+      min-height: 100vh;
+    }
+
+    /* Explicit nav height to prevent layout shift */
+    nav {
+      height: 96px;
     }
   </style>
 </head>
@@ -888,7 +905,7 @@
       const servicesGridHtml = SERVICES.slice(0, 8).map(s => `
                 <a href="#/services/${s.slug}" class="service-tile group rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white border border-white/20">
                     <div class="relative h-48 md:h-64 overflow-hidden">
-                        <img src="${s.coverImg}" alt="${s.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="${s.coverImg}" alt="${s.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                         <div class="absolute bottom-4 left-6 right-6">
                             <h3 class="text-white font-black text-xl tracking-tight mb-1">${s.title}</h3>
@@ -903,7 +920,7 @@
                     <!-- Hero Section -->
                     <section class="min-h-[85vh] relative overflow-hidden flex items-center">
                         <div class="absolute inset-0 z-0">
-                            <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Hero" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]">
+                            <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Hero" class="w-full h-full object-cover" fetchpriority="high" decoding="sync">
                             <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent"></div>
                         </div>
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-12 pb-24">
@@ -946,7 +963,7 @@
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                                 <div class="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl">
-                                    <img src="images/onsitepacking/onsitepacking2.webp" class="w-full h-full object-cover" alt="Industrial Operations">
+                                    <img src="images/onsitepacking/onsitepacking2.webp" class="w-full h-full object-cover" alt="Industrial Operations" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-morris-blue/80 to-transparent flex items-end p-10">
                                         <div class="text-white">
                                             <div class="text-5xl font-black mb-2">80+</div>
@@ -998,7 +1015,7 @@
 
                     <!-- CTA Section -->
                     <section class="relative py-32 overflow-hidden">
-                        <img src="images/trucking/Screenshot 2026-03-19 091824.png" alt="CTA BG" class="absolute inset-0 w-full h-full object-cover">
+                        <img src="images/trucking/Screenshot 2026-03-19 091824.png" alt="CTA BG" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60 backdrop-blur-sm"></div>
                         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                             <h2 class="text-5xl font-black text-white uppercase mb-6 tracking-tighter">Ready to Ship?</h2>
@@ -1040,7 +1057,7 @@ function renderSuccessStories() {
             <div class="flex flex-col ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center">
               <div class="w-full lg:w-1/2 relative h-[400px] border border-zinc-800 p-2 bg-zinc-900 rounded-[2rem] shadow-2xl">
                 <div class="relative w-full h-full overflow-hidden rounded-2xl">
-                  <img src="${story.img}" alt="${story.title}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                  <img src="${story.img}" alt="${story.title}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" loading="lazy" decoding="async">
                 </div>
                 <div class="absolute -bottom-6 -right-6 bg-morris-blue p-6 shadow-xl hidden md:block rounded-xl">
                   <div class="text-white font-black uppercase tracking-widest text-sm">${story.metric}</div>
@@ -1082,12 +1099,12 @@ function renderSuccessStories() {
                     <!-- About Sub-Header -->
                     <section class="relative h-[50vh] flex items-center overflow-hidden">
                         <div class="absolute inset-0 z-0">
-                            <img src="images/facilitiesstorage/Screenshot 2026-03-19 091959.png" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Morris Export Facility">
+                            <img src="images/facilitiesstorage/Screenshot 2026-03-19 091959.png" class="w-full h-full object-cover" alt="Morris Export Facility" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
                         </div>
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10">
                             <div class="flex items-center gap-4 mb-6">
-                                <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-12 w-auto brightness-0 invert opacity-90">
+                                <img src="images/Screenshot 2026-03-19 103621.png" alt="Logo" class="h-12 w-auto brightness-0 invert opacity-90" loading="lazy" decoding="async">
                             </div>
                             <h1 class="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-4 drop-shadow-lg">About Us</h1>
                             <div class="w-24 h-1.5 bg-morris-red mb-6"></div>
@@ -1103,7 +1120,7 @@ function renderSuccessStories() {
                                 <div class="relative">
                                     <div class="absolute inset-0 bg-morris-blue rounded-3xl transform translate-x-4 translate-y-4"></div>
                                     <div class="rounded-3xl overflow-hidden shadow-2xl relative z-10 border border-zinc-200 bg-white p-2">
-                                        <img src="images/team/rayvargas.webp" alt="Historical Experience" class="w-full h-auto object-cover rounded-2xl">
+                                        <img src="images/team/rayvargas.webp" alt="Historical Experience" class="w-full h-auto object-cover rounded-2xl" loading="lazy" decoding="async">
                                     </div>
                                     
                                     <!-- Floating badge -->
@@ -1169,7 +1186,7 @@ function renderSuccessStories() {
                             </div>
                             <!-- Right: Visual Background -->
                             <div class="w-full md:w-7/12 relative min-h-[400px]">
-                                <img src="images/team/rayvargas.webp" alt="Historical Presentation" class="w-full h-full object-cover">
+                                <img src="images/team/rayvargas.webp" alt="Historical Presentation" class="w-full h-full object-cover" loading="lazy" decoding="async">
                                 <div class="absolute inset-0 bg-gradient-to-r from-zinc-900 via-transparent to-transparent opacity-80 md:opacity-100"></div>
                                 <div class="absolute inset-0 bg-black/20 group cursor-pointer flex items-center justify-center">
                                     <div class="w-24 h-24 bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] transform transition-all duration-500 group-hover:scale-110 group-hover:bg-white group-hover:text-morris-red">
@@ -1216,7 +1233,7 @@ function renderServicesHub() {
               ${catServices.map(service => `
                 <a href="#/services/${service.slug}" class="group bg-white rounded-3xl border border-zinc-100 hover:border-blue-500/30 transition-all duration-300 shadow-sm hover:shadow-2xl overflow-hidden flex flex-col transform hover:-translate-y-2">
                   <div class="relative h-56 overflow-hidden">
-                    <img src="${service.coverImg}" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="${service.coverImg}" alt="${service.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                     <div class="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-md text-white rounded-xl flex items-center justify-center border border-white/30 shadow-lg">
                       <i data-lucide="${service.icon}" class="w-5 h-5"></i>
@@ -1246,7 +1263,7 @@ function renderServicesHub() {
           <!-- Services Hero -->
           <section class="relative h-[60vh] overflow-hidden flex items-center">
             <div class="absolute inset-0 z-0">
-                <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Services" class="w-full h-full object-cover scale-105 animate-[pulse_15s_ease-in-out_infinite]">
+                <img src="images/warehousemanagement/warehousepackaging2.webp" alt="Services" class="w-full h-full object-cover" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
             </div>
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-12">
@@ -1350,7 +1367,7 @@ function renderServiceDetail(slug) {
                 <div class="pt-20">
                     <!-- Service Hero -->
                     <section class="h-[40vh] relative overflow-hidden">
-                        <img src="${service.heroImg}" alt="${service.title}" class="w-full h-full object-cover">
+                        <img src="${service.heroImg}" alt="${service.title}" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="absolute inset-0 bg-black/40"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
                             <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter text-center px-4">${service.title}</h1>
@@ -1466,7 +1483,7 @@ function renderServiceDetail(slug) {
                 <div class="pt-20">
                     <section class="relative h-[40vh] flex items-center overflow-hidden">
                         <div class="absolute inset-0 z-0">
-                            <img src="images/facilitiesstorage/Secure Facilities.webp" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Facility Background">
+                            <img src="images/facilitiesstorage/Secure Facilities.webp" class="w-full h-full object-cover" alt="Facility Background" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
                         </div>
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10">
@@ -1504,7 +1521,7 @@ function renderServiceDetail(slug) {
                                     </ul>
                                 </div>
                                 <div class="relative h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/20 group">
-                                    <img src="images/facilitiesstorage/Secure Facilities1.webp" alt="Facility Overview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                                    <img src="images/facilitiesstorage/Secure Facilities1.webp" alt="Facility Overview" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                                     <div class="absolute bottom-10 left-10 right-10">
                                         <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 text-white">
@@ -1524,7 +1541,7 @@ function renderCustomerCenter() {
                 <div class="pt-20">
                     <section class="relative h-[40vh] flex items-center overflow-hidden">
                         <div class="absolute inset-0 z-0">
-                            <img src="images/warehousemanagement/warehousepackaging1.webp" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Customer Center Background">
+                            <img src="images/warehousemanagement/warehousepackaging1.webp" class="w-full h-full object-cover" alt="Customer Center Background" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-r from-morris-blue/90 to-slate-900/90 mix-blend-multiply"></div>
                         </div>
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10 text-center">
@@ -1588,7 +1605,7 @@ function renderContact() {
                 <div class="pt-20">
                     <section class="relative h-[40vh] flex items-center overflow-hidden">
                         <div class="absolute inset-0 z-0">
-                            <img src="images/warehousemanagement/warehousepackaging2.webp" class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite]" alt="Contact Background">
+                            <img src="images/warehousemanagement/warehousepackaging2.webp" class="w-full h-full object-cover" alt="Contact Background" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
                         </div>
                         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-10">
@@ -1671,7 +1688,7 @@ function renderCreditApplication() {
                 <div class="pt-20">
                     <section class="relative h-[30vh] flex items-center overflow-hidden">
                         <div class="absolute inset-0 z-0">
-                            <img src="images/warehousemanagement/warehousepackaging2.webp" class="w-full h-full object-cover grayscale opacity-20" alt="Background">
+                            <img src="images/warehousemanagement/warehousepackaging2.webp" class="w-full h-full object-cover grayscale opacity-20" alt="Background" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-zinc-950"></div>
                         </div>
                         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center pt-8">
@@ -2064,7 +2081,7 @@ function renderOurTeam() {
                     <div class="h-32 bg-zinc-900 relative">
                         <div class="absolute inset-0 bg-gradient-to-r from-morris-blue/20 to-transparent"></div>
                         <div class="absolute -bottom-12 left-8 w-24 h-24 rounded-2xl border-4 border-white overflow-hidden bg-white shadow-xl z-10 group-hover:scale-110 transition-transform duration-500">
-                            <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover">
+                            <img src="${member.image}" alt="${member.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <div class="pt-16 pb-8 px-8">
