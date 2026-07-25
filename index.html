@@ -1046,6 +1046,7 @@
         content.innerHTML = renderCustomerCenter();
       } else if (hash === '#/contact-us') {
         content.innerHTML = renderContact();
+        initContactForm();
       } else if (hash === '#/credit-application') {
         content.innerHTML = renderCreditApplication();
       } else if (hash === '#/faq') {
@@ -2313,50 +2314,6 @@ function renderContact() {
                                         </button>
                                     </form>
 
-                                    <script>
-                                    (function() {
-                                        function initContactForm() {
-                                            var form = document.getElementById('contact-form');
-                                            if (!form || form._formspreeWired) return;
-                                            form._formspreeWired = true;
-                                            form.addEventListener('submit', async function(e) {
-                                                e.preventDefault();
-                                                var btn = document.getElementById('contact-submit-btn');
-                                                var successEl = document.getElementById('contact-success');
-                                                var errorEl = document.getElementById('contact-error');
-                                                btn.disabled = true;
-                                                btn.textContent = 'Sending\u2026';
-                                                errorEl.classList.add('hidden');
-                                                try {
-                                                    var res = await fetch('https://formspree.io/f/mpqvyabp', {
-                                                        method: 'POST',
-                                                        headers: { 'Accept': 'application/json' },
-                                                        body: new FormData(form)
-                                                    });
-                                                    if (res.ok) {
-                                                        form.classList.add('hidden');
-                                                        successEl.classList.remove('hidden');
-                                                        lucide.createIcons();
-                                                    } else {
-                                                        throw new Error('not ok');
-                                                    }
-                                                } catch(err) {
-                                                    errorEl.classList.remove('hidden');
-                                                    btn.disabled = false;
-                                                    btn.textContent = 'Send Message';
-                                                }
-                                            });
-                                        }
-                                        // Run after DOM is ready — the form is injected dynamically
-                                        if (document.readyState === 'loading') {
-                                            document.addEventListener('DOMContentLoaded', initContactForm);
-                                        } else {
-                                            setTimeout(initContactForm, 0);
-                                        }
-                                        // Also hook into hashchange so it works on re-navigation
-                                        window.addEventListener('hashchange', function() { setTimeout(initContactForm, 100); });
-                                    })();
-                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -2364,7 +2321,41 @@ function renderContact() {
                 </div>
             `;
     }
-function renderCreditApplication() {
+
+    function initContactForm() {
+      var form = document.getElementById('contact-form');
+      if (!form || form._formspreeWired) return;
+      form._formspreeWired = true;
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = document.getElementById('contact-submit-btn');
+        var successEl = document.getElementById('contact-success');
+        var errorEl = document.getElementById('contact-error');
+        btn.disabled = true;
+        btn.textContent = 'Sending\u2026';
+        errorEl.classList.add('hidden');
+        try {
+          var res = await fetch('https://formspree.io/f/mpqvyabp', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          });
+          if (res.ok) {
+            form.classList.add('hidden');
+            successEl.classList.remove('hidden');
+            lucide.createIcons();
+          } else {
+            throw new Error('not ok');
+          }
+        } catch(err) {
+          errorEl.classList.remove('hidden');
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        }
+      });
+    }
+
+    function renderCreditApplication() {
       return `
                 <div class="pt-20">
                     <section class="relative h-[30vh] flex items-center overflow-hidden">
