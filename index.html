@@ -241,8 +241,20 @@
         }, {});
         var path = params['p'] || '';
         var query = params['q'] ? '?' + params['q'] : '';
-        // Restore the real URL without reloading
-        var base = window.location.pathname; // e.g. /morris-export-/
+        
+        // Compute base path correctly based on hostname (custom domain vs. github.io project page)
+        var hostname = window.location.hostname;
+        var base = '/';
+        if (hostname.endsWith('github.io')) {
+          var p = window.location.pathname;
+          var parts = p.split('/');
+          if (parts.length > 2 && parts[1]) {
+            base = '/' + parts[1] + '/';
+          } else {
+            base = '/morris-export-/';
+          }
+        }
+        
         window.history.replaceState(null, null, base + path.replace(/^\//, '') + query + window.location.hash);
       }
     })();
@@ -1245,13 +1257,16 @@
     ];
 
     function getBasePath() {
-      // Determine the project sub-directory prefix (e.g. /morris-export-/)
-      const p = window.location.pathname;
-      const parts = p.split('/');
-      // If we are at the root, return /
-      if (parts.length <= 2) return '/';
-      // Otherwise assume the first folder level is the base
-      return `/${parts[1]}/`;
+      const hostname = window.location.hostname;
+      if (hostname.endsWith('github.io')) {
+        const p = window.location.pathname;
+        const parts = p.split('/');
+        if (parts.length > 2 && parts[1]) {
+          return '/' + parts[1] + '/';
+        }
+        return '/morris-export-/';
+      }
+      return '/';
     }
 
     const navLinks = [

@@ -4,18 +4,35 @@
   <meta charset="UTF-8">
   <title>Morris Export Services</title>
   <script>
-    // GitHub Pages SPA redirect trick
-    // When a user visits /morris-export-/services/flat-rack-securing directly,
-    // GitHub Pages returns this 404.html. We encode the path into a query param
-    // and redirect to the root index.html, which will restore it via pushState.
+    // GitHub Pages SPA redirect trick (Hostname-Aware)
+    // Avoids recursive redirect loops and parameter nesting on custom domains or local hosting.
     (function() {
       var l = window.location;
-      // Build redirect: preserve the path as a query param '?p=/path'
+      var hostname = l.hostname;
+      var base = '';
+      
+      if (hostname.endsWith('github.io')) {
+        // github.io project pages have the repo name as the first directory segment
+        var parts = l.pathname.split('/');
+        if (parts.length > 1 && parts[1]) {
+          base = '/' + parts[1];
+        } else {
+          base = '/morris-export-';
+        }
+      }
+      
+      // Calculate relative path from base
+      var path = l.pathname;
+      if (base && path.indexOf(base) === 0) {
+        path = path.slice(base.length);
+      }
+      
+      // Build redirect URL
       var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 2).join('/') + // keep /morris-export- prefix
-        '/?p=' + encodeURIComponent(l.pathname.slice(l.pathname.indexOf('/', 1))) +
+        base + '/?p=' + encodeURIComponent(path) +
         (l.search ? '&q=' + encodeURIComponent(l.search.slice(1)) : '') +
         l.hash;
+        
       l.replace(redirect);
     })();
   </script>
