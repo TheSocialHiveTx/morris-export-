@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Morris Export Services</title>
+  <script>
+    // GitHub Pages SPA redirect trick
+    // When a user visits /morris-export-/services/flat-rack-securing directly,
+    // GitHub Pages returns this 404.html. We encode the path into a query param
+    // and redirect to the root index.html, which will restore it via pushState.
+    (function() {
+      var l = window.location;
+      // Build redirect: preserve the path as a query param '?p=/path'
+      var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 2).join('/') + // keep /morris-export- prefix
+        '/?p=' + encodeURIComponent(l.pathname.slice(l.pathname.indexOf('/', 1))) +
+        (l.search ? '&q=' + encodeURIComponent(l.search.slice(1)) : '') +
+        l.hash;
+      l.replace(redirect);
+    })();
+  </script>
+</head>
+<body></body>
+</html>
