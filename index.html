@@ -4,6 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      var base = window.location.hostname.includes('github.io') ? '/morris-export-/' : '/';
+      document.write('<base href="' + base + '">');
+    })();
+  </script>
   <title>Morris Export Services | Engineered for Global Transit</title>
   <meta name="description" content="Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942. Strategic location near the Port of Houston.">
   
