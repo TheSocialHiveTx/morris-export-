@@ -5,7 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Morris Export Services | Engineered for Global Transit</title>
+  <meta name="description" content="Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942. Strategic location near the Port of Houston.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Morris Export Services | Engineered for Global Transit">
+  <meta property="og:description" content="Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942. Strategic location near the Port of Houston.">
+  <meta property="og:image" content="images/warehousemanagement/warehousepackaging2.webp">
+  <meta property="og:url" content="https://socialhive.github.io/morris-export-/">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Morris Export Services | Engineered for Global Transit">
+  <meta property="twitter:description" content="Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942. Strategic location near the Port of Houston.">
+  <meta property="twitter:image" content="images/warehousemanagement/warehousepackaging2.webp">
+
+  <link rel="canonical" id="canonical-link" href="https://socialhive.github.io/morris-export-/">
   <link rel="icon" type="image/png" href="images/Screenshot 2026-03-19 103621.png">
+  <script type="application/ld+json" id="ld-schema"></script>
   <!-- Resource hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1065,10 +1082,385 @@
       renderPage();
     }
 
+    function updateSEO(key) {
+      const base = getBasePath();
+      const origin = window.location.origin || (window.location.protocol + '//' + window.location.host);
+      const canonicalUrl = origin + base + (key === 'index.html' ? '' : key);
+      
+      let title = "Morris Export Services | Engineered for Global Transit | Houston, TX";
+      let description = "Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942. Strategic location near the Port of Houston.";
+      let ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+      let schema = null;
+
+      // Base Organization / Business schema used in nested schemas
+      const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": origin + base + "#organization",
+        "name": "Morris Export Services, Inc.",
+        "url": origin + base,
+        "logo": origin + base + "images/Screenshot 2026-03-19 103621.png",
+        "image": origin + base + "images/warehousemanagement/warehousepackaging2.webp",
+        "description": "Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942.",
+        "telephone": "+1-713-675-9101",
+        "email": "sales@morrisexport.com",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1225 McCarty Street",
+          "addressLocality": "Houston",
+          "addressRegion": "TX",
+          "postalCode": "77029",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "29.7719",
+          "longitude": "-95.2598"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/morris-export-services"
+        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      };
+
+      if (key === '' || key === 'index.html') {
+        title = "Morris Export Services | Engineered for Global Transit | Houston, TX";
+        description = "Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942. Strategic location near the Port of Houston.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@graph": [
+            organizationSchema,
+            {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "isPartOf": { "@id": origin + base + "#organization" }
+            }
+          ]
+        };
+      } else if (key === 'bonded') {
+        title = "U.S. Customs Bonded Warehousing & Logistics | Morris Export Services";
+        description = "U.S. Customs Bonded storage, container stuffing, and logistics services. Secure transport and compliance oversight near the Port of Houston.";
+        ogImage = "images/facilitiesstorage/Secure Facilities.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "isPartOf": { "@id": origin + base + "#organization" }
+            },
+            {
+              "@type": "Service",
+              "name": "U.S. Customs Bonded Warehousing",
+              "description": description,
+              "provider": { "@id": origin + base + "#organization" }
+            }
+          ]
+        };
+      } else if (key === 'success-stories') {
+        title = "Industrial Cargo Projects & Case Studies | Morris Export Services";
+        description = "Read case studies and success stories of oversized cargo, flat rack securing, project relocation, and custom crating operations executed by Morris.";
+        ogImage = "images/crating/crating1.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "publisher": { "@id": origin + base + "#organization" }
+        };
+      } else if (key === 'about-us') {
+        title = "Our History & Export Crating Heritage Since 1942 | Morris";
+        description = "Learn about Morris Export Services. Serving the Port of Houston and global industrial shippers with high-quality packing and crating for over 80 years.";
+        ogImage = "images/facilitiesstorage/Secure Facilities1.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "publisher": { "@id": origin + base + "#organization" }
+        };
+      } else if (key === 'services') {
+        title = "Industrial Export Packing & Logistics Services | Morris Export Services";
+        description = "Explore our comprehensive industrial logistics services including custom crating, heavy-lift rigging, containerization, flat-rack securing, and fumigation.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "publisher": { "@id": origin + base + "#organization" }
+            },
+            {
+              "@type": "ItemList",
+              "numberOfItems": SERVICES.length,
+              "itemListElement": SERVICES.map((s, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "url": origin + base + "services/" + s.slug,
+                "name": s.title
+              }))
+            }
+          ]
+        };
+      } else if (key.startsWith('services/')) {
+        const slug = key.split('/').pop();
+        const service = SERVICES.find(s => s.slug === slug);
+        if (service) {
+          title = `${service.title} | Morris Export Services`;
+          description = service.description;
+          ogImage = service.coverImg;
+          schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": canonicalUrl,
+                "url": canonicalUrl,
+                "name": title,
+                "description": description,
+                "isPartOf": { "@id": origin + base + "#organization" }
+              },
+              {
+                "@type": "Service",
+                "name": service.title,
+                "description": service.description,
+                "provider": { "@id": origin + base + "#organization" },
+                "areaServed": "Global",
+                "serviceType": service.category
+              }
+            ]
+          };
+        }
+      } else if (key === 'facilities') {
+        title = "Warehouse Staging & Laydown Storage Facilities | Morris Export Services";
+        description = "250,000+ sq ft of secure laydown and climate-controlled indoor storage facility in Houston, TX. 24/7 monitoring, heavy-lift capabilities up to 140,000 lbs.";
+        ogImage = "images/facilitiesstorage/Secure Facilities.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "isPartOf": { "@id": origin + base + "#organization" }
+            },
+            {
+              "@type": "Place",
+              "name": "Morris Export Services Facilities",
+              "description": description,
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1225 McCarty Street",
+                "addressLocality": "Houston",
+                "addressRegion": "TX",
+                "postalCode": "77029",
+                "addressCountry": "US"
+              }
+            }
+          ]
+        };
+      } else if (key === 'customer-center') {
+        title = "Customer Center & Shipping Tools | Morris Export Services";
+        description = "Access client portals, download forms, request shipping quotes, and apply for a credit account with Morris Export Services.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": origin + base + "#organization" }
+        };
+      } else if (key === 'contact-us') {
+        title = "Contact Morris Export Services | Houston Logistics Office";
+        description = "Get in touch with our Houston, TX office. Call 713-675-9101 or send a message for custom packing, crating, and logistics quotes.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": origin + base + "#organization" }
+        };
+      } else if (key === 'credit-application') {
+        title = "Apply for a Credit Account | Morris Export Services";
+        description = "Establish your corporate shipping and logistics credit account with Morris Export Services. Submit our secure online credit application.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": origin + base + "#organization" }
+        };
+      } else if (key === 'faq') {
+        title = "Frequently Asked Questions | Export Packing & Shipping | Morris";
+        description = "Find answers to common questions about NCB inspections, C-TPAT certification, hazardous materials packing, TWIC credentials, and receiving hours.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is an NCB inspection?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An NCB inspection is an inspection conducted by National Cargo Bureau. Many shippers now require that Flat Racks be inspected prior to being loaded onto the vessel. Morris will handle all aspects of the inspection including scheduling."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Morris a 'Bonded' facility?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Morris operates bonded warehouse capabilities and follows U.S. Customs procedures for bonded cargo handling and storage."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Morris pack moisture-sensitive cargo?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We offer moisture-control solutions including VCI materials, desiccants, barrier wrapping, and sealed protection systems for sensitive equipment."
+              }
+            }
+          ]
+        };
+      } else if (key === 'our-team') {
+        title = "Meet the Leadership & Operations Team | Morris Export Services";
+        description = "Meet the experienced team members at Morris Export Services managing operations, sales, account coordination, and industrial logistics.";
+        ogImage = "images/Screenshot 2026-03-19 103621.png";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": origin + base + "#organization" }
+        };
+      } else if (key === 'terms-and-conditions') {
+        title = "Standard Terms & Conditions | Morris Export Services";
+        description = "Review the standard terms and conditions, legal agreements, and liability policies for Morris Export Services.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": origin + base + "#organization" }
+        };
+      } else if (key === 'html-sitemap') {
+        title = "HTML Site Directory Map | Morris Export Services";
+        description = "Complete index of pages and services offered by Morris Export Services for easy search engine indexing and user navigation.";
+        ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        schema = {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "@id": canonicalUrl,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "isPartOf": { "@id": origin + base + "#organization" }
+        };
+      }
+
+      // Update meta elements in document DOM
+      document.title = title;
+
+      // Meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', description);
+
+      // Canonical link
+      let canonicalLink = document.getElementById('canonical-link');
+      if (canonicalLink) canonicalLink.setAttribute('href', canonicalUrl);
+
+      // Open Graph Tags
+      let ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', title);
+      
+      let ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', description);
+
+      let ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+
+      let ogImgEl = document.querySelector('meta[property="og:image"]');
+      if (ogImgEl) {
+        // Ensure image URL is absolute
+        const absoluteImg = ogImage.startsWith('http') ? ogImage : (origin + base + ogImage);
+        ogImgEl.setAttribute('content', absoluteImg);
+      }
+
+      // Twitter Tags
+      let twTitle = document.querySelector('meta[property="twitter:title"]');
+      if (twTitle) twTitle.setAttribute('content', title);
+
+      let twDesc = document.querySelector('meta[property="twitter:description"]');
+      if (twDesc) twDesc.setAttribute('content', description);
+
+      let twImgEl = document.querySelector('meta[property="twitter:image"]');
+      if (twImgEl) {
+        const absoluteImg = ogImage.startsWith('http') ? ogImage : (origin + base + ogImage);
+        twImgEl.setAttribute('content', absoluteImg);
+      }
+
+      // Update JSON-LD script block
+      let schemaScript = document.getElementById('ld-schema');
+      if (schemaScript && schema) {
+        schemaScript.textContent = JSON.stringify(schema, null, 2);
+      }
+    }
+
     function renderPage() {
       const key = getRouteKey();
       const content = document.getElementById('content');
       window.scrollTo(0, 0);
+      
+      // Update SEO details dynamically for each page route
+      updateSEO(key);
 
       if (key === '' || key === 'index.html') {
         content.innerHTML = renderHome();
