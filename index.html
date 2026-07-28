@@ -1092,19 +1092,25 @@
       let ogImage = "images/warehousemanagement/warehousepackaging2.webp";
       let schema = null;
 
-      // Base Organization / Business schema used in nested schemas
+      // Fully-enriched Organization / LocalBusiness schema for rich snippets
       const organizationSchema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "@id": origin + base + "#organization",
         "name": "Morris Export Services, Inc.",
+        "legalName": "Morris Export Services, Inc.",
+        "foundingDate": "1942",
         "url": origin + base,
         "logo": origin + base + "images/Screenshot 2026-03-19 103621.png",
         "image": origin + base + "images/warehousemanagement/warehousepackaging2.webp",
-        "description": "Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942.",
+        "description": "Houston's premier export packing, heavy-duty crating, containerization, and logistics provider since 1942. Situated right near the Port of Houston, we service heavy machinery, oil and gas cargo, and oversized transit needs.",
         "telephone": "+1-713-675-9101",
+        "faxNumber": "+1-713-675-9102",
         "email": "sales@morrisexport.com",
         "priceRange": "$$",
+        "paymentAccepted": "Cash, Credit Card, Invoice",
+        "currenciesAccepted": "USD",
+        "hasMap": "https://maps.google.com/?q=1225+McCarty+Street+Houston+TX+77029",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "1225 McCarty Street",
@@ -1118,6 +1124,22 @@
           "latitude": "29.7719",
           "longitude": "-95.2598"
         },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-713-675-9101",
+            "contactType": "sales",
+            "areaServed": "US",
+            "availableLanguage": "English"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-713-675-9101",
+            "contactType": "customer service",
+            "areaServed": "US",
+            "availableLanguage": "English"
+          }
+        ],
         "sameAs": [
           "https://www.linkedin.com/company/morris-export-services"
         ],
@@ -1172,7 +1194,9 @@
               "@type": "Service",
               "name": "U.S. Customs Bonded Warehousing",
               "description": description,
-              "provider": { "@id": origin + base + "#organization" }
+              "provider": { "@id": origin + base + "#organization" },
+              "areaServed": "Global",
+              "serviceType": "Bonded Warehousing"
             }
           ]
         };
@@ -1182,12 +1206,16 @@
         ogImage = "images/crating/crating1.webp";
         schema = {
           "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          "@id": canonicalUrl,
-          "url": canonicalUrl,
-          "name": title,
-          "description": description,
-          "publisher": { "@id": origin + base + "#organization" }
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "publisher": { "@id": origin + base + "#organization" }
+            }
+          ]
         };
       } else if (key === 'about-us') {
         title = "Our History & Export Crating Heritage Since 1942 | Morris";
@@ -1195,12 +1223,16 @@
         ogImage = "images/facilitiesstorage/Secure Facilities1.webp";
         schema = {
           "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "@id": canonicalUrl,
-          "url": canonicalUrl,
-          "name": title,
-          "description": description,
-          "publisher": { "@id": origin + base + "#organization" }
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "publisher": { "@id": origin + base + "#organization" }
+            }
+          ]
         };
       } else if (key === 'services') {
         title = "Industrial Export Packing & Logistics Services | Morris Export Services";
@@ -1254,6 +1286,17 @@
                 "provider": { "@id": origin + base + "#organization" },
                 "areaServed": "Global",
                 "serviceType": service.category
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": (service.faqs || []).map(f => ({
+                  "@type": "Question",
+                  "name": f.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": f.a
+                  }
+                }))
               }
             ]
           };
@@ -1331,37 +1374,48 @@
         title = "Frequently Asked Questions | Export Packing & Shipping | Morris";
         description = "Find answers to common questions about NCB inspections, C-TPAT certification, hazardous materials packing, TWIC credentials, and receiving hours.";
         ogImage = "images/warehousemanagement/warehousepackaging2.webp";
+        
+        // Full list of 16 FAQs for comprehensive Google search rich snippets
+        const allFaqs = [
+          { q: "What is an NCB inspection?", a: "An NCB inspection is an inspection conducted by National Cargo Bureau. Many shippers now require that Flat Racks be inspected prior to being loaded onto the vessel. Morris will handle all aspects of the inspection including scheduling." },
+          { q: "Is Morris a 'Bonded' facility?", a: "Yes. Morris operates bonded warehouse capabilities and follows U.S. Customs procedures for bonded cargo handling and storage." },
+          { q: "Is Morris C-TPAT Certified?", a: "Morris follows strict cargo security and compliance procedures. For current C-TPAT status and documentation requirements, please contact our team directly." },
+          { q: "Does Morris pack air freight?", a: "Yes. We provide export packing and crating solutions suitable for air freight shipments, including weight-conscious and carrier-compliant packaging options." },
+          { q: "Does Morris have their own trucks?", a: "Yes. Morris provides trucking and drayage support, including Port of Houston moves and specialized transport coordination for oversized cargo." },
+          { q: "Can Morris receive rail freight?", a: "Yes, we can coordinate receiving for rail-delivered cargo. Contact operations in advance so unloading and scheduling requirements can be arranged." },
+          { q: "Can Morris pack Hazardous Materials?", a: "Yes. We provide hazardous material packaging services with appropriate handling and documentation based on shipment class and destination requirements." },
+          { q: "Can Morris pack offsite at either a vendor facility or at the local area docks?", a: "Yes. Our mobile teams can perform offsite packing at customer or vendor facilities and can also support packing activities at local dock locations when scheduled." },
+          { q: "Is Morris' wood IPPC compliant?", a: "Yes. Morris uses ISPM-15 / IPPC-compliant heat-treated wood for export crating where required for international shipments." },
+          { q: "How long does it take to pack material once received?", a: "Turnaround depends on cargo type, dimensions, and project scope. Standard jobs are often completed quickly; complex projects are scheduled with a detailed production timeline." },
+          { q: "Does Morris provide moisture-sensitive packing?", a: "Yes. We offer moisture-control solutions including VCI materials, desiccants, barrier wrapping, and sealed protection systems for sensitive equipment." },
+          { q: "Do Morris offsite employees have TWIC cards?", a: "Yes. Personnel assigned to applicable port and secure areas maintain required credentials, including TWIC, as needed for site access." },
+          { q: "What is a TWIC card and what is it used for?", a: "A TWIC (Transportation Worker Identification Credential) card is a federal security credential required for unescorted access to secure maritime and port facilities." },
+          { q: "What are Morris' receiving hours?", a: "Standard receiving is handled during normal business hours. For exact receiving windows and after-hours coordination, please contact our operations team before delivery." },
+          { q: "Does Morris have a secured facility?", a: "Yes. Our facility uses controlled access and active security measures to protect customer cargo, equipment, and documentation." },
+          { q: "Compliance Bulletin: Price Transparency", a: "Machine-readable file information for applicable price transparency requirements is available upon request. Contact our office for access details." }
+        ];
+
         schema = {
           "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "@id": canonicalUrl,
-          "url": canonicalUrl,
-          "name": title,
-          "description": description,
-          "mainEntity": [
+          "@graph": [
             {
-              "@type": "Question",
-              "name": "What is an NCB inspection?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "An NCB inspection is an inspection conducted by National Cargo Bureau. Many shippers now require that Flat Racks be inspected prior to being loaded onto the vessel. Morris will handle all aspects of the inspection including scheduling."
-              }
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "isPartOf": { "@id": origin + base + "#organization" }
             },
             {
-              "@type": "Question",
-              "name": "Is Morris a 'Bonded' facility?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Morris operates bonded warehouse capabilities and follows U.S. Customs procedures for bonded cargo handling and storage."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does Morris pack moisture-sensitive cargo?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. We offer moisture-control solutions including VCI materials, desiccants, barrier wrapping, and sealed protection systems for sensitive equipment."
-              }
+              "@type": "FAQPage",
+              "mainEntity": allFaqs.map(item => ({
+                "@type": "Question",
+                "name": item.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": item.a
+                }
+              }))
             }
           ]
         };
@@ -1371,12 +1425,48 @@
         ogImage = "images/Screenshot 2026-03-19 103621.png";
         schema = {
           "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "@id": canonicalUrl,
-          "url": canonicalUrl,
-          "name": title,
-          "description": description,
-          "isPartOf": { "@id": origin + base + "#organization" }
+          "@graph": [
+            {
+              "@type": "AboutPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "isPartOf": { "@id": origin + base + "#organization" }
+            },
+            {
+              "@type": "ItemList",
+              "name": "Morris Export Services Team Profiles",
+              "description": "Leadership and coordinating personnel at Morris Export Services.",
+              "numberOfItems": 4,
+              "itemListElement": [
+                {
+                  "@type": "Person",
+                  "name": "Ray Vargas",
+                  "jobTitle": "Operations Manager",
+                  "worksFor": { "@id": origin + base + "#organization" }
+                },
+                {
+                  "@type": "Person",
+                  "name": "Herbie Garza",
+                  "jobTitle": "Sales",
+                  "worksFor": { "@id": origin + base + "#organization" }
+                },
+                {
+                  "@type": "Person",
+                  "name": "Kim Solomon",
+                  "jobTitle": "Account Coordinator",
+                  "worksFor": { "@id": origin + base + "#organization" }
+                },
+                {
+                  "@type": "Person",
+                  "name": "Lisa Allen",
+                  "jobTitle": "Account Coordinator",
+                  "worksFor": { "@id": origin + base + "#organization" }
+                }
+              ]
+            }
+          ]
         };
       } else if (key === 'terms-and-conditions') {
         title = "Standard Terms & Conditions | Morris Export Services";
@@ -1384,12 +1474,16 @@
         ogImage = "images/warehousemanagement/warehousepackaging2.webp";
         schema = {
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "@id": canonicalUrl,
-          "url": canonicalUrl,
-          "name": title,
-          "description": description,
-          "isPartOf": { "@id": origin + base + "#organization" }
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+              "isPartOf": { "@id": origin + base + "#organization" }
+            }
+          ]
         };
       } else if (key === 'html-sitemap') {
         title = "HTML Site Directory Map | Morris Export Services";
@@ -1397,12 +1491,15 @@
         ogImage = "images/warehousemanagement/warehousepackaging2.webp";
         schema = {
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "@id": canonicalUrl,
-          "url": canonicalUrl,
-          "name": title,
-          "description": description,
-          "isPartOf": { "@id": origin + base + "#organization" }
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": canonicalUrl,
+              "url": canonicalUrl,
+              "name": title,
+              "description": description,
+            }
+          ]
         };
       }
 
